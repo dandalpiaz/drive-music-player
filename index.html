@@ -9,158 +9,125 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Play Your Music</h1>
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+  <h1>Play Your Music</h1>
 
-    <div id="data"></div>
+  <button id="authorize_button" style="display: none;">Sign In</button>
+  <button id="signout_button" style="display: none;">Sign Out</button>
 
-    <audio controls>
-      <source src="">
-      Your browser does not support the audio element.
-    </audio>
+  <div id="data"></div>
 
-    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '308625143299-1sc4kku4pd6k2n9qf70pqm0sqiarhiqp.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyDyZA3T_TLig3b4glBnzc8w-m94WRpP1z8';
+  <audio controls>
+    <source src="">
+    Your browser does not support the audio element.
+  </audio>
 
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+  <script type="text/javascript">
+    var CLIENT_ID = '308625143299-1sc4kku4pd6k2n9qf70pqm0sqiarhiqp.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyDyZA3T_TLig3b4glBnzc8w-m94WRpP1z8';
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+    var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+    var authorizeButton = document.getElementById('authorize_button');
+    var signoutButton = document.getElementById('signout_button');
 
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
 
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
+    function initClient() {
+      gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES
+      }).then(function () {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
-        }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
-        });
-      }
-
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
-          listFiles();
-        } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
-        }
-      }
-
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
-
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-       function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-      /**
-       * Print files.
-       */
-      function listFiles() {
-        gapi.client.drive.files.list({
-          'pageSize': 10,
-          'q' : "'1I8COfi70INMWju8-1GqOdNPJwP-10rFO' in parents and mimeType contains 'audio/'",
-          'fields': "nextPageToken, files(id, name)"
-        }).then(function(response) {
-          
-          var files = response.result.files;
-          if (files && files.length > 0) {
-            for (var i = 0; i < files.length; i++) {
-              var file = files[i];
-              
-              gapi.client.drive.files.get({
-                'fileId': file.id,
-                //'q' : "'1I8COfi70INMWju8-1GqOdNPJwP-10rFO' in parents",
-                'fields': "name, id, webContentLink"
-              }).then(function(response) {
-                $('#data').append("<a class='song' data-audio='" + response.result.webContentLink + "'>" + file.name + "</a>");
-              });
-
-            }
-          } else {
-            appendPre('No files found.');
-          }
-        });
-      }
-
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-
-    <script type="text/javascript">
-
-    
-    $( document ).ready(function() {
-      $(document).on('click', '.song', function(){
-        var audio = $("audio");  
-          $('source').attr("src", "https://drive.google.com/a/illinois.edu/uc?id=1hvmD6L1uqZcIHe72UVquf85dKWeV1pFz&export=download");
-          audio[0].pause();
-          audio[0].load();//suspends and restores all audio element
-          audio[0].oncanplaythrough = audio[0].play();
+        // Handle the initial sign-in state.
+        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        authorizeButton.onclick = handleAuthClick;
+        signoutButton.onclick = handleSignoutClick;
+      }, function(error) {
+        console.log(error);
+        //appendPre(JSON.stringify(error, null, 2));
       });
+    }
+
+    /**
+      *  Called when the signed in status changes, to update the UI
+      *  appropriately. After a sign-in, the API is called.
+      */
+    function updateSigninStatus(isSignedIn) {
+      if (isSignedIn) {
+        authorizeButton.style.display = 'none';
+        signoutButton.style.display = 'block';
+        listFiles();
+      } else {
+        authorizeButton.style.display = 'block';
+        signoutButton.style.display = 'none';
+      }
+    }
+
+    function handleAuthClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignoutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+
+    function listFiles() {
+      gapi.client.drive.files.list({
+        'pageSize': 10,
+        'q' : "'1I8COfi70INMWju8-1GqOdNPJwP-10rFO' in parents and mimeType contains 'audio/'",
+        'fields': "nextPageToken, files(id, name)"
+      }).then(function(response) {
+        
+        var files = response.result.files;
+        if (files && files.length > 0) {
+          for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            
+            gapi.client.drive.files.get({
+              'fileId': file.id,
+              //'q' : "'1I8COfi70INMWju8-1GqOdNPJwP-10rFO' in parents",
+              'fields': "name, id, webContentLink"
+            }).then(function(response) {
+              $('#data').append("<a class='song' data-audio='" + response.result.webContentLink + "'>" + file.name + "</a>");
+            });
+
+          }
+        } else {
+          //appendPre('No files found.');
+        }
+      });
+    }
+
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
+
+  <script type="text/javascript">
+
+  
+  $( document ).ready(function() {
+    $(document).on('click', '.song', function(){
+      var audio = $("audio");  
+        $('source').attr("src", "https://drive.google.com/a/illinois.edu/uc?id=1hvmD6L1uqZcIHe72UVquf85dKWeV1pFz&export=download");
+        audio[0].pause();
+        audio[0].load();//suspends and restores all audio element
+        audio[0].oncanplaythrough = audio[0].play();
     });
+  });
 
-    </script>
+  </script>
 
-  </body>
+</body>
 </html>
