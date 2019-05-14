@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Drive Music</h1>
+    <h1>Play Your Music</h1>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
@@ -96,6 +96,17 @@
         gapi.auth2.getAuthInstance().signOut();
       }
 
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node. Used to display the results of the API call.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+       function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+      }
 
       /**
        * Print files.
