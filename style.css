@@ -1,3 +1,24 @@
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+}
+
 audio {
     position: fixed;
     bottom: 0px;
@@ -9,6 +30,25 @@ audio {
 
 #authorize_button, #signout_button {
 	position: fixed;
-	top: 0px;
+	bottom: 60px;
 	right: 0px;
+}
+
+a.track, a.album {
+    display: block;
+}
+
+.album img {
+    max-width: 200px;
+    display: block;
+    float: left;
+}
+
+#count {
+    position: fixed;
+    bottom: 54px;
+    left: 0px;
+    background: crimson;
+    color: white;
+    padding: 11px;
 }
