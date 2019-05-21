@@ -84,12 +84,12 @@ function findMusicFolder() {
     'q' : " name contains 'music123' and trashed = false ",
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
+    APIcounter();
     
     var files = response.result.files;
     if (files && files.length > 0) {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        APIcounter();
         findAlbumFolders(file.id);
       }
     } else {
@@ -106,50 +106,33 @@ function findAlbumFolders(id) {
     'q' : albumquery,
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
+    APIcounter();
     
     var albums = response.result.files;
-    if (albums && albums.length > 0) {
-      for (var i = 0; i < albums.length; i++) {
-        var album = albums[i];
-        APIcounter();
-        console.log(album.name)
-        //findAlbumFolders(file.id, file.name);
-
-        var albumartquery = "'" + album.id + "'" + " in parents and mimeType contains 'image/' and name contains 'folder'";
-        gapi.client.drive.files.list({
-          'pageSize': 1,
-          'q' : albumartquery,
-          'fields': "nextPageToken, files(id, name)"
-        }).then(function(response) {
-          var arts = response.result.files;
-          APIcounter();
-          if (arts && arts.length > 0) {
-            gapi.client.drive.files.get({
-              'fileId': arts[0].id,
-              'fields': "name, id, webContentLink"
-            }).then(function(response) {
-              artURL = response.result.webContentLink;
-              APIcounter();
-              console.log(album.id);
-              $('#data').append("<a class='album' data-album-id='" + album.id + "'>" + "<img src='" + artURL + "' />" + "</a>");
-            });
-          } else {
-            artURL = "blank.png";
-            APIcounter();
-            $('#data').append("<a class='album' data-album-id='" + album.id + "'>" + "<img src='" + artURL + "' />" + "</a>");
-          }
-        });
-
-
-      }
-    } else {
-      alert('No album folders found.');
+    
+    for (var i = 0; i < albums.length; i++) {
+      $('#data').append("<a class='album' data-album-id='" + albums[i].id + "'>" + "</a>");
     }
+
+    $( ".album" ).each(function( index ) {
+      var idForArt = $(this).attr("data-album-id");
+
+      var albumartquery = "'" + idForArt + "'" + " in parents and mimeType contains 'image/' and name contains 'folder'";
+      gapi.client.drive.files.list({
+        'pageSize': 1,
+        'q' : albumartquery,
+        'fields': "nextPageToken, files(id, name, webContentLink)"
+      }).then(function(response) {
+        APIcounter();
+        var artURL = response.result.files[0].webContentLink;
+        $(".album[data-album-id=" + idForArt + "]").append("<img src='" + artURL + "' />");
+      });
+    });
+    
   });
 }
 
 function listTracks(id) {
-  //console.log("test1");
   var trackquery = "'" + id + "'" + " in parents and mimeType contains 'audio/'";
   gapi.client.drive.files.list({
     'pageSize': 50,
@@ -177,8 +160,6 @@ function playTrack(id) {
     'fileId': id,
     'fields': "name, id, webContentLink"
   }).then(function(response) {
-    
-    //$('#data').append("<p>" + response.result.webContentLink + "</p>");
     APIcounter();
 
     var audio = $("audio");  
@@ -207,7 +188,6 @@ $( document ).ready(function() {
   });
 
   $(document).on('click', '.album', function(){
-    //console.log("test");
     var albumId = $(this).attr("data-album-id");
     listTracks(albumId);
   });
