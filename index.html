@@ -81,7 +81,7 @@ function APIcounter() {
 function findMusicFolder() {
   gapi.client.drive.files.list({
     'pageSize': 1,
-    'q' : " name contains 'music123' ",
+    'q' : " name contains 'music123' and trashed = false ",
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
     
@@ -90,7 +90,7 @@ function findMusicFolder() {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
         APIcounter();
-        findArtistFolders(file.id);
+        findAlbumFolders(file.id);
       }
     } else {
       alert('No music folder found.');
@@ -98,32 +98,11 @@ function findMusicFolder() {
   });
 }
 
-function findArtistFolders(id) {
-  var artistquery = "'" + id + "'" + " in parents and mimeType contains 'application/vnd.google-apps.folder'";
+function findAlbumFolders(id) {
+  var albumquery = "'" + id + "'" + " in parents and mimeType contains 'application/vnd.google-apps.folder' and trashed = false ";
   gapi.client.drive.files.list({
-    'pageSize': 10,
+    'pageSize': 1000,
     'orderBy': 'name',
-    'q' : artistquery,
-    'fields': "nextPageToken, files(id, name)"
-  }).then(function(response) {
-    
-    var files = response.result.files;
-    if (files && files.length > 0) {
-      for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        APIcounter();
-        findAlbumFolders(file.id, file.name);
-      }
-    } else {
-      alert('No artist folders found.');
-    }
-  });
-}
-
-function findAlbumFolders(artistID, artist) {
-  var albumquery = "'" + artistID + "'" + " in parents and mimeType contains 'application/vnd.google-apps.folder'";
-  gapi.client.drive.files.list({
-    'pageSize': 20,
     'q' : albumquery,
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
@@ -133,9 +112,9 @@ function findAlbumFolders(artistID, artist) {
       for (var i = 0; i < albums.length; i++) {
         var album = albums[i];
         APIcounter();
+        console.log(album.name)
+        //findAlbumFolders(file.id, file.name);
 
-        // art
-        
         var albumartquery = "'" + album.id + "'" + " in parents and mimeType contains 'image/' and name contains 'folder'";
         gapi.client.drive.files.list({
           'pageSize': 1,
@@ -160,6 +139,8 @@ function findAlbumFolders(artistID, artist) {
             $('#data').append("<a class='album' data-album-id='" + album.id + "'>" + "<img src='" + artURL + "' />" + "</a>");
           }
         });
+
+
       }
     } else {
       alert('No album folders found.');
@@ -168,6 +149,7 @@ function findAlbumFolders(artistID, artist) {
 }
 
 function listTracks(id) {
+  //console.log("test1");
   var trackquery = "'" + id + "'" + " in parents and mimeType contains 'audio/'";
   gapi.client.drive.files.list({
     'pageSize': 50,
@@ -185,7 +167,7 @@ function listTracks(id) {
         
       }
     } else {
-      //appendPre('No files found.'); 
+      alert('No files found.'); 
     }
   });
 }
@@ -225,6 +207,7 @@ $( document ).ready(function() {
   });
 
   $(document).on('click', '.album', function(){
+    //console.log("test");
     var albumId = $(this).attr("data-album-id");
     listTracks(albumId);
   });

@@ -1,0 +1,21 @@
+{
+    "albums": [
+        {
+            "artist": "Pink Floyd",
+            "id": "",
+            "name"
+        }
+    ]
+}
+
+/*
+{
+    "artists": [
+        {
+            "id": "123",
+            "name": "pink floyd"
+        }
+    ]
+}
+*/
+
