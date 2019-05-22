@@ -1,2 +1,2 @@
-# play-your-music
-music player for audio files in Google Drive
+# WIP - play-your-music
+album-centric music player for audio files in Google Drive
