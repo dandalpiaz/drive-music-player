@@ -39,16 +39,27 @@ a.track, a.album {
 }
 
 .album img {
-    max-width: 200px;
+    width: 33.33%;
     display: block;
     float: left;
 }
 
 #count {
     position: fixed;
-    bottom: 54px;
+    top: 0px;
     left: 0px;
     background: crimson;
     color: white;
-    padding: 11px;
+    padding: 5px;
+    line-height: 0px;
+}
+
+#track-list {
+    clear: both;
+}
+
+#track-list a {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 3px;
 }

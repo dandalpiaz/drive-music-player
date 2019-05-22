@@ -16,6 +16,7 @@
 <button id="signout_button" style="display: none;">Sign Out</button>
 
 <div id="data"></div>
+<div id="track-list"></div>
 <div id="count"></div>
 
 <audio controls>
@@ -111,7 +112,7 @@ function findAlbumFolders(id) {
     var albums = response.result.files;
     
     for (var i = 0; i < albums.length; i++) {
-      $('#data').append("<a class='album' data-album-id='" + albums[i].id + "'>" + "</a>");
+      $('#data').append("<a class='album' href='#' data-album-id='" + albums[i].id + "'>" + "</a>");
     }
 
     $( ".album" ).each(function( index ) {
@@ -146,9 +147,17 @@ function listTracks(id) {
         var file = files[i];
         APIcounter();
 
-        $('#data').append("<a class='track' data-track-id='" + file.id + "'>" + file.name + "</a>");
+        $('#track-list').append("<a class='track' href='#' data-track-id='" + file.id + "'>" + file.name + "</a>");
         
       }
+
+      var mylist = $('#track-list');
+      var listitems = mylist.children('a').get();
+      listitems.sort(function(a, b) {
+        return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+      })
+      $.each(listitems, function(idx, itm) { mylist.append(itm); });
+
     } else {
       alert('No files found.'); 
     }
@@ -169,7 +178,7 @@ function playTrack(id) {
     audio[0].load();//suspends and restores all audio element
     audio[0].oncanplaythrough = audio[0].play();
 
-    $(".track[data-track-id=" + id + "]").css('background-color', 'red');
+    $(".track[data-track-id=" + id + "]").css('background-color', 'crimson');
   });
 }
 
@@ -186,19 +195,20 @@ function playTrack(id) {
 
 $( document ).ready(function() {
 
-  $(document).on('click', '.track', function(){
+  $(document).on('click', '.track', function(e){
+    e.preventDefault();
     var trackId = $(this).attr("data-track-id");
     playTrack(trackId);
   });
 
-  $(document).on('click', '.album', function(){
+  $(document).on('click', '.album', function(e){
+    e.preventDefault();
     var albumId = $(this).attr("data-album-id");
     listTracks(albumId);
   });
 
   var audio = $("audio");  
   audio[0].addEventListener('ended',function(){
-    //alert("song has ended");
     var currentTrackId = $('source').attr("data-track-id");
     $(".track[data-track-id=" + currentTrackId + "]").css('background-color', 'white');
     var nextTrackId = $(".track[data-track-id=" + currentTrackId + "]").next().attr("data-track-id")
