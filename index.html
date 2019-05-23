@@ -28,7 +28,7 @@
 var CLIENT_ID = '308625143299-1sc4kku4pd6k2n9qf70pqm0sqiarhiqp.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyDyZA3T_TLig3b4glBnzc8w-m94WRpP1z8';
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+var SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
@@ -138,7 +138,7 @@ function listTracks(id) {
   gapi.client.drive.files.list({
     'pageSize': 50,
     'q' : trackquery,
-    'fields': "nextPageToken, files(id, name)"
+    'fields': "nextPageToken, files(id, name, webContentLink, webViewLink)"
   }).then(function(response) {
     
     var files = response.result.files;
@@ -147,6 +147,8 @@ function listTracks(id) {
         var file = files[i];
         APIcounter();
 
+        console.log(file.webContentLink);
+        console.log(file.webViewLink);
         $('#track-list').append("<a class='track' href='#' data-track-id='" + file.id + "'>" + file.name + "</a>");
         
       }

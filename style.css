@@ -17,6 +17,7 @@ body {
     padding: 0px;
     color: rgba(0, 0, 0, 0.8);
     height: 100%;
+    /*font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;*/
 }
 
 audio {
@@ -39,7 +40,8 @@ a.track, a.album {
 }
 
 .album img {
-    width: 33.33%;
+    width: 25%;
+    max-width: 200px;
     display: block;
     float: left;
 }
