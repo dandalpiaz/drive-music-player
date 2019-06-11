@@ -12,19 +12,21 @@
   </head>
 <body>
 
-<h1>Play Your Music</h1>
+<h1>▶ Play Your Music</h1>
 
-<div id="data"></div>
-
-<div id="track-list"></div>
-<button id="track-list-close">&times;</button>
-
-<button id="menu-toggle">▼</button>
+<button id="menu-toggle">≡</button>
 <div id="menu">
+  <h2>API Counter</h2>
   <div id="count"></div>
+  <h2>Authentication</h2>
   <button id="authorize_button" style="display: none;">Sign In</button>
   <button id="signout_button" style="display: none;">Sign Out</button>
 </div>
+
+<div id="albums"></div>
+<div id="track-list"></div>
+<button id="track-list-close">&times;</button>
+
 
 <audio controls>
   <source src="">
@@ -119,29 +121,29 @@ function findAlbumFolders(id) {
     var albums = response.result.files;
     
     for (var i = 0; i < albums.length; i++) {
-      $('#data').append("<a class='album' href='#' data-album-id='" + albums[i].id + "'>" + "</a>");
+      $('#albums').append("<a class='album' href='#' data-album-id='" + albums[i].id + "'>" + "</a>");
     }
 
-    $( ".album" ).each(function( index ) {
-      var idForArt = $(this).attr("data-album-id");
-
-      setTimeout(function(){
-        var albumartquery = "'" + idForArt + "'" + " in parents and mimeType contains 'image/' and name contains 'folder'";
-        gapi.client.drive.files.list({
-          'pageSize': 1,
-          'q' : albumartquery,
-          'fields': "nextPageToken, files(id, name, webContentLink)"
-        }).then(function(response) {
-          APIcounter();
-          var artURL = response.result.files[0].webContentLink;
-          $(".album[data-album-id=" + idForArt + "]").append("<img src='" + artURL + "' />");
-        });
-      }, 1000);
-
-      
-    });
-    
   });
+
+  // get arts
+  var albumartquery = "mimeType contains 'image/' and name contains 'folder'";
+  gapi.client.drive.files.list({
+    'pageSize': 1000,
+    'q' : albumartquery,
+    'fields': "nextPageToken, files(id, name, webContentLink, parents)"
+  }).then(function(response) {
+    
+    var arts = response.result.files;
+    
+    for (var i = 0; i < arts.length; i++) {
+      var artURL = arts[i].webContentLink;
+      var parent = arts[i].parents[0];
+      $(".album[data-album-id=" + parent + "]").append("<img src='" + artURL + "' />");
+    }
+
+  });
+
 }
 
 function listTracks(id) {
