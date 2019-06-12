@@ -41,8 +41,9 @@ h1 {
     color: rgba(250,250,250,.8);
     font-size: 20px;
     font-weight: 500;
+    margin: 0px;
     margin-left: 20px;
-    line-height: 32px;
+    line-height: 60px;
 }
 
 h2 {
@@ -117,10 +118,12 @@ a.track, a.album {
 }
 
 #track-list {
+    display: none;
     position: absolute;
     top: 60px;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    height: calc(100% - 60px);
+    background: rgba(0,0,0,0.8);
 }
 
 a.track {
@@ -162,12 +165,13 @@ button#track-list-close:hover {
 button#menu-toggle {
     border: none;
     background: rgb(70,70,70);
-    padding: 11px;
+    padding: 0px;
     padding-left: 12px;
     padding-right: 12px;
     font-size: 33px;
     width: 50px;
     height: 60px;
+    line-height: 60px;
     color: lightblue;
 }
 
@@ -199,4 +203,9 @@ div#albums {
     position: absolute;
     top: 60px;
     width: 100%;
+}
+
+.track-list-album {
+    display: block;
+    max-width: 250px;
 }

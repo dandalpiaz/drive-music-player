@@ -134,6 +134,7 @@ function findAlbumFolders(id) {
     'q' : albumartquery,
     'fields': "nextPageToken, files(id, name, webContentLink, parents)"
   }).then(function(response) {
+    APIcounter();
     
     var arts = response.result.files;
     
@@ -154,12 +155,12 @@ function listTracks(id) {
     'q' : trackquery,
     'fields': "nextPageToken, files(id, name, webContentLink)"
   }).then(function(response) {
+    APIcounter();
     
     var files = response.result.files;
     if (files && files.length > 0) {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        APIcounter();
 
         $('#track-list').append("<a class='track' href='#' data-track-id='" + file.webContentLink + "'>" + file.name + "</a>");
         
@@ -228,6 +229,8 @@ $( document ).ready(function() {
 
     var albumId = $(this).attr("data-album-id");
     listTracks(albumId);
+
+    $('#track-list').prepend("<img class='track-list-album' src='" + $(this).children(":first").attr('src') + "'/>")
     $('#track-list').show();
 
   });
