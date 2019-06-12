@@ -41,7 +41,7 @@ h1 {
     color: rgba(250,250,250,.8);
     font-size: 20px;
     font-weight: 500;
-    margin-left: 74px;
+    margin-left: 25px;
     line-height: 33px;
 }
 
@@ -161,9 +161,6 @@ button#track-list-close:hover {
 }
 
 button#menu-toggle {
-    position: fixed;
-    top: 0px;
-    left: 0px;
     border: none;
     background: rgb(70,70,70);
     padding: 11px;
@@ -178,7 +175,7 @@ button#menu-toggle:hover {
     cursor: pointer;
 }
 
-div#menu {
+nav#menu {
     display: none;
     position: fixed;
     top: 60px;
@@ -188,4 +185,12 @@ div#menu {
     height: 100%;
     padding: 20px;
     z-index: 500;
+}
+
+header {
+    height: 60px;
+}
+
+#menu-toggle, h1 {
+    float: left;
 }
