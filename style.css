@@ -41,8 +41,8 @@ h1 {
     color: rgba(250,250,250,.8);
     font-size: 20px;
     font-weight: 500;
-    margin-left: 25px;
-    line-height: 31px;
+    margin-left: 20px;
+    line-height: 32px;
 }
 
 h2 {
@@ -167,6 +167,7 @@ button#menu-toggle {
     padding-right: 12px;
     font-size: 33px;
     width: 50px;
+    height: 60px;
     color: lightblue;
 }
 
