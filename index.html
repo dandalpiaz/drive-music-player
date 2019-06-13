@@ -122,7 +122,7 @@ function findAlbumFolders(id) {
     var albums = response.result.files;
     
     for (var i = 0; i < albums.length; i++) {
-      $('#albums').append("<a class='album' href='#' data-album-id='" + albums[i].id + "'>" + "</a>");
+      $('#albums').append("<a class='album' href='#' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "</a>");
     }
 
   });
@@ -230,7 +230,9 @@ $( document ).ready(function() {
     var albumId = $(this).attr("data-album-id");
     listTracks(albumId);
 
-    $('#track-list').prepend("<img class='track-list-album' src='" + $(this).children(":first").attr('src') + "'/>")
+    $('#track-list').prepend("<span style='display: block; clear: both;'></span>");
+    $('#track-list').prepend("<span class='track-list-album-name'>" + $(this).attr("data-album-name") + "</span>");
+    $('#track-list').prepend("<img class='track-list-album' src='" + $(this).children(":first").attr('src') + "'/>");
     $('#track-list').show();
 
   });
