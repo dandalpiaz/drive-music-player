@@ -123,7 +123,7 @@ a.track, a.album {
     top: 60px;
     width: 100%;
     margin-bottom: 70px;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.825);
 }
 
 a.track {
@@ -137,7 +137,7 @@ a.track {
 }
 
 a.track-active {
-    background-color: rgba(255,25,25,0.8) !important;
+    background-color: rgba(225,25,25,0.8) !important;
     color: white;
 }
 
