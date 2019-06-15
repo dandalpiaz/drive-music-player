@@ -20,6 +20,7 @@ body {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
+/*
 audio {
     position: fixed;
     bottom: 0px;
@@ -32,6 +33,7 @@ audio {
 audio::-webkit-media-controls-panel {
     background: grey;
 }
+*/
 
 #authorize_button, #signout_button {
 	font-size: 15px;
@@ -205,7 +207,7 @@ div#albums {
     position: absolute;
     top: 60px;
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 90px;
 }
 
 .track-list-album {
@@ -223,3 +225,71 @@ div#albums {
     padding: 20px;
     padding-right: 60px;
 }
+
+
+
+
+
+.audio-player {
+    background: rgb(15,15,15);
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 80px;
+  }
+  
+  .audio-player .album-image {
+    height: 80px;
+    width: 80px;
+    float: left;
+  }
+  
+  .audio-player progress {
+    width: 100%;
+    position: fixed;
+    bottom: 80px;
+  }
+  
+  .audio-player progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    color: crimson;
+    height: 10px;
+  }
+  
+  .audio-player progress[value]::-webkit-progress-bar {
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid #dfdfdf;
+    color: crimson;
+  }
+  
+  .audio-player progress::-webkit-progress-value {
+    background-color: crimson;
+  }
+  
+  .audio-player #play-btn {
+    margin-right: 15px;
+    margin-top: 25px;
+    float: right;
+    font-size: 27px;
+    color: rgb(200,200,200);
+  }
+  
+  #audio-time {
+    position: fixed;
+    right: 5px;
+    color: rgb(200,200,200);
+  }
+  
+  .audio-song-text {
+    float: left;
+    line-height: 80px;
+    font-size: 14px;
+    margin: 0px;
+    margin-left: 20px;
+    width: 60%;
+    color: rgb(200,200,200);
+  }

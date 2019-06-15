@@ -112,5 +112,10 @@ function playTrack(id) {
   audio[0].oncanplaythrough = audio[0].play();
 
   $(".track[data-track-id='" + id + "']").addClass('track-active');
+
+  //$('.album-image').attr('src', $('.track-list-album').attr('src') );
+
+  $('.audio-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
+  
   
 }
