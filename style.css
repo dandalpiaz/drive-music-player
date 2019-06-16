@@ -122,9 +122,10 @@ a.track, a.album {
 #track-list {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 0px;
+    padding-top: 60px;
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 75px;
     background: rgba(0,0,0,0.825);
 }
 
@@ -173,6 +174,8 @@ button#menu-toggle {
     height: 60px;
     line-height: 60px;
     color: lightblue;
+    z-index: 500;
+    position: fixed;
 }
 
 button#menu-toggle:hover {
@@ -191,21 +194,13 @@ nav#menu {
     z-index: 500;
 }
 
-header {
-    height: 60px;
-    position: fixed;
-    z-index: 500;
-    background: rgb(15,15,15);
-    width: 100%;
-}
-
 #menu-toggle, h1 {
     float: left;
 }
 
 div#albums {
     position: absolute;
-    top: 60px;
+    top: 0px;
     width: 100%;
     margin-bottom: 70px;
 }
@@ -231,7 +226,7 @@ div#albums {
 
 
 .audio-player {
-    background: rgb(15,15,15);
+    background: rgb(25,25,25);
     width: 100%;
     position: fixed;
     bottom: 0px;
@@ -256,7 +251,7 @@ div#albums {
     appearance: none;
     background-color: white;
     color: crimson;
-    height: 10px;
+    height: 8px;
   }
   
   .audio-player progress[value]::-webkit-progress-bar {
@@ -286,10 +281,16 @@ div#albums {
   
   .audio-song-text {
     float: left;
-    line-height: 60px;
+    line-height: 14px;
     font-size: 14px;
     margin: 0px;
     margin-left: 20px;
+    margin-top: 15px;
     width: 60%;
     color: rgb(200,200,200);
   }
+
+  progress::-webkit-progress-bar {
+    background: #aaa !important;
+    border: none !important;
+}
