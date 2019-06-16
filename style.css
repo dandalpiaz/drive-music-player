@@ -207,7 +207,7 @@ div#albums {
     position: absolute;
     top: 60px;
     width: 100%;
-    margin-bottom: 90px;
+    margin-bottom: 70px;
 }
 
 .track-list-album {
@@ -236,19 +236,19 @@ div#albums {
     position: fixed;
     bottom: 0px;
     left: 0px;
-    height: 80px;
+    height: 60px;
   }
   
   .audio-player .album-image {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     float: left;
   }
   
   .audio-player progress {
     width: 100%;
     position: fixed;
-    bottom: 80px;
+    bottom: 60px;
   }
   
   .audio-player progress[value] {
@@ -272,7 +272,7 @@ div#albums {
   
   .audio-player #play-btn {
     margin-right: 15px;
-    margin-top: 25px;
+    margin-top: 20px;
     float: right;
     font-size: 27px;
     color: rgb(200,200,200);
@@ -286,7 +286,7 @@ div#albums {
   
   .audio-song-text {
     float: left;
-    line-height: 80px;
+    line-height: 60px;
     font-size: 14px;
     margin: 0px;
     margin-left: 20px;
