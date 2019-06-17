@@ -66,6 +66,12 @@
 
 $( document ).ready(function() {
 
+  window.onhashchange = function() {
+    if (window.location.hash == "") {
+      $('#track-list-close').click();
+    }
+  }
+
   $(document).on('click', '.track', function(e){
     e.preventDefault();
 
@@ -81,6 +87,8 @@ $( document ).ready(function() {
 
   $(document).on('click', '.album', function(e){
     e.preventDefault();
+
+    window.location.hash = $(this).attr("data-album-name");
 
     // reset track list 
     $('#track-list').html("");
