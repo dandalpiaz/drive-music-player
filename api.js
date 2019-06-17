@@ -39,7 +39,7 @@ function findAlbumFolders(id) {
     var albums = response.result.files;
     
     for (var i = 0; i < albums.length; i++) {
-      $('#albums').append("<a class='album' href='#' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "</a>");
+      $('#albums').append("<button class='album' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "</button>");
     }
 
   });
@@ -79,12 +79,12 @@ function listTracks(id) {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
 
-        $('#track-list').append("<a class='track' href='#' data-track-id='" + file.webContentLink + "'>" + file.name + "</a>");
+        $('#track-list').append("<button class='track' data-track-id='" + file.webContentLink + "'>" + file.name + "</button>");
         
       }
 
       var mylist = $('#track-list');
-      var listitems = mylist.children('a').get();
+      var listitems = mylist.children('button').get();
       listitems.sort(function(a, b) {
         return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
       })

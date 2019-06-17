@@ -20,21 +20,6 @@ body {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
-/*
-audio {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    background: grey;
-    border-top: 1px solid grey;
-}
-
-audio::-webkit-media-controls-panel {
-    background: grey;
-}
-*/
-
 #authorize_button, #signout_button {
 	font-size: 15px;
 }
@@ -52,61 +37,73 @@ h2 {
     color: rgba(250,250,250,.8);
 }
 
-a.track, a.album {
+button.track, button.album {
     display: block;
+}
+
+button.album {
+    border: 0px;
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+
+button.album:hover {
+    cursor: pointer;
 }
 
 .album img {
     width: 100%;
-    max-width: 200px;
+    /*max-width: 200px;*/
     display: block;
-    float: left;
+    /*float: left;*/
 }
 
 @media (max-width: 600px) {
-    .album img {
+    .album {
         width: 33.33%;
     }
 }
 
 @media (min-width: 601px) and (max-width: 800px) {
-    .album img {
+    .album {
         width: 25%;
     }
 }
 
 @media (min-width: 801px) and (max-width: 1000px) {
-    .album img {
+    .album {
         width: 20%;
     }
 }
 
 @media (min-width: 1001px) and (max-width: 1200px) {
-    .album img {
+    .album {
         width: 16.6666%;
     }
 }
 
 @media (min-width: 1201px) and (max-width: 1400px) {
-    .album img {
+    .album {
         width: 14.2857%;
     }
 }
 
 @media (min-width: 1401px) and (max-width: 1600px) {
-    .album img {
+    .album {
         width: 12.5%;
     }
 }
 
 @media (min-width: 1601px) and (max-width: 1800px) {
-    .album img {
+    .album {
         width: 11.1111%;
     }
 }
 
 @media (min-width: 1801px) and (max-width: 2000px) {
-    .album img {
+    .album {
         width: 10%;
     }
 }
@@ -129,22 +126,29 @@ a.track, a.album {
     background: rgba(0,0,0,0.825);
 }
 
-a.track {
+button.track {
     text-decoration: none;
     font-size: 15px;
-    padding: 11px;
+    padding: 12px;
     padding-left: 15px;
     padding-right: 15px;
     color: rgb(200,200,200);
-    /*background: rgba(0,0,0,0.5);*/
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
 }
 
-a.track-active {
+button.track:hover {
+    cursor: pointer;
+}
+
+button.track-active {
     background-color: rgba(225,25,25,0.8) !important;
     color: white;
 }
 
-a.track:nth-child(2n) {
+button.track:nth-child(2n) {
     background: rgba(0,0,0,0.9);
 }
 
@@ -202,7 +206,7 @@ div#albums {
     position: absolute;
     top: 0px;
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 68px;
 }
 
 .track-list-album {
