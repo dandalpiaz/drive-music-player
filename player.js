@@ -33,7 +33,7 @@ function initProgressBar() {
   jQuery(".start-time").html(currentTime);
 
   var progressbar = document.getElementById('seekObj');
-  progressbar.value = (player.currentTime / player.duration);
+  progressbar.value = (player.currentTime / player.duration) || 0;
   progressbar.addEventListener("click", seek);
 
   if (player.currentTime == player.duration) {
@@ -46,45 +46,3 @@ function initProgressBar() {
     progressbar.value = percent / 100;
   }
 };
-
-function initPlayers(num) {
-  // pass num in if there are multiple audio players e.g 'player' + i
-
-  for (var i = 0; i < num; i++) {
-    (function() {
-
-      // Variables
-      // ----------------------------------------------------------
-      // audio embed object
-      var playerContainer = document.getElementById('player-container'),
-        player = document.getElementById('player'),
-        isPlaying = false,
-        playBtn = document.getElementById('play-btn');
-
-      // Controls Listeners
-      // ----------------------------------------------------------
-      if (playBtn != null) {
-        playBtn.addEventListener('click', function() {
-          togglePlay()
-        });
-      }
-
-      // Controls & Sounds Methods
-      // ----------------------------------------------------------
-      function togglePlay() {
-        if (player.paused === false) {
-          player.pause();
-          isPlaying = false;
-          $('#play-btn').html('▶');
-
-        } else {
-          player.play();
-          $('#play-btn').html('❚❚');
-          isPlaying = true;
-        }
-      }
-    }());
-  }
-}
-
-initPlayers(jQuery('#player-container').length);

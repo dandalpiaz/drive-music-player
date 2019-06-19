@@ -300,7 +300,7 @@ div#albums {
     padding-left: 10px;
     padding-top: 2px;
     position: fixed;
-    left: 270px;
+    left: 335px;
   }
   
   #audio-time {
@@ -314,7 +314,7 @@ div#albums {
     line-height: 14px;
     font-size: 14px;
     margin: 0px;
-    width: 200px;
+    width: 260px;
     color: rgb(200,200,200);
     background: rgb(40,40,40);
     height: 60px;

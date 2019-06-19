@@ -3,15 +3,14 @@ album-centric music player for audio files in Google Drive
 
 ## TODO
 
-- for playTrack, remove extra API request, get webContentLink with listing function
-- highlight currently playing track
-- favicon
+- favicon and icon
 - menu section
-- dark theme
+- dark theme, light theme
 - service worker, caching for offline
 - run audits
 - text-only view
 - create custom audio player
+- tab order when opening tracklist
 
 ## Scope change for downloading and cache
 

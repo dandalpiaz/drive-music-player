@@ -101,21 +101,3 @@ function listTracks(id) {
     }
   });
 }
-
-function playTrack(id) {
-
-  var audio = $("audio");  
-  $('source').attr("src", id);
-  $('source').attr("data-track-id", id);
-  audio[0].pause();
-  audio[0].load(); //suspends and restores all audio element
-  audio[0].oncanplaythrough = audio[0].play();
-
-  $(".track[data-track-id='" + id + "']").addClass('track-active');
-
-  //$('.album-image').attr('src', $('.track-list-album').attr('src') );
-
-  $('.audio-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
-  
-  
-}
