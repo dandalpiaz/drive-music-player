@@ -260,7 +260,7 @@ div#albums {
     line-height: 14px;
     font-size: 14px;
     margin: 0px;
-    width: 240px;
+    width: 215px;
     color: rgb(200,200,200);
     background: rgb(40,40,40);
     height: 60px;
@@ -272,8 +272,8 @@ div#albums {
 }
 
 #play-btn {
-    position: fixed;
-    left: 335px;
+    margin-left: 15px;
+    float: left;
 }
 
 #play-btn i {
