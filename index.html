@@ -18,8 +18,6 @@
   <button id="menu-toggle">▾</button>
   <h1><a href="">▶ Play Your Music</a></h1>
   <nav id="menu">
-    <h2>API Counter</h2>
-    <div id="count"></div>
     <h2>Authentication</h2>
     <button id="authorize_button" style="display: none;">Sign In</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
@@ -30,27 +28,19 @@
 <div id="track-list"></div>
 <button id="track-list-close">&times;</button>
 
-<div style="display: none;" class="audio-player">
 
-  <progress id="seekObj" value="0" max="1"></progress>
-  
-  <div id="audio-time">
-    <small class="start-time">00:00</small> / 
-    <small class="end-time">00:00</small>
-  </div>
+<div class="audio-player">
 
-  <a id="audio-current-link" href="">
-    <img class="album-image" src="" />
-    <p class="audio-song-text">Now Playing...</p>
+  <a id="audio-player-current-link" href="">
+    <img class="audio-player-album-image" src="" />
+    <p class="audio-player-song-text">Now Playing...</p>
   </a>
 
   <div id="play-btn"></div>
 
-  <div class="audio-wrapper" id="player-container" href="javascript:;">
-    <audio id="player" ontimeupdate="initProgressBar()">
-      <source src="" type="audio/mp3">
-    </audio>
-  </div>
+  <audio id="player">
+    <source src="" type="audio/mp3">
+  </audio>
 
 </div>
 
@@ -58,7 +48,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="auth.js"></script>
-<script type="text/javascript" src="player.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 <script type="text/javascript" src="api.js"></script>
 
@@ -75,7 +64,7 @@ function playTrack(id) {
   audio[0].oncanplaythrough = audio[0].play();
 
   $(".track[data-track-id='" + id + "']").addClass('track-active');
-  $('.audio-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
+  $('.audio-player-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
   $('#play-btn').html('❚❚');
 
 }
@@ -89,34 +78,25 @@ $( document ).ready(function() {
   }
 
   $(document).on('click', '.track', function(e){
-    e.preventDefault();
-
-    // reset track highlight
-    $(".track-active").removeClass('track-active');
-
-    var trackId = $(this).attr("data-track-id");
-    playTrack(trackId);
+    $(".track-active").removeClass('track-active'); // reset track highlight
+    playTrack( $(this).attr("data-track-id") );
     $('.audio-player').show();
-
-    $('.album-image').attr('src', $('.track-list-album').attr('src') );
-
+    $('.audio-player-album-image').attr('src', $('.track-list-album-image').attr('src') );
   });
 
   $(document).on('click', '.album', function(e){
-    e.preventDefault();
 
     window.location.hash = $(this).attr("data-album-name").split(' ').join('_');
 
-    // reset track list 
-    $('#track-list').html("");
+    $('#track-list').html(`
+      <img class='track-list-album-image' src=''/>
+      <span class='track-list-album-name'></span>
+      <span style='display: block; clear: both;'></span>
+    `); // reset track list 
+    listTracks( $(this).attr("data-album-id") );
 
-    var albumId = $(this).attr("data-album-id");
-    listTracks(albumId);
-
-    $('#track-list').prepend("<span style='display: block; clear: both;'></span>");
-    $('#track-list').prepend("<span class='track-list-album-name'>" + $(this).attr("data-album-name") + "</span>");
-    $('#track-list').prepend("<img class='track-list-album' src='" + $(this).children(":first").attr('src') + "'/>");
-
+    $('.track-list-album-name').html( $(this).attr("data-album-name") );
+    $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
     $('#track-list').css('min-height', $('#albums').height() + 60 );
     $('#track-list').show();
 
@@ -149,12 +129,10 @@ $( document ).ready(function() {
     var nextTrackId = $(".track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
     if ( nextTrackId == null ) {
       return;
+    } else {
+      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
+      playTrack(nextTrackId);
     }
-
-    // reset track highlight
-    $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active');
-
-    playTrack(nextTrackId);
   });
 
 });

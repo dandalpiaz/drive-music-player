@@ -1,18 +1,10 @@
 
-var APIcount = 0;
-
-function APIcounter() {
-  APIcount++;
-  $('#count').html("<p>" + APIcount + "</p>");
-}
-
 function findMusicFolder() {
   gapi.client.drive.files.list({
     'pageSize': 1,
     'q' : " name contains 'music123' and trashed = false ",
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
-    APIcounter();
     
     var files = response.result.files;
     if (files && files.length > 0) {
@@ -34,7 +26,6 @@ function findAlbumFolders(id) {
     'q' : albumquery,
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
-    APIcounter();
     
     var albums = response.result.files;
     
@@ -51,7 +42,6 @@ function findAlbumFolders(id) {
     'q' : albumartquery,
     'fields': "nextPageToken, files(id, name, webContentLink, parents)"
   }).then(function(response) {
-    APIcounter();
     
     var arts = response.result.files;
     
@@ -72,7 +62,6 @@ function listTracks(id) {
     'q' : trackquery,
     'fields': "nextPageToken, files(id, name, webContentLink)"
   }).then(function(response) {
-    APIcounter();
     
     var files = response.result.files;
     if (files && files.length > 0) {
