@@ -10,13 +10,14 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />
 </head>
 
 <body>
 
 <header>
-  <button id="menu-toggle">▾</button>
-  <h1><a href="">▶ Play Your Music</a></h1>
+  <button id="menu-toggle">▲</button>
+  <h1 class="visually-hidden"><a href="">▶ Play Your Music</a></h1>
   <nav id="menu">
     <h2>Authentication</h2>
     <button id="authorize_button" style="display: none;">Sign In</button>
@@ -65,7 +66,7 @@ function playTrack(id) {
 
   $(".track[data-track-id='" + id + "']").addClass('track-active');
   $('.audio-player-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
-  $('#play-btn').html('❚❚');
+  $('#play-btn').html('<i class="fas fa-pause"></i>');
 
 }
 
@@ -97,7 +98,7 @@ $( document ).ready(function() {
 
     $('.track-list-album-name').html( $(this).attr("data-album-name") );
     $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
-    $('#track-list').css('min-height', $('#albums').height() + 60 );
+    $('#track-list').css('min-height', $('#albums').height() );
     $('#track-list').show();
 
   });
@@ -116,10 +117,10 @@ $( document ).ready(function() {
     player = document.getElementById('player')
     if (player.paused === false) {
       player.pause();
-      $('#play-btn').html('▶');
+      $('#play-btn').html('<i class="fas fa-play"></i>');
     } else {
       player.play();
-      $('#play-btn').html('❚❚');
+      $('#play-btn').html('<i class="fas fa-pause"></i>');
     }
   });
 
