@@ -83,8 +83,6 @@ function listTracks(id) {
       var currentTrackId = $('source').attr("data-track-id");
       $(".track[data-track-id='" + currentTrackId + "']").addClass('track-active');
 
-      $('#track-list-close').show();
-
     } else {
       alert('No files found.'); 
     }

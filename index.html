@@ -27,7 +27,7 @@
 
 <div id="albums"></div>
 <div id="track-list"></div>
-<button id="track-list-close">&times;</button>
+<button id="track-list-close">‹</button>
 
 
 <div class="audio-player">
@@ -90,6 +90,7 @@ $( document ).ready(function() {
   $(document).on('click', '.album', function(e){
 
     window.location.hash = $(this).attr("data-album-name").split(' ').join('_');
+    $('#track-list-close').show();
 
     $('#track-list').html(`
       <img class='track-list-album-image' src=''/>
