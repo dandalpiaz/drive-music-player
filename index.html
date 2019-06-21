@@ -45,6 +45,8 @@
 
 </div>
 
+<div id="the-queue" style="display: none;"></div>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -85,6 +87,11 @@ $( document ).ready(function() {
     playTrack( $(this).attr("data-track-id") );
     $('.audio-player').show();
     $('.audio-player-album-image').attr('src', $('.track-list-album-image').attr('src') );
+
+    //copy tracklist to the queue
+    $('#the-queue').html('');
+    $('#the-queue').html( $('#track-list').html() );
+
   });
 
   $(document).on('click', '.album', function(e){
@@ -134,7 +141,7 @@ $( document ).ready(function() {
   var audio = $("audio");  
   audio[0].addEventListener('ended',function(){
     var currentTrackId = $('source').attr("data-track-id");
-    var nextTrackId = $(".track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
+    var nextTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
     if ( nextTrackId == null ) {
       return;
     } else {
