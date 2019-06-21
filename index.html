@@ -75,6 +75,8 @@ $( document ).ready(function() {
   window.onhashchange = function() {
     if (window.location.hash == "") {
       $('#track-list-close').click();
+      $('#albums').show();
+      $(window).scrollTop(scroll);
     }
   }
 
@@ -100,6 +102,9 @@ $( document ).ready(function() {
     $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
     $('#track-list').css('background',  'linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(' + $(this).children(":first").attr('src') + ')');
     $('#track-list').css('min-height', $('#albums').height() );
+
+    scroll = $(window).scrollTop();
+    $('#albums').hide();
     $('#track-list').show();
 
   });

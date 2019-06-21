@@ -136,6 +136,7 @@ button.album:hover {
     display: none;
     position: absolute;
     top: 0px;
+    padding-top: 60px;
     width: 100%;
     margin-bottom: 60px;
     /*background: rgba(0,0,0,0.825);*/
@@ -147,7 +148,7 @@ button.album:hover {
 button.track {
     text-decoration: none;
     font-size: 15px;
-    padding: 15px;
+    padding: 20px;
     padding-left: 15px;
     padding-right: 15px;
     color: rgb(230,230,230);
@@ -175,7 +176,7 @@ button#track-list-close {
     position: fixed;
     background: rgba(200,200,200,0.7);
     color: white;
-    top: 0px;
+    top: 60px;
     right: 0px;
     font-size: 40px;
     border: 0px;
@@ -282,8 +283,8 @@ div#albums {
 }
 
 #play-btn {
-    margin-left: 15px;
-    float: left;
+    margin-right: 15px;
+    float: right;
 }
 
 #play-btn i {
