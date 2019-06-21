@@ -16,7 +16,7 @@
 <body>
 
 <header>
-  <button id="menu-toggle">▲</button>
+  <button id="menu-toggle">▼</button>
   <h1 class="visually-hidden"><a href="">▶ Play Your Music</a></h1>
   <nav id="menu">
     <h2>Authentication</h2>
@@ -98,6 +98,7 @@ $( document ).ready(function() {
 
     $('.track-list-album-name').html( $(this).attr("data-album-name") );
     $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
+    $('#track-list').css('background',  'linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(' + $(this).children(":first").attr('src') + ')');
     $('#track-list').css('min-height', $('#albums').height() );
     $('#track-list').show();
 

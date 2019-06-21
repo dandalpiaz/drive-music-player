@@ -30,7 +30,7 @@ function findAlbumFolders(id) {
     var albums = response.result.files;
     
     for (var i = 0; i < albums.length; i++) {
-      $('#albums').append("<button class='album' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "</button>");
+      $('#albums').append("<button class='album' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "<span>" + albums[i].name + "</span>" + "</button>");
     }
 
   });
@@ -48,7 +48,7 @@ function findAlbumFolders(id) {
     for (var i = 0; i < arts.length; i++) {
       var artURL = arts[i].webContentLink;
       var parent = arts[i].parents[0];
-      $(".album[data-album-id=" + parent + "]").append("<img src='" + artURL + "' />");
+      $(".album[data-album-id=" + parent + "]").prepend("<img src='" + artURL + "' />");
     }
 
   });

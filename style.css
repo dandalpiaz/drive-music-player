@@ -63,9 +63,14 @@ button.track, button.album {
 button.album {
     border: 0px;
     background: none;
-    padding: 0px;
+    padding: 10px;
     margin: 0px;
     float: left;
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    line-height: 90px;
 }
 
 button.album:hover {
@@ -73,8 +78,10 @@ button.album:hover {
 }
 
 .album img {
-    width: 100%;
+    width: 90px;
     display: block;
+    float: left;
+    margin-right: 20px;
 }
 
 @media (max-width: 600px) {
@@ -131,7 +138,10 @@ button.album:hover {
     top: 0px;
     width: 100%;
     margin-bottom: 60px;
-    background: rgba(0,0,0,0.825);
+    /*background: rgba(0,0,0,0.825);*/
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: calc(100% - 60px) !important;
 }
 
 button.track {
@@ -188,8 +198,8 @@ button#menu-toggle {
     color: lightblue;
     z-index: 500;
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    top: 0px;
+    left: 0px;
 }
 
 button#menu-toggle:hover {
@@ -199,7 +209,7 @@ button#menu-toggle:hover {
 nav#menu {
     display: none;
     position: fixed;
-    top: 0px;
+    top: 60px;
     left: 0px;
     background: rgb(70,70,70);
     width: 250px;
@@ -214,7 +224,7 @@ nav#menu {
 
 div#albums {
     position: absolute;
-    top: 0px;
+    top: 100px;
     width: 100%;
     margin-bottom: 60px;
 }
@@ -298,4 +308,14 @@ i.fas.fa-play {
     overflow: hidden;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+.album span {
+    width: calc(100% - 120px);
+    display: inline-block;
+    line-height: 16px;
+}
+
+.album:nth-child(2n) {
+    background: rgb(40,40,40);
 }
