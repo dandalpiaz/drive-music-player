@@ -17,7 +17,7 @@
 
 <header>
   <button id="menu-toggle">▼</button>
-  <h1 class="visually-hidden"><a href="">▶ Play Your Music</a></h1>
+  <h1><a href="">Play Your Music: a cross-platform music player for cloud-based files</a></h1>
   <nav id="menu">
     <h2>Authentication</h2>
     <button id="authorize_button" style="display: none;">Sign In</button>
@@ -27,7 +27,7 @@
 
 <div id="albums"></div>
 <div id="track-list"></div>
-<button id="track-list-close">‹</button>
+<button id="track-list-close" class="fas fa-arrow-left"></button>
 
 
 <div class="audio-player">
@@ -67,7 +67,7 @@ function playTrack(id) {
   audio[0].oncanplaythrough = audio[0].play();
 
   $(".track[data-track-id='" + id + "']").addClass('track-active');
-  $('.audio-player-song-text').html( $('.track[data-track-id="'+id+'"]').text() );
+  $('.audio-player-song-text').html( $('.track[data-track-id="'+id+'"]').first().text() );
   $('#play-btn').html('<i class="fas fa-pause"></i>');
 
 }
@@ -143,6 +143,7 @@ $( document ).ready(function() {
     var currentTrackId = $('source').attr("data-track-id");
     var nextTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
     if ( nextTrackId == null ) {
+      $('#play-btn').html('<i class="fas fa-play"></i>');
       return;
     } else {
       $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
