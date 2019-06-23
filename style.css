@@ -322,3 +322,8 @@ i.fas.fa-play {
 .album:nth-child(2n) {
     background: rgb(40,40,40);
 }
+
+#intro {
+    padding: 20px;
+    padding-top: 100px;
+}

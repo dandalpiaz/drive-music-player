@@ -8,7 +8,7 @@ album-centric music player for audio files in Google Drive
 - dark theme, light theme
 - service worker, caching for offline
 - run audits
-- text-only view
+- text-only view (missing or no image)
 - create custom audio player
 - tab order when opening tracklist
 

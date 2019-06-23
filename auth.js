@@ -32,9 +32,11 @@ function updateSigninStatus(isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
     findMusicFolder();
+    $('#intro').hide();
   } else {
     authorizeButton.style.display = 'block';
     signoutButton.style.display = 'none';
+    $('#intro').show();
   }
 }
 
@@ -44,4 +46,5 @@ function handleAuthClick(event) {
 
 function handleSignoutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
+  location.reload();
 }
