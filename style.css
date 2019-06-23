@@ -327,3 +327,35 @@ i.fas.fa-play {
     padding: 20px;
     padding-top: 100px;
 }
+
+button#authorize_button {
+    border: none;
+    padding: 0px;
+    background: none;
+}
+
+button#authorize_button:hover, button#signout_button:hover {
+    cursor: pointer;
+}
+
+button#authorize_button img {
+    width: 200px;
+}
+
+button#signout_button {
+    background: black;
+    border: 2px solid rgb(200,200,200);
+    color: rgb(200,200,200);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+p {
+    color: rgb(220,220,220);
+    line-height: 24px;
+    max-width: 600px;
+}
+
+#screenshot {
+    max-width: 100%;
+}

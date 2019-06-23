@@ -19,14 +19,21 @@
   <button id="menu-toggle">▼</button>
   <h1><a href="">Play Your Music: a cross-platform music player for cloud-based files</a></h1>
   <nav id="menu">
-    <h2>Authentication</h2>
-    <button id="authorize_button" style="display: none;">Sign In</button>
+    <h2>Account</h2>
+    <p>re-sync files</p>
+    <p>donate</p>
     <button id="signout_button" style="display: none;">Sign Out</button>
   </nav>
 </header>
 
 <div id="intro" style="display: none;">
   <h2>Welcome!</h2>
+  <p>To get started, you can...</p>
+  <!--<p>Step 1: create a folder in your Google Drive and name it something unique in your account, e.g. "My Music", "play-your-music", etc. </p>
+  <p>Step 2: within that folder, create folders that contain audio files for albums that you own. For example, a folder could be named, "Pink Floyd - Dark Side of the Moon" and within it, mp3 files each song, and an album art folder named "folder.jpg".</p>-->
+  <button id="authorize_button"><img src="google.png" alt="Google Login" /></button>
+  <p>Play Your Music is an application that will allow you to play the music files you own on any platform that can run a web browser. It does so by using files that you have saved in a cloud storage service. Right now, only Google Drive is supported, but I hope to add more options in the future. Once set up, the app will look something like this:</p>
+  <img id="screenshot" src="screenshot.png" alt="screenshot of Play Your Music" />
 </div>
 
 <div id="albums"></div>
