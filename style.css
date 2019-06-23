@@ -31,13 +31,14 @@ h1 {
     font-size: 16px;
     font-weight: 500;
     margin: 0px;
-    position: fixed;
+    position: absolute;
     left: 70px;
     line-height: 60px;
     white-space: nowrap; 
     width: calc(100% - 85px); 
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    z-index: 100;
 }
 
 h1 a {
@@ -135,10 +136,9 @@ button.album:hover {
     display: none;
     position: absolute;
     top: 0px;
-    padding-top: 60px;
+    padding-top: 100px;
     width: 100%;
     margin-bottom: 60px;
-    /*background: rgba(0,0,0,0.825);*/
     background-size: cover !important;
     background-position: center !important;
     min-height: calc(100% - 60px) !important;
@@ -177,7 +177,7 @@ button#track-list-close {
     color: lightblue;
     top: 0px;
     left: 0px;
-    font-size: 27px;
+    font-size: 22px;
     border: 0px;
     width: 50px;
     z-index: 1000;
@@ -236,6 +236,7 @@ div#albums {
     width: 265px;
     max-width: 50%;
     float: left;
+    padding: 20px;
 }
 
 .track-list-album-name {
@@ -244,6 +245,7 @@ div#albums {
     width: 50%;
     font-size: 20px;
     padding: 20px;
+    padding-top: 35px;
 }
 
 
