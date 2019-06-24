@@ -2,18 +2,17 @@
 function findMusicFolder() {
   gapi.client.drive.files.list({
     'pageSize': 1,
-    'q' : " name contains 'music123' and trashed = false ",
+    'q' : " name contains 'my-music' and trashed = false ",
     'fields': "nextPageToken, files(id, name)"
   }).then(function(response) {
     
     var files = response.result.files;
     if (files && files.length > 0) {
-      for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        findAlbumFolders(file.id);
-      }
+      var file = files[0];
+      findAlbumFolders(file.id);
     } else {
-      alert('No music folder found.');
+      $('#instructions').show();
+      //alert('No music folder found.');
     }
   });
 }
@@ -36,7 +35,7 @@ function findAlbumFolders(id) {
   });
 
   // get arts
-  var albumartquery = "mimeType contains 'image/' and name contains 'folder'";
+  var albumartquery = "mimeType contains 'image/' and trashed = false ";
   gapi.client.drive.files.list({
     'pageSize': 1000,
     'q' : albumartquery,
@@ -56,7 +55,7 @@ function findAlbumFolders(id) {
 }
 
 function listTracks(id) {
-  var trackquery = "'" + id + "'" + " in parents and mimeType contains 'audio/'";
+  var trackquery = "'" + id + "'" + " in parents and mimeType contains 'audio/' and trashed = false";
   gapi.client.drive.files.list({
     'pageSize': 50,
     'q' : trackquery,

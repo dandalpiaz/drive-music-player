@@ -3,7 +3,6 @@ album-centric music player for audio files in Google Drive
 
 ## TODO
 
-- screenshot for homepage
 - need paging above 1000 for api calls
 - favicon and icon
 - menu section

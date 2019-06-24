@@ -162,12 +162,12 @@ button.track:hover {
 }
 
 button.track-active {
-    background-color: rgba(225,25,25,0.8) !important;
+    background-color: rgb(150,25,25) !important;
     color: white;
 }
 
 button.track:nth-child(2n) {
-    background: rgba(0,0,0,0.9);
+    background: rgb(40,40,40);
 }
 
 button#track-list-close {
@@ -323,7 +323,7 @@ i.fas.fa-play {
     background: rgb(40,40,40);
 }
 
-#intro {
+#intro, #instructions {
     padding: 20px;
     padding-top: 100px;
 }
@@ -350,12 +350,12 @@ button#signout_button {
     border-radius: 5px;
 }
 
-p {
+p, li {
     color: rgb(220,220,220);
     line-height: 24px;
     max-width: 600px;
 }
 
 #screenshot {
-    max-width: 100%;
+    max-width: 250px;
 }
