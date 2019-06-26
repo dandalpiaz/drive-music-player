@@ -280,21 +280,26 @@ div#albums {
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-#play-btn {
-    margin-right: 15px;
+#play-btn, #prev-btn, #next-btn {
+    margin-right: 5px;
     float: right;
 }
 
+#play-btn:hover, #prev-btn:hover, #next-btn:hover {
+    cursor: pointer;
+}
+
 #play-btn i {
+    border: 2px solid rgb(200,200,200);
+    border-radius: 50%;
+}
+
+#play-btn i, #prev-btn i, #next-btn i {
     font-size: 18px;
     color: rgb(200,200,200);
     margin-top: 10px;
-    border: 2px solid rgb(200,200,200);
-    border-radius: 50%;
     padding: 10px;
     line-height: 17px;
     width: 40px;
@@ -406,3 +411,12 @@ p, li {
     background: crimson;
     cursor: pointer;
 }
+
+@media (min-width: 800px) {
+    #control-btns {
+        position: fixed;
+        left: 50%;
+        margin-left: -68px;
+    }
+}
+

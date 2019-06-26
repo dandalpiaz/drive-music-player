@@ -63,7 +63,11 @@
     <p class="audio-player-song-text">Now Playing...</p>
   </a>
 
-  <div id="play-btn"></div>
+  <div id="control-btns">
+    <div id="next-btn"><i class="fas fa-step-forward"></i></div>
+    <div id="play-btn"></div>
+    <div id="prev-btn"><i class="fas fa-step-backward"></i></div>
+  </div>
 
   <audio id="player" ontimeupdate="updateSeek()">
     <source src="" type="audio/mp3">
@@ -184,6 +188,28 @@ $( document ).ready(function() {
     } else {
       player.play();
       $('#play-btn').html('<i class="fas fa-pause"></i>');
+    }
+  });
+
+  $(document).on('click', '#next-btn', function(e){
+    var currentTrackId = $('source').attr("data-track-id");
+    var nextTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
+    if ( nextTrackId == null ) {
+      return;
+    } else {
+      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
+      playTrack(nextTrackId);
+    }
+  });
+
+  $(document).on('click', '#prev-btn', function(e){
+    var currentTrackId = $('source').attr("data-track-id");
+    var prevTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").prev().attr("data-track-id");
+    if ( prevTrackId == null ) {
+      return;
+    } else {
+      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
+      playTrack(prevTrackId);
     }
   });
 
