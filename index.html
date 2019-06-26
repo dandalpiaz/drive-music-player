@@ -37,7 +37,7 @@
   <h2>Welcome!</h2>
   <p>To get started, you can...</p>
   <button id="authorize_button"><img src="google.png" alt="Google Login" /></button>
-  <p>Play Your Music is an application that will allow you to play the music files you own on any platform that can run a web browser. It does so by using files that you have saved in a cloud storage service. Right now, only Google Drive is supported, but I hope to add more options in the future. Once set up, the app will look something like this:</p>
+  <p>Play the music files you own on any platform! Play Your Music will pull music files that are saved in a cloud storage service. Right now only Google Drive is supported, but I hope to add more options in the future. Once set up, the app will look something like this:</p>
   <img id="screenshot" src="screenshot.PNG" alt="screenshot of Play Your Music" />
 </div>
 
@@ -56,6 +56,10 @@
 
 <div class="audio-player">
 
+  <div class="seek-container">
+    <input type="range" min="0" max="100" value="0" class="seek" id="seekbar">
+  </div>
+
   <a id="audio-player-current-link" href="">
     <img class="audio-player-album-image" src="" />
     <p class="audio-player-song-text">Now Playing...</p>
@@ -63,7 +67,7 @@
 
   <div id="play-btn"></div>
 
-  <audio id="player">
+  <audio id="player" ontimeupdate="updateSeek()">
     <source src="" type="audio/mp3">
   </audio>
 
@@ -80,6 +84,21 @@
 
 
 <script type="text/javascript">
+
+function updateSeek() {
+  console.log("seek update");
+  var player = document.getElementById('player');
+  var length = player.duration
+  if ( isNaN(length) ) {
+    //console.log("not a number");
+    length = 1;
+  }
+  var current_time = player.currentTime;
+  var seekbar = document.getElementById('seekbar');
+
+  seekbar.value = (current_time / length) * 100;
+  //console.log(current_time + " / " + length);
+}
 
 function playTrack(id) {
 
@@ -132,7 +151,6 @@ $( document ).ready(function() {
 
     $('.track-list-album-name').html( $(this).attr("data-album-name") );
     $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
-    //$('#track-list').css('background',  'linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(' + $(this).children(":first").attr('src') + ')');
 
     scroll = $(window).scrollTop();
     $('#albums').hide();
