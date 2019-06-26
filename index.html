@@ -19,16 +19,14 @@
   <button id="menu-toggle">▼</button>
   <h1><a href="">Play Your Music: a cross-platform music player for cloud-based files</a></h1>
   <nav id="menu">
+    <button id="signout_button" style="display: none;">Sign Out</button>
     <h2>Settings</h2>
     <p>light mode</p>
     <p>re-sync files</p>
-    <h2>Help</h2>
-    <p>show instructions</p>
-    <h2>Account</h2>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+    <p>help</p>
     <h2>Thank you for using this!</h2>
     <p>donate</p>
-    <p>copyright Dan Dalpiaz</p>
+    <p>&copy; Dan Dalpiaz</p>
     
   </nav>
 </header>
@@ -86,18 +84,28 @@
 <script type="text/javascript">
 
 function updateSeek() {
-  console.log("seek update");
+
   var player = document.getElementById('player');
   var length = player.duration
   if ( isNaN(length) ) {
-    //console.log("not a number");
     length = 1;
   }
   var current_time = player.currentTime;
   var seekbar = document.getElementById('seekbar');
 
-  seekbar.value = (current_time / length) * 100;
-  //console.log(current_time + " / " + length);
+  if ( $('#seekbar:active').length || $("#seekbar").is(":focus") ) {
+    // the seek bar is active
+  } else {
+    seekbar.value = (current_time / length) * 100;
+  }
+
+  seekbar.addEventListener("click", seek);
+
+  function seek(evt) {
+    var percent = evt.offsetX / this.offsetWidth;
+    player.currentTime = percent * player.duration;
+    console.log(player.currentTime);
+  }
 }
 
 function playTrack(id) {
