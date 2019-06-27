@@ -3,11 +3,17 @@ album-centric music player for audio files in Google Drive
 
 ## TODO
 
+- phone tap on seek, keyboard access?
+- now playing should open modal
+- spacing in now playing
+- shuffle / repeat
+- allow scroll on h1
 - need paging above 1000 for api calls
 - favicon and icon
 - menu section
 - dark theme, light theme
 - service worker, caching for offline
+- cordova?
 - run audits
 - text-only view (missing or no image)
 - create custom audio player
