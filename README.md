@@ -1,23 +1,39 @@
-# WIP - play-your-music
-album-centric music player for audio files in Google Drive
+# Play Your Music
+A cross-platform music player for cloud-based files
 
 ## TODO
 
-- phone tap on seek, keyboard access?
+- phone tap on seek, keyboard access, touchX - https://developer.mozilla.org/en-US/docs/Web/API/Touch/clientX
 - now playing should open modal
-- spacing in now playing
+- spacing in now playing, make taller
 - shuffle / repeat
 - allow scroll on h1
 - need paging above 1000 for api calls
-- favicon and icon
-- menu section
 - dark theme, light theme
+- more blank space at bottom of album list and track list
 - service worker, caching for offline
-- cordova?
-- run audits
+- run lighthouse audit
 - text-only view (missing or no image)
-- create custom audio player
-- tab order when opening tracklist
+- tab order, keyboard nav .focus() will help
+- local playlists
+- domain: playyourmusic.app
+- redo the Google API property (and name)
+- PWA cache - https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
+- Cordova
+- marketing copy
+	- Spotify 10,000 limit
+	- support artists by using bandcamp, amazon mp3
+- enable hash urls, fix back button
+- add googleanalytics
+- copyright
+- privacy policy
+- donate
+- https://developers.google.com/drive/api/v3/manage-downloads
+
+CACHE
+
+- https://stackoverflow.com/questions/37860901/how-to-use-google-drive-api-to-download-files-with-javascript
+- https://stackoverflow.com/questions/32172466/loading-mp3-as-arraybuffer-using-local-file-for-web-audio
 
 ## Scope change for downloading and cache
 
