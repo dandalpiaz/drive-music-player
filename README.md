@@ -3,14 +3,11 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
-- phone tap on seek, keyboard access, touchX - https://developer.mozilla.org/en-US/docs/Web/API/Touch/clientX
 - now playing should open modal
-- spacing in now playing, make taller
 - shuffle / repeat
 - allow scroll on h1
 - need paging above 1000 for api calls
 - dark theme, light theme
-- more blank space at bottom of album list and track list
 - service worker, caching for offline
 - run lighthouse audit
 - text-only view (missing or no image)

@@ -58,10 +58,10 @@
     <input type="range" min="0" max="100" value="0" class="seek" id="seekbar">
   </div>
 
-  <a id="audio-player-current-link" href="">
+  <span id="audio-player-current-link">
     <img class="audio-player-album-image" src="" />
     <p class="audio-player-song-text">Now Playing...</p>
-  </a>
+  </span>
 
   <div id="control-btns">
     <button id="next-btn"><i class="fas fa-step-forward"></i></button>
@@ -104,9 +104,14 @@ function updateSeek() {
   }
 
   seekbar.addEventListener("click", seek);
+  seekbar.addEventListener("touchend", seek);
 
   function seek(evt) {
-    var percent = evt.offsetX / this.offsetWidth;
+    var offset = evt.offsetX;
+    if (offset == null) {
+      offset = evt.changedTouches[0].clientX
+    }
+    var percent = offset / this.offsetWidth;
     player.currentTime = percent * player.duration;
     console.log(player.currentTime);
   }
@@ -212,6 +217,17 @@ $( document ).ready(function() {
       playTrack(prevTrackId);
     }
   });
+
+  /*
+  $(document).on('click', '#audio-player-current-link', function(e){
+    $('#track-list-close').show();
+    window.location.hash = $('#the-queue .track-list-album-name').text().split(' ').join('_');
+    $('#track-list').html( $('#the-queue').html() );
+    scroll = $(window).scrollTop();
+    $('#albums').hide();
+    $('#track-list').show();
+  });
+  */
 
   var audio = $("audio");  
   audio[0].addEventListener('ended',function(){
