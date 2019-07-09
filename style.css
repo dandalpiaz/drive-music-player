@@ -26,18 +26,25 @@ body {
 	font-size: 15px;
 }
 
+#title-wrapper {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+    width: calc(100% - 110px);
+    margin-left: 70px;
+}
+#title-wrapper ::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 h1 {
     color: rgba(250,250,250,.8);
     font-size: 16px;
     font-weight: 500;
     margin: 0px;
-    position: absolute;
     left: 70px;
     line-height: 60px;
-    white-space: nowrap; 
-    width: calc(100% - 85px); 
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: scroll;
     z-index: 100;
 }
 
@@ -382,7 +389,7 @@ p, li {
 .seek {
     -webkit-appearance: none;
     width: 100%;
-    height: 5px;
+    height: 3px;
     margin: 0px;
     background: rgb(170,40,40);
     outline: none;
@@ -429,3 +436,22 @@ p, li {
     position: fixed;
     bottom: 0px;
 }
+
+
+html {
+    scrollbar-face-color: #646464;
+    scrollbar-base-color: #646464;
+    scrollbar-3dlight-color: #646464;
+    scrollbar-highlight-color: #646464;
+    scrollbar-track-color: rgb(13,13,13);
+    scrollbar-arrow-color: rgb(13,13,13);
+    scrollbar-shadow-color: #646464;
+}
+
+::-webkit-scrollbar { width: 10px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: rgb(13,13,13);}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666;}
+::-webkit-scrollbar-corner { background-color: #646464;}
+::-webkit-resizer { background-color: #666;}

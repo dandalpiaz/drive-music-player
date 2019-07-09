@@ -3,9 +3,9 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- issue with seek not continuing after interaction
 - now playing should open modal
 - shuffle / repeat
-- allow scroll on h1
 - need paging above 1000 for api calls
 - dark theme, light theme
 - service worker, caching for offline
