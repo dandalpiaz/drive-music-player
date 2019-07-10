@@ -20,7 +20,7 @@ function findMusicFolder() {
 function findAlbumFolders(id) {
   var albumquery = "'" + id + "'" + " in parents and mimeType contains 'application/vnd.google-apps.folder' and trashed = false ";
   gapi.client.drive.files.list({
-    'pageSize': 100,
+    'pageSize': 1000,
     'orderBy': 'name',
     'q' : albumquery,
     'fields': "nextPageToken, files(id, name)"
@@ -37,7 +37,7 @@ function findAlbumFolders(id) {
   // get arts
   var albumartquery = "mimeType contains 'image/' and trashed = false and name contains 'folder.jpg' ";
   gapi.client.drive.files.list({
-    'pageSize': 100,
+    'pageSize': 1000,
     'q' : albumartquery,
     'fields': "nextPageToken, files(id, name, webContentLink, parents)"
   }).then(function(response) {

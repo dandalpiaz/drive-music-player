@@ -265,13 +265,16 @@ div#albums {
     position: fixed;
     bottom: 0px;
     left: 0px;
-    height: 70px;
+    height: 75px;
     display: none;
+    -webkit-box-shadow: 0px -1px 100px rgb(0, 0, 0);
+    -moz-box-shadow: 0px -1px 100px rgb(0, 0, 0);
+    box-shadow: 0px -1px 100px rgb(0, 0, 0);
 }
 
 .audio-player-album-image {
-    height: 60px;
-    width: 60px;
+    height: 75px;
+    width: 75px;
     float: left;
 }
 
@@ -283,8 +286,8 @@ div#albums {
     width: 215px;
     color: rgb(200,200,200);
     background: rgb(65,65,65);
-    height: 60px;
-    padding: 10px;
+    height: 75px;
+    padding: 15px;
     display: flex;
     align-items: center;
 }
@@ -294,7 +297,7 @@ div#albums {
     float: right;
     background: none;
     border: none;
-    margin-top: 15px;
+    margin-top: 0px;
     padding: 0px;
 }
 
@@ -331,7 +334,8 @@ i.fas.fa-play {
 .album span {
     width: calc(100% - 120px);
     display: inline-block;
-    line-height: 16px;
+    line-height: 18px;
+    vertical-align: middle;
 }
 
 .album:nth-child(2n) {
@@ -377,11 +381,11 @@ p, li {
 
 
 .seek-container {
-    width: 100%;
+    width: calc(100% - 455px);
     position: fixed;
-    bottom: 70px;
-    height: 5px;
-    background: rgb(50,50,50);
+    right: 20px;
+    bottom: 35px;
+    height: 3px;
     display: block;
     padding: 0px;
 }
@@ -391,12 +395,13 @@ p, li {
     width: 100%;
     height: 3px;
     margin: 0px;
-    background: rgb(170,40,40);
+    background: rgb(250,40,40);
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
     display: block;
+    border-radius: 20%;
 }
 
 .seek:hover {
@@ -425,17 +430,63 @@ p, li {
 @media (min-width: 800px) {
     #control-btns {
         position: fixed;
-        left: 50%;
+        left: 363px;
         margin-left: -68px;
+        bottom: 16px;
     }
 }
 
+@media (max-width: 799px) {
+    .seek-container {
+        width: calc(100% - 176px);
+        left: 111px;
+        top: 0px;
+        background: rgb(13,13,13);
+        padding-top: 28px;
+        padding-bottom: 32px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    button#prev-btn {
+        position: fixed;
+        top: 0px;
+        left: 50px;
+        background: rgb(13,13,13);
+        padding: 10px;
+        padding-right: 0px;
+        padding-left: 21px;
+    }
+
+    button#next-btn {
+        position: fixed;
+        top: 0px;
+        right: -5px;
+        background: rgb(13,13,13);
+        padding: 10px;
+        padding-left: 0px;
+        padding-right: 25px;
+    }
+
+    button#play-btn {
+        bottom: 17px;
+        position: fixed;
+        right: 12px;
+    }
+
+    .audio-player-song-text {
+        width: calc(100% - 150px);
+    }
+
+}
 
 
+/*
 #audio-player-current-link {
     position: fixed;
     bottom: 0px;
 }
+*/
 
 
 html {
