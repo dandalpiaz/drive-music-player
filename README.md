@@ -3,6 +3,7 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- column-count for album list?
 - PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
 - issue with seek not continuing after interaction
 - now playing should open modal
