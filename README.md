@@ -3,10 +3,13 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- allow YouTube links instead of audio files
+- remove track highlight from active item click
+- wrap with electron for desktop app
 - column-count for album list?
 - PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
 - issue with seek not continuing after interaction
-- now playing should open modal
+- now playing should open current album
 - shuffle / repeat
 - need paging above 1000 for api calls
 - dark theme, light theme
