@@ -91,54 +91,6 @@ button.album:hover {
     margin-right: 20px;
 }
 
-@media (max-width: 600px) {
-    .album {
-        width: 33.33%;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 800px) {
-    .album {
-        width: 25%;
-    }
-}
-
-@media (min-width: 801px) and (max-width: 1000px) {
-    .album {
-        width: 20%;
-    }
-}
-
-@media (min-width: 1001px) and (max-width: 1200px) {
-    .album {
-        width: 16.6666%;
-    }
-}
-
-@media (min-width: 1201px) and (max-width: 1400px) {
-    .album {
-        width: 14.2857%;
-    }
-}
-
-@media (min-width: 1401px) and (max-width: 1600px) {
-    .album {
-        width: 12.5%;
-    }
-}
-
-@media (min-width: 1601px) and (max-width: 1800px) {
-    .album {
-        width: 11.1111%;
-    }
-}
-
-@media (min-width: 1801px) and (max-width: 2000px) {
-    .album {
-        width: 10%;
-    }
-}
-
 #track-list {
     display: none;
     position: absolute;
@@ -250,13 +202,13 @@ div#albums {
     }
 }
 
-@media (min-width: 1601px) and (max-width: 1850px) {
+@media (min-width: 1601px) and (max-width: 1950px) {
     #albums {
         column-count: 4;
     }
 }
 
-@media (min-width: 1851px) {
+@media (min-width: 1951px) {
     #albums {
         column-count: 5;
     }
