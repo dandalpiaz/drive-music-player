@@ -71,7 +71,7 @@ button.album {
     background: none;
     padding: 10px;
     margin: 0px;
-    float: left;
+    display: inline-block;
     color: rgba(255,255,255,0.8);
     font-size: 16px;
     width: 100%;
