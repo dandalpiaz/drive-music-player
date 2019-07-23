@@ -32,8 +32,34 @@ function findAlbumFolders(id) {
       $('#albums').append("<button class='album' data-album-id='" + albums[i].id + "' " + "data-album-name='" + albums[i].name + "'>" + "<img src='" + "placeholder.jpg" + "' />" + "<span>" + albums[i].name + "</span>" + "</button>");
     }
 
+    caches.open('my-cache').then((cache) => {
+      request = '/arts.json';
+      cache.match(request).then((response) => {
+        try {
+          return response.json();
+        }
+        catch(err) {
+          getArts();
+        }
+         
+      }).then(function(data) {
+        var arts = data;
+        for (var i = 0; i < arts.length; i++) {
+          var artURL = arts[i].webContentLink;
+          var parent = arts[i].parents[0];
+          $(".album[data-album-id=" + parent + "] img").attr('src', artURL);
+          console.log("loaded from cache");
+        }
+  
+      });
+    });
+
   });
 
+  
+}
+
+function getArts() {
   // get arts
   var albumartquery = "mimeType contains 'image/' and trashed = false and name contains 'folder.jpg' ";
   gapi.client.drive.files.list({
@@ -43,15 +69,20 @@ function findAlbumFolders(id) {
   }).then(function(response) {
     
     var arts = response.result.files;
+
+    caches.open('my-cache').then((cache) => {
+      console.log(arts);
+      cache.put('/arts.json', new Response( JSON.stringify(arts) ));
+    });
     
     for (var i = 0; i < arts.length; i++) {
       var artURL = arts[i].webContentLink;
       var parent = arts[i].parents[0];
       $(".album[data-album-id=" + parent + "] img").attr('src', artURL);
+      console.log("nah");
     }
 
   });
-
 }
 
 function listTracks(id) {
