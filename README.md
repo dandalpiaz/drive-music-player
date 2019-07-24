@@ -3,6 +3,7 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- previous button should restart track if very early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
 - PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
