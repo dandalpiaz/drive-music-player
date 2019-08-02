@@ -3,6 +3,7 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- albums listed horizontally 
 - Cache API https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api
 - Play button on hover from album page
 - Tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript

@@ -190,27 +190,65 @@ div#albums {
     padding-bottom: 120px;
 }
 
+@media (max-width: 899px) {
+    .album:nth-child(2n) {
+        background: rgb(40,40,40);
+    }
+}
+
 @media (min-width: 900px) and (max-width: 1250px) {
-    #albums {
-        column-count: 2;
+    button.album {
+        width: calc(50% - 8px);
+    }
+
+    .album:nth-child(4n), .album:nth-child(4n - 1) {
+        background: rgb(40,40,40);
+    }
+
+    .album:nth-child(2n - 1) {
+        margin-right: 15px;
     }
 }
 
 @media (min-width: 1251px) and (max-width: 1600px) {
-    #albums {
-        column-count: 3;
+    button.album {
+        width: calc(33.33% - 15px);
+    }
+
+    .album:nth-child(6n), .album:nth-child(6n - 1), .album:nth-child(6n - 2) {
+        background: rgb(40,40,40);
+    }
+
+    .album:nth-child(3n - 1), .album:nth-child(3n - 2) {
+        margin-right: 15px;
     }
 }
 
 @media (min-width: 1601px) and (max-width: 1950px) {
-    #albums {
-        column-count: 4;
+    button.album {
+        width: calc(25% - 12px);
+    }
+
+    .album:nth-child(8n), .album:nth-child(8n - 1), .album:nth-child(8n - 2), .album:nth-child(8n - 3) {
+        background: rgb(40,40,40);
+    }
+
+    .album:nth-child(4n - 1), .album:nth-child(4n - 2), .album:nth-child(4n - 3) {
+        margin-right: 15px;
     }
 }
 
 @media (min-width: 1951px) {
-    #albums {
-        column-count: 5;
+    button.album {
+        width: calc(20% - 12px);
+    }
+
+    .album:nth-child(10n), .album:nth-child(10n - 1), .album:nth-child(10n - 2), .album:nth-child(10n - 3), .album:nth-child(10n - 4) {
+        background: rgb(40,40,40);
+    }
+
+    .album:nth-child(5n - 1), .album:nth-child(5n - 2), .album:nth-child(5n - 4), .album:nth-child(5n - 3) {
+        margin-right: 15px;
     }
 }
 
@@ -312,10 +350,6 @@ i.fas.fa-play {
     display: inline-block;
     line-height: 18px;
     vertical-align: middle;
-}
-
-.album:nth-child(2n) {
-    background: rgb(40,40,40);
 }
 
 #intro, #instructions {
