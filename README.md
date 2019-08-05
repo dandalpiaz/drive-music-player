@@ -3,6 +3,12 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- albums listed horizontally 
+- Cache API https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api
+- Play button on hover from album page
+- Tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
+- Order of async functions (getting albums, getting album arts)
+- previous button should restart track if very early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
 - PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
