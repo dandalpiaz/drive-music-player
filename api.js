@@ -92,11 +92,46 @@ function findArts() {
     }).then(function(data) {
       if (data.result.files && data.result.files.length > 0) {
         var arts = data.result.files;
-        for (var i = 0; i < arts.length; i++) {
-          var artURL = arts[i].webContentLink;
-          var parent = arts[i].parents[0];
-          $(".album[data-album-id=" + parent + "] img").attr('src', artURL);
-        }
+        var timer = 0;
+
+        Object.keys(arts).forEach(function (item) {
+          var parent = arts[item].parents[0];
+          var imgid = arts[item].id;
+
+          cache.match(imgid).then((response) => {
+            try {
+              return response.blob();
+            }
+            catch {
+              (function() {
+                setTimeout(function() {
+                  console.log("caught img");
+                  var fileId = imgid;
+                  var accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;// or this: gapi.auth.getToken().access_token;
+                  var xhr = new XMLHttpRequest();
+                  xhr.open("GET", "https://www.googleapis.com/drive/v3/files/"+fileId+'?alt=media', true);
+                  xhr.setRequestHeader('Authorization','Bearer '+accessToken);
+                  xhr.responseType = 'arraybuffer'
+                  xhr.onload = function(){
+                      caches.open('my-cache').then((cache) => { // add to cache
+                        cache.put(fileId, new Response( new Blob([xhr.response]) ));
+                        var artURL = URL.createObjectURL(new Blob([xhr.response]))
+                        $(".album[data-album-id=" + parent + "] img").attr('src', artURL);
+                      });
+                  }
+                  xhr.send();
+                }, timer * 500);
+              })(item);
+              timer++;
+            }
+          }).then(function(data) {
+            if (data) {
+              var artURL = URL.createObjectURL(new Blob([data]))
+              $(".album[data-album-id=" + parent + "] img").attr('src', artURL);
+            }
+          });
+        });
+
       } else {
         //$('#instructions').show();
       }
