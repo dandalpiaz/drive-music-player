@@ -516,3 +516,58 @@ html {
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #666;}
 ::-webkit-scrollbar-corner { background-color: #646464;}
 ::-webkit-resizer { background-color: #666;}
+
+
+/* LIGHT MODE */
+
+::-webkit-scrollbar-track-piece { background-color: white;}
+
+body {
+    background: white;
+    color: rgba(25,25,25,.8);
+}
+
+h1 {
+    color: rgba(25,25,25,.8);
+}
+
+button.album {
+    background: white;
+    color: rgba(25,25,25,0.8)
+}
+
+.album:nth-child(2n) {
+    background: rgb(243,243,243) !important;
+}
+
+button.track {
+    color: rgb(23,23,23);;
+}
+
+button.track:nth-child(2n) {
+    background: rgb(243,243,243);
+}
+
+button.track-active {
+    color: white;
+}
+
+.album {
+    margin-right: 0px !important;
+    width: 100% !important;
+    background: white !important;
+}
+
+@media (max-width: 799px) {
+    button#next-btn, button#prev-btn {
+        background: white;
+    }
+
+    button#next-btn i, button#prev-btn i {
+        color: rgb(70,70,70);
+    }
+
+    .seek-container {
+        background: white;
+    }
+}
