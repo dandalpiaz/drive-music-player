@@ -190,68 +190,6 @@ div#albums {
     padding-bottom: 120px;
 }
 
-@media (max-width: 899px) {
-    .album:nth-child(2n) {
-        background: rgb(40,40,40);
-    }
-}
-
-@media (min-width: 900px) and (max-width: 1250px) {
-    button.album {
-        width: calc(50% - 8px);
-    }
-
-    .album:nth-child(4n), .album:nth-child(4n - 1) {
-        background: rgb(40,40,40);
-    }
-
-    .album:nth-child(2n - 1) {
-        margin-right: 15px;
-    }
-}
-
-@media (min-width: 1251px) and (max-width: 1600px) {
-    button.album {
-        width: calc(33.33% - 15px);
-    }
-
-    .album:nth-child(6n), .album:nth-child(6n - 1), .album:nth-child(6n - 2) {
-        background: rgb(40,40,40);
-    }
-
-    .album:nth-child(3n - 1), .album:nth-child(3n - 2) {
-        margin-right: 15px;
-    }
-}
-
-@media (min-width: 1601px) and (max-width: 1950px) {
-    button.album {
-        width: calc(25% - 12px);
-    }
-
-    .album:nth-child(8n), .album:nth-child(8n - 1), .album:nth-child(8n - 2), .album:nth-child(8n - 3) {
-        background: rgb(40,40,40);
-    }
-
-    .album:nth-child(4n - 1), .album:nth-child(4n - 2), .album:nth-child(4n - 3) {
-        margin-right: 15px;
-    }
-}
-
-@media (min-width: 1951px) {
-    button.album {
-        width: calc(20% - 12px);
-    }
-
-    .album:nth-child(10n), .album:nth-child(10n - 1), .album:nth-child(10n - 2), .album:nth-child(10n - 3), .album:nth-child(10n - 4) {
-        background: rgb(40,40,40);
-    }
-
-    .album:nth-child(5n - 1), .album:nth-child(5n - 2), .album:nth-child(5n - 4), .album:nth-child(5n - 3) {
-        margin-right: 15px;
-    }
-}
-
 .track-list-album-image {
     display: block;
     width: 265px;
@@ -570,4 +508,21 @@ button.track-active {
     .seek-container {
         background: white;
     }
+}
+
+.audio-player-song-text {
+    background: rgb(230,230,230);
+    color: rgb(40,40,40);
+}
+
+.audio-player {
+    background: rgb(245,245,245);;
+}
+
+#play-btn i, #prev-btn i, #next-btn i {
+    color: rgb(60,60,60);
+}
+
+#play-btn i {
+    border: 2px solid rgb(60,60,60)
 }
