@@ -25,3 +25,6 @@ caches.open('my-cache').then((cache) => { // add to cache
     audio[0].oncanplaythrough = audio[0].play();
   });
 });
+
+var metaThemeColor = document.querySelector("meta[name=theme-color]");
+metaThemeColor.setAttribute("content", getRandomColor());
