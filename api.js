@@ -71,10 +71,7 @@ function findArts() {
   caches.open('my-cache').then((cache) => {
     cache.match('/arts.json').then((response) => {
       try {
-        return response.json(); // try to return cache
-      }
-      catch {
-        console.log("caught");
+        //console.log("caught");
         var albumartquery = "mimeType contains 'image/' and trashed = false and name contains 'folder.jpg' ";
         return gapi.client.drive.files.list({
           'pageSize': 1000,
@@ -88,6 +85,9 @@ function findArts() {
           }
           return response; // try to return API request
         });
+      }
+      catch {
+        return response.json(); // try to return cache
       }
     }).then(function(data) {
       if (data.result.files && data.result.files.length > 0) {
