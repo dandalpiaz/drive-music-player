@@ -3,11 +3,18 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
-- albums listed horizontally 
+- disable caching albums for now
+    - check network, then check cache?
+- light mode
+    - white styles on instructions, nav section
+    - toggle button
+    - theme-color switch, https://gordonlesti.com/change-theme-color-via-javascript/
+- add search/filter at the top of album list
+- cache the now playing section and always show?
 - Cache API https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api
-- Play button on hover from album page
-- Tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
-- Order of async functions (getting albums, getting album arts)
+- play button on hover from album page
+- tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
+- order of async functions (getting albums, getting album arts)
 - previous button should restart track if very early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
