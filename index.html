@@ -23,7 +23,7 @@
   <nav id="menu">
     <button id="signout_button" style="display: none;">Sign Out</button>
     <h2>Settings</h2>
-    <p>light mode</p>
+    <button id="light-mode-toggle">light mode</button>
     <p>re-sync files</p>
     <p>help</p>
     <h2>Thank you for using this!</h2>
@@ -218,6 +218,11 @@ $( document ).ready(function() {
       $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
       playTrack(prevTrackId);
     }
+  });
+
+  $(document).on('click', '#light-mode-toggle', function(e){
+    var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", "#ffffff");
   });
 
   /*
