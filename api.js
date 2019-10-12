@@ -34,10 +34,7 @@ function findAlbumFolders(id) {
   caches.open('my-cache').then((cache) => {
     cache.match('/albums.json').then((response) => {
       try {
-        return response.json(); // try to return cache
-      }
-      catch {
-        console.log("caught");
+        //console.log("caught");
         var albumquery = "'" + id + "'" + " in parents and mimeType contains 'application/vnd.google-apps.folder' and trashed = false ";
         return gapi.client.drive.files.list({
           'pageSize': 1000,
@@ -52,6 +49,9 @@ function findAlbumFolders(id) {
           }
           return response; // try to return API request
         });
+      }
+      catch {
+        return response.json(); // try to return cache
       }
     }).then(function(data) {
       if (data.result.files && data.result.files.length > 0) {
