@@ -71,7 +71,6 @@ button.album {
     background: none;
     padding: 10px;
     margin: 0px;
-    display: inline-block;
     color: rgba(255,255,255,0.8);
     font-size: 16px;
     width: 100%;
@@ -219,9 +218,9 @@ div#albums {
     left: 0px;
     height: 75px;
     display: none;
-    -webkit-box-shadow: 0px -1px 100px rgb(0, 0, 0);
-    -moz-box-shadow: 0px -1px 100px rgb(0, 0, 0);
-    box-shadow: 0px -1px 100px rgb(0, 0, 0);
+    -webkit-box-shadow: 0px -1px 70px rgb(50, 50, 50);
+    -moz-box-shadow: 0px -1px 70px rgb(50, 50, 50);
+    box-shadow: 0px -1px 70px rgb(50, 50, 50);
 }
 
 .audio-player-album-image {
