@@ -3,8 +3,12 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- Fetch new data button
+- Fix up sidebar
+- Back to top button
+- Desktop - buttons in the top right (see screenshot)
 - disable caching albums for now
-    - check network, then check cache?
+    - check network, then check cache? (reverse again?)
 - light mode
     - white styles on instructions, nav section
     - toggle button
@@ -15,7 +19,7 @@ A cross-platform music player for cloud-based files
 - play button on hover from album page
 - tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
 - order of async functions (getting albums, getting album arts)
-- previous button should restart track if very early in seek
+- previous button should restart track if not early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
 - PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
@@ -24,13 +28,11 @@ A cross-platform music player for cloud-based files
 - now playing should open current album
 - shuffle / repeat
 - need paging above 1000 for api calls
-- dark theme, light theme
 - service worker, caching for offline
 - run lighthouse audit
 - text-only view (missing or no image)
 - tab order, keyboard nav .focus() will help
 - local playlists
-- domain: playyourmusic.app
 - redo the Google API property (and name)
 - PWA cache - https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
 - Cordova
