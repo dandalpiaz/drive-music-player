@@ -22,10 +22,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-#authorize_button, #signout_button {
-	font-size: 15px;
-}
-
 #title-wrapper {
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -79,6 +75,10 @@ button.album {
     background: rgb(13,13,13);
 }
 
+.album:nth-child(2n) {
+    background: rgb(40,40,40);
+}
+
 button.album:hover {
     cursor: pointer;
 }
@@ -92,9 +92,9 @@ button.album:hover {
 
 #track-list {
     display: none;
-    position: absolute;
+    /*position: absolute;
     top: 0px;
-    padding-top: 100px;
+    padding-top: 100px;*/
     width: 100%;
     padding-bottom: 120px;
     background-size: cover !important;
@@ -129,17 +129,11 @@ button.track:nth-child(2n) {
 }
 
 button#track-list-close {
-    display: none; 
-    position: fixed;
-    background: rgb(180,50,50);
-    color: rgb(240,240,240);
-    top: 0px;
-    left: 0px;
-    font-size: 22px;
+    display: none;
     border: 0px;
-    width: 50px;
-    z-index: 1000;
-    line-height: 58px;
+    padding: 20px;
+    background: none;
+    color: rgb(230,230,230);
 }
 
 button#track-list-close:hover {
@@ -176,6 +170,16 @@ nav#menu {
     height: 100%;
     padding: 20px;
     z-index: 500;
+}
+
+nav button {
+    padding: 7px;
+    display: block;
+    margin-bottom: 10px;
+    background: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: rgb(230,230,230);
 }
 
 #menu-toggle {
@@ -306,14 +310,6 @@ button#authorize_button:hover, button#signout_button:hover {
 
 button#authorize_button img {
     width: 200px;
-}
-
-button#signout_button {
-    background: black;
-    border: 2px solid rgb(200,200,200);
-    color: rgb(200,200,200);
-    padding: 10px;
-    border-radius: 5px;
 }
 
 p, li {
@@ -459,69 +455,91 @@ html {
 
 ::-webkit-scrollbar-track-piece { background-color: white;}
 
-body {
+body.light {
     background: white;
     color: rgba(25,25,25,.8);
 }
 
-h1 {
-    color: rgba(25,25,25,.8);
+.light h1 {
+    color: rgba(25,25,25,.75);
 }
 
-button.album {
+.light button.album {
     background: white;
     color: rgba(25,25,25,0.8)
 }
 
-.album:nth-child(2n) {
+.light .album:nth-child(2n) {
     background: rgb(243,243,243) !important;
 }
 
-button.track {
+.light button.track {
     color: rgb(23,23,23);;
 }
 
-button.track:nth-child(2n) {
+.light button.track:nth-child(2n) {
     background: rgb(243,243,243);
 }
 
-button.track-active {
+.light button.track-active {
     color: white;
 }
 
-.album {
+.light .album {
     margin-right: 0px !important;
     width: 100% !important;
     background: white !important;
 }
 
 @media (max-width: 799px) {
-    button#next-btn, button#prev-btn {
+    .light button#next-btn, .light button#prev-btn {
         background: white;
     }
 
-    button#next-btn i, button#prev-btn i {
+    .light button#next-btn i, .light button#prev-btn i {
         color: rgb(70,70,70);
     }
 
-    .seek-container {
+    .light .seek-container {
         background: white;
     }
 }
 
-.audio-player-song-text {
+.light .audio-player-song-text {
     background: rgb(230,230,230);
     color: rgb(40,40,40);
 }
 
-.audio-player {
+.light .audio-player {
     background: rgb(245,245,245);;
 }
 
-#play-btn i, #prev-btn i, #next-btn i {
+.light #play-btn i, .light #prev-btn i, .light #next-btn i {
     color: rgb(60,60,60);
 }
 
-#play-btn i {
+.light #play-btn i {
     border: 2px solid rgb(60,60,60)
+}
+
+.light .track-list-album-name {
+    color: rgb(40,40,40);
+}
+
+.light nav#menu {
+    background: white;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.light h2, .light p {
+    color: rgb(40,40,40);
+}
+
+.light nav button {
+    color: rgb(50,50,50);
+}
+
+.light button#track-list-close {
+    color: rgb(60,60,60);
 }

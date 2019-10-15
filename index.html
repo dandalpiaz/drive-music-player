@@ -21,14 +21,12 @@
     <h1>Play Your Music: a cross-platform music player for cloud-based files</h1>
   </div>
   <nav id="menu">
+    <button id="light-dark-toggle">💡 light /dark toggle</button>
+    <button>🔄 re-sync files</button>
+    <button>💁 help</button>
+    <button>💗 donate</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
-    <h2>Settings</h2>
-    <button id="light-mode-toggle">light mode</button>
-    <p>re-sync files</p>
-    <p>help</p>
-    <h2>Thank you for using this!</h2>
-    <p>donate</p>
-    <p>&copy; Dan Dalpiaz</p>
+    <p>&copy; playyourmusic.org</p>
     
   </nav>
 </header>
@@ -50,8 +48,8 @@
 </div>
 
 <div id="albums"></div>
+<button id="track-list-close">&larr; Back to albums</button>
 <div id="track-list"></div>
-<button id="track-list-close" class="fas fa-arrow-left"></button>
 
 
 <div class="audio-player">
@@ -220,9 +218,15 @@ $( document ).ready(function() {
     }
   });
 
-  $(document).on('click', '#light-mode-toggle', function(e){
+  $(document).on('click', '#light-dark-toggle', function(e){
     var metaThemeColor = document.querySelector("meta[name=theme-color]");
-    metaThemeColor.setAttribute("content", "#ffffff");
+    
+    if (metaThemeColor.getAttribute("content") == "#000000") {
+      metaThemeColor.setAttribute("content", "#ffffff");
+    } else {
+      metaThemeColor.setAttribute("content", "#000000");
+    }
+    $("body").toggleClass("light");
   });
 
   /*
