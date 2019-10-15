@@ -223,11 +223,39 @@ $( document ).ready(function() {
     
     if (metaThemeColor.getAttribute("content") == "#000000") {
       metaThemeColor.setAttribute("content", "#ffffff");
+      document.cookie = "mode=light";
+      $("body").addClass("light");
     } else {
       metaThemeColor.setAttribute("content", "#000000");
+      document.cookie = "mode=dark";
+      $("body").removeClass("light");
     }
-    $("body").toggleClass("light");
+    
   });
+
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  var mode = getCookie("mode");
+  if (mode == "light") {
+    $("body").addClass("light");
+    var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", "#ffffff");
+  }
 
   /*
   $(document).on('click', '#audio-player-current-link', function(e){
