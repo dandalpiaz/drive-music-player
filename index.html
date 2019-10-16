@@ -20,6 +20,15 @@
   <div id="title-wrapper">
     <h1>Play Your Music: a cross-platform music player for cloud-based files</h1>
   </div>
+
+  <!--<nav id="desktop-nav">
+    <button id="light-dark-toggle">💡 light /dark toggle</button>
+    <button>🔄 re-sync files</button>
+    <button>💁 help</button>
+    <button>💗 donate</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+  </nav>-->
+
   <nav id="menu">
     <button id="light-dark-toggle">💡 light /dark toggle</button>
     <button>🔄 re-sync files</button>
@@ -223,11 +232,11 @@ $( document ).ready(function() {
     
     if (metaThemeColor.getAttribute("content") == "#000000") {
       metaThemeColor.setAttribute("content", "#ffffff");
-      document.cookie = "mode=light";
+      document.cookie = "mode=light; expires=Thu, 18 Dec 2030 12:00:00 UTC";
       $("body").addClass("light");
     } else {
       metaThemeColor.setAttribute("content", "#000000");
-      document.cookie = "mode=dark";
+      document.cookie = "mode=dark; expires=Thu, 18 Dec 2030 12:00:00 UTC";
       $("body").removeClass("light");
     }
     

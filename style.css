@@ -182,6 +182,10 @@ nav button {
     color: rgb(230,230,230);
 }
 
+nav button:hover {
+    cursor: pointer;
+}
+
 #menu-toggle {
     float: left;
 }
