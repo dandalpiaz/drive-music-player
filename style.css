@@ -22,14 +22,27 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 #title-wrapper {
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none;  /* Firefox */
-    width: calc(100% - 110px);
-    margin-left: 70px;
+    width: calc(100% - 500px)
 }
 #title-wrapper ::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
+}
+
+#title-wrapper img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: lightseagreen;
+    width: 50px;
+    height: 60px;
+    padding: 5px;
 }
 
 h1 {
@@ -37,7 +50,7 @@ h1 {
     font-size: 16px;
     font-weight: 500;
     margin: 0px;
-    left: 70px;
+    margin-left: 60px;
     line-height: 60px;
     white-space: nowrap;
     overflow: scroll;
@@ -79,10 +92,6 @@ button.album {
     background: rgb(40,40,40);
 }
 
-button.album:hover {
-    cursor: pointer;
-}
-
 .album img {
     width: 65px;
     display: block;
@@ -92,9 +101,6 @@ button.album:hover {
 
 #track-list {
     display: none;
-    /*position: absolute;
-    top: 0px;
-    padding-top: 100px;*/
     width: 100%;
     padding-bottom: 120px;
     background-size: cover !important;
@@ -115,10 +121,6 @@ button.track {
     text-align: left;
 }
 
-button.track:hover {
-    cursor: pointer;
-}
-
 button.track-active {
     background-color: rgb(150,25,25) !important;
     color: white;
@@ -136,35 +138,28 @@ button#track-list-close {
     color: rgb(230,230,230);
 }
 
-button#track-list-close:hover {
-    cursor: pointer;
-}
-
 button#menu-toggle {
-    border: none;
-    background: rgb(180,50,50);
+    border: 1px solid #ccc;
+    background: white;
     padding: 0px;
     font-size: 32px;
-    width: 50px;
+    width: 60px;
     height: 60px;
     line-height: 60px;
-    color: rgb(240,240,240);
-    z-index: 500;
+    color: rgb(24,24,24);
     position: fixed;
     top: 0px;
-    left: 0px;
+    right: 0px;
+    float: right;
+    font-weight: 900;
     z-index: 1000;
-}
-
-button#menu-toggle:hover {
-    cursor: pointer;
 }
 
 nav#menu {
     display: none;
     position: fixed;
     top: 60px;
-    left: 0px;
+    right: 0px;
     background: rgb(70,70,70);
     width: 250px;
     height: 100%;
@@ -182,12 +177,15 @@ nav button {
     color: rgb(230,230,230);
 }
 
-nav button:hover {
-    cursor: pointer;
+#desktop-nav {
+    position: absolute;
+    top: 13px;
+    right: 0px;
 }
 
-#menu-toggle {
+#desktop-nav button {
     float: left;
+    margin-right: 6px;
 }
 
 div#albums {
@@ -260,10 +258,6 @@ div#albums {
     padding: 0px;
 }
 
-#play-btn:hover, #prev-btn:hover, #next-btn:hover {
-    cursor: pointer;
-}
-
 #play-btn i {
     border: 2px solid rgb(200,200,200);
     border-radius: 50%;
@@ -306,10 +300,6 @@ button#authorize_button {
     border: none;
     padding: 0px;
     background: none;
-}
-
-button#authorize_button:hover, button#signout_button:hover {
-    cursor: pointer;
 }
 
 button#authorize_button img {
@@ -381,6 +371,10 @@ p, li {
         margin-left: -68px;
         bottom: 16px;
     }
+
+    #menu-toggle {
+        display: none;
+    }
 }
 
 @media (max-width: 799px) {
@@ -423,6 +417,14 @@ p, li {
 
     .audio-player-song-text {
         width: calc(100% - 150px);
+    }
+
+    #desktop-nav {
+        display: none;
+    }
+
+    #title-wrapper {
+        width: calc(100% - 70px);
     }
 
 }
@@ -532,7 +534,7 @@ body.light {
 
 .light nav#menu {
     background: white;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
     border-top: 1px solid #ddd;
 }
 

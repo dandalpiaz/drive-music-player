@@ -3,6 +3,7 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- Demo - use public domain music
 - Fetch new data button
 - Fix up sidebar
 - Back to top button
