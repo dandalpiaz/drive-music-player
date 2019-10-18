@@ -61,7 +61,7 @@ button#menu-toggle {
     background: lightseagreen;
     width: 50px;
     height: 60px;
-    padding: 5px;
+    padding: 8px;
     -webkit-filter: invert(95%);
     filter: invert(95%);
 }
