@@ -62,6 +62,8 @@ button#menu-toggle {
     width: 50px;
     height: 60px;
     padding: 5px;
+    -webkit-filter: invert(95%);
+    filter: invert(95%);
 }
 
 h1 {
@@ -110,7 +112,7 @@ button.album {
 }
 
 .album:nth-child(2n) {
-    background: rgb(40,40,40);
+    background: rgb(30,30,30);
 }
 
 .album img {
@@ -148,7 +150,7 @@ button.track-active {
 }
 
 button.track:nth-child(2n) {
-    background: rgb(40,40,40);
+    background: rgb(30,30,30);
 }
 
 button#track-list-close {
@@ -366,32 +368,32 @@ p, li {
     }
 
     .seek-container {
-        width: calc(100% - 176px);
-        left: 111px;
-        top: 0px;
+        width: calc(100% - 126px);
+        left: 61px;
+        bottom: 75px;
         background: rgb(13,13,13);
-        padding-top: 28px;
-        padding-bottom: 32px;
+        padding-top: 20px;
+        padding-bottom: 24px;
         padding-left: 5px;
         padding-right: 5px;
     }
 
     button#prev-btn {
         position: fixed;
-        top: 0px;
-        left: 50px;
+        bottom: 75px;
+        left: 0px;
         background: rgb(13,13,13);
-        padding: 10px;
+        padding: 2px;
         padding-right: 0px;
         padding-left: 21px;
     }
 
     button#next-btn {
         position: fixed;
-        top: 0px;
+        bottom: 75px;
         right: -5px;
         background: rgb(13,13,13);
-        padding: 10px;
+        padding: 2px;
         padding-left: 0px;
         padding-right: 25px;
     }
@@ -464,7 +466,7 @@ body.light {
 }
 
 .light button.track {
-    color: rgb(23,23,23);;
+    color: rgb(60,60,60);;
 }
 
 .light button.track:nth-child(2n) {
