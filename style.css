@@ -26,16 +26,35 @@ button:hover {
     cursor: pointer;
 }
 
-#title-wrapper {
-    -ms-overflow-style: none;  /* IE 10+ */
-    scrollbar-width: none;  /* Firefox */
-    width: calc(100% - 500px)
-}
-#title-wrapper ::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+button#menu-toggle {
+    border: none;
+    background: none;
+    padding: 0px;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: rgb(230,230,230);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    float: right;
+    font-weight: 900;
+    z-index: 1000;
 }
 
-#title-wrapper img {
+#menu button {
+    padding: 7px;
+    display: block;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    color: rgb(230,230,230);
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#header-logo {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -53,8 +72,10 @@ h1 {
     margin-left: 60px;
     line-height: 60px;
     white-space: nowrap;
-    overflow: scroll;
+    text-overflow: ellipsis;
     z-index: 100;
+    overflow: hidden;
+    max-width: calc(100% - 500px);
 }
 
 h1 a {
@@ -136,56 +157,6 @@ button#track-list-close {
     padding: 20px;
     background: none;
     color: rgb(230,230,230);
-}
-
-button#menu-toggle {
-    border: 1px solid #ccc;
-    background: white;
-    padding: 0px;
-    font-size: 32px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    color: rgb(24,24,24);
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    float: right;
-    font-weight: 900;
-    z-index: 1000;
-}
-
-nav#menu {
-    display: none;
-    position: fixed;
-    top: 60px;
-    right: 0px;
-    background: rgb(70,70,70);
-    width: 250px;
-    height: 100%;
-    padding: 20px;
-    z-index: 500;
-}
-
-nav button {
-    padding: 7px;
-    display: block;
-    margin-bottom: 10px;
-    background: none;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    color: rgb(230,230,230);
-}
-
-#desktop-nav {
-    position: absolute;
-    top: 13px;
-    right: 0px;
-}
-
-#desktop-nav button {
-    float: left;
-    margin-right: 6px;
 }
 
 div#albums {
@@ -375,9 +346,25 @@ p, li {
     #menu-toggle {
         display: none;
     }
+
+    #menu {
+        display: block !important;
+        position: absolute;
+        top: 13px;
+        right: 0px;
+    }
+
+    #menu button {
+        float: left;
+    }
 }
 
 @media (max-width: 799px) {
+
+    h1 {
+        max-width: calc(100% - 150px);
+    }
+
     .seek-container {
         width: calc(100% - 176px);
         left: 111px;
@@ -419,23 +406,20 @@ p, li {
         width: calc(100% - 150px);
     }
 
-    #desktop-nav {
+    #menu {
         display: none;
-    }
-
-    #title-wrapper {
-        width: calc(100% - 70px);
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        background: rgb(70,70,70);
+        width: 250px;
+        height: 100%;
+        padding: 20px;
+        z-index: 500;
     }
 
 }
 
-
-/*
-#audio-player-current-link {
-    position: fixed;
-    bottom: 0px;
-}
-*/
 
 
 html {
@@ -509,6 +493,12 @@ body.light {
     .light .seek-container {
         background: white;
     }
+
+    .light #menu {
+        background: white;
+        border-left: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+    }
 }
 
 .light .audio-player-song-text {
@@ -532,20 +522,19 @@ body.light {
     color: rgb(40,40,40);
 }
 
-.light nav#menu {
-    background: white;
-    border-left: 1px solid #ddd;
-    border-top: 1px solid #ddd;
-}
-
 .light h2, .light p {
     color: rgb(40,40,40);
-}
-
-.light nav button {
-    color: rgb(50,50,50);
 }
 
 .light button#track-list-close {
     color: rgb(60,60,60);
 }
+
+.light #menu button {
+    color: rgb(70,70,70);
+}
+
+.light button#menu-toggle {
+    color: rgb(24,24,24);
+}
+
