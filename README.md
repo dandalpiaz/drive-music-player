@@ -4,30 +4,26 @@ A cross-platform music player for cloud-based files
 ## TODO
 
 - Demo - use public domain music
-- Fetch new data button
+- Fetch new data button (clear cache)
 - Fix up sidebar
+- new logo (manifest, favicon, header)
+- header scroll and nav display (like android reddit?)
+- theme-color on new session for android (remove from manifest?)
 - Back to top button
-- Desktop - buttons in the top right (see screenshot)
-- disable caching albums for now
-    - check network, then check cache? (reverse again?)
-- light mode
-    - white styles on instructions, nav section
-    - toggle button
-    - theme-color switch, https://gordonlesti.com/change-theme-color-via-javascript/
 - add search/filter at the top of album list
 - cache the now playing section and always show?
 - Cache API https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api
 - play button on hover from album page
 - tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
-- order of async functions (getting albums, getting album arts)
 - previous button should restart track if not early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
-- PYM - add times to seek, get domain, add WIP to intro, add to portfolio, h1 scroll on mobile, use ID for hash instead of album name
+- PYM - add times to seek, add WIP to intro, add to portfolio, use ID for hash instead of album name
 - show file structure in instructions
 - issue with seek not continuing after interaction
 - now playing should open current album
 - shuffle / repeat
+- album-art only view
 - need paging above 1000 for api calls
 - service worker, caching for offline
 - run lighthouse audit
@@ -45,6 +41,8 @@ A cross-platform music player for cloud-based files
 - copyright
 - privacy policy
 - donate
+- issues - http://debuggerdotbreak.judahgabriel.com/2018/04/13/i-built-a-pwa-and-published-it-in-3-app-stores-heres-what-i-learned/
+- https://stackoverflow.com/questions/20079067/get-file-from-google-drive-and-covert-to-blob
 - https://developers.google.com/drive/api/v3/manage-downloads
 
 CACHE

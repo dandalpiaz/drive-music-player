@@ -24,7 +24,7 @@
 
   <nav id="menu">
     <button id="light-dark-toggle">light / dark</button>
-    <button>sync</button>
+    <button id="sync">sync</button>
     <button>help</button>
     <button>donate</button>
     <button id="signout_button" style="display: none;">sign out</button>
@@ -219,6 +219,10 @@ $( document ).ready(function() {
       $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
       playTrack(prevTrackId);
     }
+  });
+
+  $(document).on('click', '#sync', function(e){
+    deleteCache();
   });
 
   $(document).on('click', '#light-dark-toggle', function(e){

@@ -173,3 +173,9 @@ function listTracks(id) {
     }
   });
 }
+
+function deleteCache() {
+  caches.delete("my-cache").then(function(boolean) {
+    location.reload();
+  });
+}
