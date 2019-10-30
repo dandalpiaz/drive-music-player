@@ -3,6 +3,8 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- remove header? (or do reddit is fun style - hidden on scroll) all mobile menu?
+- album art view - grid with no padding
 - Demo - use public domain music
 - Fetch new data button (clear cache)
 - Fix up sidebar
