@@ -54,35 +54,35 @@ button#menu-toggle {
     margin-right: 10px;
 }
 
-#header-logo {
-    position: absolute;
+#menu {
+    display: none;
+    position: fixed;
     top: 0px;
-    left: 0px;
-    background: lightseagreen;
-    width: 50px;
-    height: 60px;
+    right: 0px;
+    background: rgb(70,70,70);
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    z-index: 500;
+    border-left: 1px solid #ddd;
+}
+
+#header-logo {
+    width: 30px;
+    height: 30px;
     padding: 8px;
-    -webkit-filter: invert(95%);
-    filter: invert(95%);
 }
 
 h1 {
     color: rgba(250,250,250,.8);
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
-    margin: 0px;
-    margin-left: 60px;
-    line-height: 60px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    z-index: 100;
-    overflow: hidden;
-    max-width: calc(100% - 500px);
-}
-
-h1 a {
-    color: rgba(250,250,250,.8);
-    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    float: left;
+    margin-top: 0px;
+    padding-top: 0px;
+    width: 170px;
 }
 
 h2 {
@@ -163,7 +163,7 @@ button#track-list-close {
 
 div#albums {
     position: absolute;
-    top: 100px;
+    top: 0px;
     width: 100%;
     padding-bottom: 120px;
 }
@@ -344,28 +344,9 @@ p, li {
         margin-left: -68px;
         bottom: 16px;
     }
-
-    #menu-toggle {
-        display: none;
-    }
-
-    #menu {
-        display: block !important;
-        position: absolute;
-        top: 13px;
-        right: 0px;
-    }
-
-    #menu button {
-        float: left;
-    }
 }
 
 @media (max-width: 799px) {
-
-    h1 {
-        max-width: calc(100% - 150px);
-    }
 
     .seek-container {
         width: calc(100% - 126px);
@@ -407,19 +388,6 @@ p, li {
     .audio-player-song-text {
         width: calc(100% - 150px);
     }
-
-    #menu {
-        display: none;
-        position: fixed;
-        top: 0px;
-        right: 0px;
-        background: rgb(70,70,70);
-        width: 250px;
-        height: 100%;
-        padding: 20px;
-        z-index: 500;
-    }
-
 }
 
 
@@ -495,12 +463,10 @@ body.light {
     .light .seek-container {
         background: white;
     }
+}
 
-    .light #menu {
-        background: white;
-        border-left: 1px solid #ddd;
-        border-top: 1px solid #ddd;
-    }
+.light #menu {
+    background: white;
 }
 
 .light .audio-player-song-text {
