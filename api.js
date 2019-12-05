@@ -168,6 +168,8 @@ function listTracks(id) {
       var currentTrackId = $('source').attr("data-track-id");
       $(".track[data-track-id='" + currentTrackId + "']").addClass('track-active');
 
+      $('#track-list').prepend("<button id='track-list-close'>&times;</button>");
+
     } else {
       alert('No files found.'); 
     }

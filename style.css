@@ -124,16 +124,21 @@ button.album {
 
 #track-list {
     display: none;
-    width: 100%;
-    padding-bottom: 120px;
+    max-width: 90%;
+    width: 400px;
+    background: white;
     background-size: cover !important;
     background-position: center !important;
-    min-height: calc(100% - 60px) !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    border-radius: 5px;
 }
 
 button.track {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     padding: 20px;
     padding-left: 15px;
     padding-right: 15px;
@@ -154,11 +159,18 @@ button.track:nth-child(2n) {
 }
 
 button#track-list-close {
-    display: none;
     border: 0px;
-    padding: 20px;
+    padding: 10px;
     background: none;
-    color: rgb(230,230,230);
+    color: white !important;
+    float: right;
+    font-size: 32px;
+    background: lightcoral;
+    border-radius: 50%;
+    line-height: 20px;
+    position: relative;
+    bottom: 15px;
+    left: 15px;
 }
 
 div#albums {
@@ -182,7 +194,7 @@ div#albums {
     width: 50%;
     font-size: 20px;
     padding: 20px;
-    padding-top: 35px;
+    padding-top: 0px;
 }
 
 
@@ -487,7 +499,7 @@ body.light {
 }
 
 .light .track-list-album-name {
-    color: rgb(40,40,40);
+    color: rgb(50,50,50);
 }
 
 .light h2, .light p {
@@ -506,3 +518,19 @@ body.light {
     color: rgb(24,24,24);
 }
 
+
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }

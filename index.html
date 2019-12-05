@@ -48,8 +48,10 @@
 </div>
 
 <div id="albums"></div>
-<button id="track-list-close">&larr; Back to albums</button>
-<div id="track-list"></div>
+
+<div class="modal">
+  <div id="track-list"></div>
+</div>
 
 
 <div class="audio-player">
@@ -158,8 +160,8 @@ $( document ).ready(function() {
 
   $(document).on('click', '.album', function(e){
 
-    window.location.hash = $(this).attr("data-album-name").split(' ').join('_');
-    $('#track-list-close').show();
+    window.location.hash = $(this).attr("data-album-id").split(' ').join('_');
+    $('.modal').show();
 
     $('#track-list').html(`
       <img class='track-list-album-image' src=''/>
@@ -172,15 +174,16 @@ $( document ).ready(function() {
     $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
 
     scroll = $(window).scrollTop();
-    $('#albums').hide();
+    //$('#albums').hide();
+    $('body').css("overflow", "hidden");
     $('#track-list').show();
 
   });
 
   $(document).on('click', '#track-list-close', function(e){
-    $('#track-list').hide();
-    $('#track-list-close').hide();
+    $('.modal').hide();
     window.location.hash = "";
+    $('body').css("overflow", "auto");
   });
 
   $(document).on('click', '#menu-toggle', function(e){
