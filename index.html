@@ -61,13 +61,13 @@
   </div>
 
   <span id="audio-player-current-link">
-    <img class="audio-player-album-image" src="" />
+    <img class="audio-player-album-image" src="logo.png" />
     <p class="audio-player-song-text">Now Playing...</p>
   </span>
 
   <div id="control-btns">
     <button id="next-btn"><i class="fas fa-step-forward"></i></button>
-    <button id="play-btn"></button>
+    <button id="play-btn"><i class="fas fa-play"></i></button>
     <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
   </div>
 
@@ -141,7 +141,7 @@ $( document ).ready(function() {
   window.onhashchange = function() {
     if (window.location.hash == "") {
       $('#track-list-close').click();
-      $('#albums').show();
+      //$('#albums').show();
       $(window).scrollTop(scroll);
     }
   }
