@@ -3,6 +3,10 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- smaller font size, more weight, more line-height
+- all user to select folder from Drive
+    - Drive file picker
+    - Store in cookie?
 - remove header? (or do reddit is fun style - hidden on scroll) all mobile menu?
 - album art view - grid with no padding
 - Demo - use public domain music
@@ -20,7 +24,7 @@ A cross-platform music player for cloud-based files
 - previous button should restart track if not early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
-- PYM - add times to seek, add WIP to intro, add to portfolio, use ID for hash instead of album name
+- PYM - add times to seek, add WIP to intro, add to portfolio, use ID for hash instead of album name, host on GH pages?
 - show file structure in instructions
 - issue with seek not continuing after interaction
 - now playing should open current album
