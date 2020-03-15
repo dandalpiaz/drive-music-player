@@ -104,7 +104,7 @@ button.album {
     padding: 10px;
     margin: 0px;
     color: rgba(255,255,255,0.8);
-    font-size: 16px;
+    font-size: 15px;
     width: 100%;
     text-align: left;
     line-height: 65px;
@@ -260,7 +260,7 @@ i.fas.fa-play {
 .album span {
     width: calc(100% - 120px);
     display: inline-block;
-    line-height: 18px;
+    line-height: 22px;
     vertical-align: middle;
 }
 
