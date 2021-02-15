@@ -3,13 +3,17 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- album page - centered art (SP)
+- gapless playback
+- now playing display, instead of full seek on mobile
+- better back navigation
 - smaller font size, more weight, more line-height
 - all user to select folder from Drive
     - Drive file picker
     - Store in cookie?
 - remove header? (or do reddit is fun style - hidden on scroll) all mobile menu?
 - album art view - grid with no padding
-- Demo - use public domain music
+- Demo - use public domain music (archive.org)
 - Fetch new data button (clear cache)
 - Fix up sidebar
 - new logo (manifest, favicon, header)
@@ -21,6 +25,8 @@ A cross-platform music player for cloud-based files
 - Cache API https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api
 - play button on hover from album page
 - tag reading - https://ericbidelman.tumblr.com/post/8343485440/reading-mp3-id3-tags-in-javascript
+    - could add neat aligned columns for artist, album
+    - third column could be horitonal track listing which are links to start individual tracks
 - previous button should restart track if not early in seek
 - allow YouTube links instead of audio files
 - wrap with electron for desktop app
