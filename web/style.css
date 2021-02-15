@@ -231,11 +231,6 @@ div#albums {
     padding: 0px;
 }
 
-#play-btn i {
-    border: 2px solid rgb(200,200,200);
-    border-radius: 50%;
-}
-
 #play-btn i, #prev-btn i, #next-btn i {
     font-size: 18px;
     color: rgb(200,200,200);
@@ -391,29 +386,7 @@ p, li {
 }
 
 
-
-html {
-    scrollbar-face-color: #646464;
-    scrollbar-base-color: #646464;
-    scrollbar-3dlight-color: #646464;
-    scrollbar-highlight-color: #646464;
-    scrollbar-track-color: rgb(13,13,13);
-    scrollbar-arrow-color: rgb(13,13,13);
-    scrollbar-shadow-color: #646464;
-}
-
-::-webkit-scrollbar { width: 10px; height: 3px;}
-::-webkit-scrollbar-button {  background-color: #666; }
-::-webkit-scrollbar-track {  background-color: #646464;}
-::-webkit-scrollbar-track-piece { background-color: rgb(13,13,13);}
-::-webkit-scrollbar-thumb { height: 50px; background-color: #666;}
-::-webkit-scrollbar-corner { background-color: #646464;}
-::-webkit-resizer { background-color: #666;}
-
-
 /* LIGHT MODE */
-
-::-webkit-scrollbar-track-piece { background-color: white;}
 
 body.light {
     background: white;
@@ -480,10 +453,6 @@ body.light {
 
 .light #play-btn i, .light #prev-btn i, .light #next-btn i {
     color: rgb(60,60,60);
-}
-
-.light #play-btn i {
-    border: 2px solid rgb(60,60,60)
 }
 
 .light .track-list-album-name {
