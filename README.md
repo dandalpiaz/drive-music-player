@@ -3,6 +3,7 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+- selected/playing song use red text
 - album page - centered art (SP)
 - gapless playback
 - now playing display, instead of full seek on mobile

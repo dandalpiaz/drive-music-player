@@ -162,9 +162,8 @@ $( document ).ready(function() {
     $('#track-list-close').show();
 
     $('#track-list').html(`
-      <img class='track-list-album-image' src=''/>
       <span class='track-list-album-name'></span>
-      <span style='display: block; clear: both;'></span>
+      <img class='track-list-album-image' src=''/>
     `); // reset track list 
     listTracks( $(this).attr("data-album-id") );
 

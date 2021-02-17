@@ -28,13 +28,13 @@ button:hover {
 
 button#menu-toggle {
     border: none;
-    background: none;
+    background: rgb(240,80,80);
     padding: 0px;
     font-size: 32px;
     width: 60px;
     height: 60px;
     line-height: 60px;
-    color: rgb(230,230,230);
+    color: white;
     position: fixed;
     top: 0px;
     right: 0px;
@@ -64,7 +64,7 @@ button#menu-toggle {
     height: 100%;
     padding: 20px;
     z-index: 500;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid rgb(50,50,50);
 }
 
 #header-logo {
@@ -145,8 +145,8 @@ button.track {
 }
 
 button.track-active {
-    background-color: rgb(150,25,25) !important;
-    color: white;
+    color: rgb(250,40,40) !important;
+    font-weight: 500;
 }
 
 button.track:nth-child(2n) {
@@ -172,17 +172,20 @@ div#albums {
     display: block;
     width: 265px;
     max-width: 50%;
-    float: left;
     padding: 20px;
+    padding-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .track-list-album-name {
     float: left;
     color: rgba(250,250,250,0.9);
-    width: 50%;
+    width: 100%;
     font-size: 20px;
     padding: 20px;
     padding-top: 35px;
+    text-align: center;
 }
 
 
@@ -257,6 +260,9 @@ i.fas.fa-play {
     display: inline-block;
     line-height: 22px;
     vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #intro, #instructions {
@@ -348,8 +354,8 @@ p, li {
         left: 61px;
         bottom: 75px;
         background: rgb(13,13,13);
-        padding-top: 20px;
-        padding-bottom: 24px;
+        padding-top: 15px;
+        padding-bottom: 19px;
         padding-left: 5px;
         padding-right: 5px;
     }
@@ -359,9 +365,10 @@ p, li {
         bottom: 75px;
         left: 0px;
         background: rgb(13,13,13);
-        padding: 2px;
+        padding: 0px;
         padding-right: 0px;
         padding-left: 21px;
+        height: 34px;
     }
 
     button#next-btn {
@@ -369,9 +376,10 @@ p, li {
         bottom: 75px;
         right: -5px;
         background: rgb(13,13,13);
-        padding: 2px;
+        padding: 0px;
         padding-left: 0px;
         padding-right: 25px;
+        height: 34px;
     }
 
     button#play-btn {
@@ -412,10 +420,6 @@ body.light {
 
 .light button.track:nth-child(2n) {
     background: rgb(243,243,243);
-}
-
-.light button.track-active {
-    color: white;
 }
 
 .light .album {
@@ -471,7 +475,11 @@ body.light {
     color: rgb(70,70,70);
 }
 
+.light #menu {
+    border-left: 1px solid #ddd;
+}
+
 .light button#menu-toggle {
-    color: rgb(24,24,24);
+    /*color: rgb(24,24,24);*/
 }
 
