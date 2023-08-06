@@ -3,6 +3,8 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+https://developers.google.com/drive/api/quickstart/js
+
 - selected/playing song use red text
 - album page - centered art (SP)
 - gapless playback
