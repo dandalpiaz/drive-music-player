@@ -26,16 +26,18 @@
     <button id="sync">sync</button>
     <button>help</button>
     <button>donate</button>
-    <button id="signout_button" style="display: none;">sign out</button>
+    <button id="signout_button" onclick="handleSignoutClick()" style="display: none;">sign out</button>
   </nav>
 
 </header>
 
-<div id="intro" style="display: none;">
+<div id="intro" style="">
+
   <h2>Welcome!</h2>
   <p>To get started, you can...</p>
-  <button id="authorize_button"><img src="google.png" alt="Google Login" /></button>
+  <button id="authorize_button" onclick="handleAuthClick()"><img src="google.png" alt="Google Login" /></button>
   <p>Play the music files you own on any platform! Play Your Music will pull music files that are saved in a cloud storage service. Right now only Google Drive is supported, but I hope to add more options in the future. Once set up, the app will look something like this:</p>
+
   <img id="screenshot" src="screenshot.PNG" alt="screenshot of Play Your Music" />
 </div>
 
@@ -83,7 +85,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="auth.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+
+<!--<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>-->
+
+
 <script type="text/javascript" src="api.js"></script>
 
 

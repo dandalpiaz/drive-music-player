@@ -8,7 +8,7 @@ function findMusicFolder() {
       catch {
         return gapi.client.drive.files.list({
           'pageSize': 1,
-          'q' : " name contains 'my-music' and trashed = false ",
+          'q' : " name contains 'albums-singles' and trashed = false ",
           'fields': "nextPageToken, files(id, name)"
         }).then(function(response) {
           if (response.result.files && response.result.files.length > 0) {
@@ -108,7 +108,7 @@ function findArts() {
                 setTimeout(function() {
                   console.log("caught img");
                   var fileId = imgid;
-                  var accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;// or this: gapi.auth.getToken().access_token;
+                  var accessToken = gapi.auth.getToken().access_token;// or this: gapi.auth.getToken().access_token;
                   var xhr = new XMLHttpRequest();
                   xhr.open("GET", "https://www.googleapis.com/drive/v3/files/"+fileId+'?alt=media', true);
                   xhr.setRequestHeader('Authorization','Bearer '+accessToken);
