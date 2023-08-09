@@ -18,8 +18,6 @@ async function initializeGapiClient() {
     discoveryDocs: [DISCOVERY_DOC],
   });
   gapiInited = true;
-  //maybeEnableButtons();
-  
 }
 
 function gisLoaded() {
@@ -29,27 +27,15 @@ function gisLoaded() {
       callback: '', // defined later
   });
   gisInited = true;
-  //maybeEnableButtons();
 }
-
-/*
-function maybeEnableButtons() {
-  if (gapiInited && gisInited) {
-    document.getElementById('authorize_button').style.visibility = 'visible';
-  }
-}
-*/
 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
       if (resp.error !== undefined) {
         throw (resp);
       }
-      //document.getElementById('signout_button').style.visibility = 'visible';
-      //document.getElementById('authorize_button').innerText = 'Refresh';
       //await listFiles();
-      findMusicFolder();
-      $('#intro').hide();
+      listAllTracks("1FgHDW5g6RbBsMrvM_GWvWXzonwJpV1uf");
   };
   
   if (gapi.client.getToken() === null) {
@@ -64,9 +50,6 @@ function handleSignoutClick() {
   if (token !== null) {
       google.accounts.oauth2.revoke(token.access_token);
       gapi.client.setToken('');
-      //document.getElementById('content').innerText = '';
-      //document.getElementById('authorize_button').innerText = 'Authorize';
-      //document.getElementById('signout_button').style.visibility = 'hidden';
   }
 }
 

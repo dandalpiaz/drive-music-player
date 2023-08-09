@@ -174,6 +174,26 @@ function listTracks(id) {
   });
 }
 
+function listAllTracks(id) {
+  var trackquery = "'" + id + "'" + " in parents and mimeType contains 'audio/' and trashed = false";
+  gapi.client.drive.files.list({
+    'pageSize': 50,
+    'q' : trackquery,
+    'fields': "nextPageToken, files(id, name, webContentLink)"
+  }).then(function(response) {
+    console.log(response);
+    var files = response.result.files;
+    if (files && files.length > 0) {
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        $('#track-list').append("<button class='track' data-track-id='" + file.webContentLink + "'>" + file.name + "</button>");
+      }
+    } else {
+      alert('No files found.'); 
+    }
+  });
+}
+
 function deleteCache() {
   caches.delete("my-cache").then(function(boolean) {
     location.reload();
