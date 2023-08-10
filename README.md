@@ -5,6 +5,8 @@ A cross-platform music player for cloud-based files
 
 ## TODO
 
+drive.music.linking.page
+
 https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow
 
 https://developers.google.com/identity/oauth2/web/guides/migration-to-gis
@@ -19,7 +21,7 @@ https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 - Redo my own folder structure
 - Use nested details summaries
 - Restrict API key? Is it even needed?
-- Create documentatian on Google API setup
+- Create documentatian on Google API setup, rename app?
 - Select folder ID from Drive and instructions
 - Gapless playback
 - Demo - use public domain music (archive.org)
