@@ -17,13 +17,10 @@
 <body>
 <main role="main" class="container">
 
-<h1>Play Your Music: a cross-platform music player for cloud-based files</h1>
+<h1 style="text-align: center;">Music Player for your files in Google Drive</h1>
 
-<a href="#" role="button">re-sync</a>
-<a href="#" role="button">donate</a>
-<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">sign out</a><br /><br />
-
-<a href="#" role="button" id="authorize_button" onclick="handleAuthClick()"><img src="google.png" alt="Google Login" /></a>
+<a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a><br/>
+<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>
 
 <div id="track-list"></div>
 
