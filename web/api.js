@@ -20,16 +20,25 @@ function getContents(id, type) {
     'orderBy': 'name',
     'fields': "nextPageToken, files(id, name, mimeType, webContentLink)"
   }).then(function(response) {
-    //console.log(response);
 
+    // hide intro
+    document.getElementById('intro').style.display = 'none';
+
+    // set location
     if ( type == "initial" ) {
       var location = "contents";
     } else {
       var location = id;
+
+      // check for previous load
+      if ( document.getElementById(location).classList.contains("loaded") ) {
+        return;
+      }
     }
     
     var files = response.result.files;
     if (files && files.length > 0) {
+
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
 
@@ -46,6 +55,8 @@ function getContents(id, type) {
           <a class="track" data-track-id="${file.webContentLink}">${file.name}</a>
           `;
         }
+
+        document.getElementById(location).classList.add("loaded");
         
       }
     } else {
