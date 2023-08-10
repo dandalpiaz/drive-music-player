@@ -194,7 +194,7 @@ function listAllTracks(id) {
   });
 }
 
-function getContents(id) {
+function getContents(id, type) {
   var contentsQuery = "'" + id + "'" + " in parents and trashed = false ";
   gapi.client.drive.files.list({
     'pageSize': 1000,
@@ -203,6 +203,12 @@ function getContents(id) {
     'fields': "nextPageToken, files(id, name, mimeType, webContentLink)"
   }).then(function(response) {
     //console.log(response);
+
+    if ( type == "initial" ) {
+      var location = "contents";
+    } else {
+      var location = id;
+    }
     
     var files = response.result.files;
     if (files && files.length > 0) {
@@ -210,12 +216,16 @@ function getContents(id) {
         var file = files[i];
 
         if ( file.mimeType.includes("application/vnd.google-apps.folder") ) {
-          $('#track-list').append("<button class='track' data-track-id='" + file.id + "'>" + file.name + "</button>");
+          document.getElementById(location).innerHTML += `
+          <details id="${file.id}">
+            <summary onclick="getContents('${file.id}')">${file.name}</summary>
+          </details>
+          `;
         }
 
-        if ( file.mimeType.includes("audio") ) {
-          $('#track-list').append("<button class='track' data-track-id='" + file.webContentLink + "'>" + file.name + "</button>");
-        }
+        //if ( file.mimeType.includes("audio") ) {
+          //$('#contents').append("<button class='track' data-track-id='" + file.webContentLink + "'>" + file.name + "</button>");
+        //}
         
       }
     } else {
@@ -223,3 +233,5 @@ function getContents(id) {
     }
   });
 }
+
+

@@ -35,7 +35,7 @@ function handleAuthClick() {
         throw (resp);
       }
       //listAllTracks("1FgHDW5g6RbBsMrvM_GWvWXzonwJpV1uf");
-      getContents("1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m");
+      getContents("1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m", "initial");
   };
   
   if (gapi.client.getToken() === null) {
