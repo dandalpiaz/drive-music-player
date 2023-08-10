@@ -43,7 +43,7 @@ a[role="button"] {
 
 /* accordions */
 details details {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 details details:first-of-type {
@@ -52,4 +52,10 @@ details details:first-of-type {
 
 details details:last-of-type {
     border: none;
+}
+
+/* tracks */
+a.track {
+    display: list-item;
+    margin-left: 35px;
 }
