@@ -52,7 +52,7 @@ function getContents(id, type) {
 
         if ( file.mimeType.includes("audio") ) {
           document.getElementById(location).innerHTML += `
-          <a class="track" data-track-id="${file.webContentLink}">${file.name}</a>
+          <a class="track" data-track-src="${file.webContentLink}">${file.name}</a>
           `;
         }
 
