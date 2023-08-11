@@ -1,9 +1,9 @@
 
-# Play Your Music
-
-A cross-platform music player for cloud-based files
+# Drive Music Player - Play Your Music Files Stored in Google
 
 ## TODO
+
+1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m
 
 https://codesandbox.io/s/react-w877cp
 
@@ -17,13 +17,12 @@ https://stackoverflow.com/questions/60268016/google-drive-api-v3-find-all-files-
 
 https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 
-- Intro text
+- Select folder ID from Drive and instructions (input box next to button, save to localstorage)
 - Is access_token stored anywhere (dev console)?
 - Combine JS ?
 - Restrict API key? Is it even needed?
 - Create documentatian on Google API setup, rename app?
-- Select folder ID from Drive and instructions (input box next to button, save to localstorage)
-- Gapless playback
+- Gapless playback?
 - Demo - use public domain albums (archive.org)
 - Previous button should restart track if not early in seek
 - Use React audio player
@@ -32,7 +31,7 @@ https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 - Simple analytics
 - Legal
 - Donate
-- Check tab accessibility
+- Check tab accessibility (details focus on load)
 - Host on GH pages
 - Can Google auth process be shorter? Skip perms prompt?
 
