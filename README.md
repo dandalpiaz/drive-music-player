@@ -35,5 +35,9 @@ https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 - Host on GH pages
 - Can Google auth process be shorter? Skip perms prompt?
 
+## Local Development
+
+Run `python3 -m http.server` to start a local web server. 
+
 ## References
 
