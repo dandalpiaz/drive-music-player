@@ -4,7 +4,7 @@
 /* ----------------------- */
 
 const CLIENT_ID = '287941413176-519ook6nkgvpt69e820p6hdcb9218loo.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyDAx2KY_QZoJ5VKpUrL_Q8Z13OHYCgf-Kw';
+//const API_KEY = 'AIzaSyDAx2KY_QZoJ5VKpUrL_Q8Z13OHYCgf-Kw';
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
 
@@ -18,7 +18,7 @@ function gapiLoaded() {
 
 async function initializeGapiClient() {
   await gapi.client.init({
-    apiKey: API_KEY,
+    //apiKey: API_KEY,
     discoveryDocs: [DISCOVERY_DOC],
   });
   gapiInited = true;
@@ -28,7 +28,7 @@ function gisLoaded() {
   tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
-      callback: '', // defined later
+      callback: '',
   });
   gisInited = true;
 }
@@ -100,6 +100,7 @@ function getContents(id, type) {
     var files = response.result.files;
     if (files && files.length > 0) {
 
+      // loop folders
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
 
@@ -111,6 +112,13 @@ function getContents(id, type) {
           `;
         }
 
+        document.getElementById(location).classList.add("loaded");
+      }
+
+      // loop files
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+
         if ( file.mimeType.includes("audio") ) {
           document.getElementById(location).innerHTML += `
           <a class="track" data-track-src="${file.webContentLink}">${file.name}</a>
@@ -118,8 +126,8 @@ function getContents(id, type) {
         }
 
         document.getElementById(location).classList.add("loaded");
-        
       }
+
     } else {
       alert('No files found.'); 
     }

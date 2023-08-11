@@ -3,20 +3,15 @@
 
 ## TODO
 
-- Test a further nested example
-- Test examples with mix of folders and audio files
-- Restrict API key? Is it even needed?
-- Create documentatian on Google API setup, rename app?
-- Gapless playback?
-- Demo - use public domain albums (archive.org)
-- Previous button should restart track if not early in seek
+- Create documentatian on Google API setup, rename app? No API key needed?
+- Demo content - use public domain albums (archive.org)
 - Use React audio player
-- Service worker?
+    - Gapless playback?
+    - Previous button should restart track if not early in seek
+- Service worker / PWA / manifest?
 - Request app verification w/ Google
 - Simple analytics
-- Legal
-- Add link to GH repo
-- Donate
+- Add legal links, and link to GH repo (license?)
 - Check tab accessibility (details focus on load)
 - Host on GH pages
 - Can Google auth process be shorter? Skip perms prompt?
