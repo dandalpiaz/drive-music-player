@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.4.4/css/pico.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body onload="getFolderId()">
@@ -35,19 +34,6 @@
     <input type="submit" value="Authorize access to Drive" style="display: inline-block; width: auto; margin-bottom: 3px;">
   </form>
 
-  <script>
-    function submitFolderId(e) {
-      e.preventDefault();
-      localStorage.setItem("parentfolder", document.getElementById('parentfolder').value);
-      handleAuthClick(document.getElementById('parentfolder').value);
-    }
-
-    function getFolderId() {
-      document.getElementById('parentfolder').value = localStorage.getItem("parentfolder");
-    }
-
-  </script>
-
   <small><ol>
     <li id="note1">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
     <li>For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
@@ -67,14 +53,13 @@
     </details>
   </div>
 
-</div>
+</div><!-- end intro -->
 
 <div id="contents"></div>
 
-<script type="text/javascript" src="auth.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
-<script type="text/javascript" src="api.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 
 </main>
 </body>

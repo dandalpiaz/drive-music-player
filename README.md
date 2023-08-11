@@ -5,7 +5,6 @@
 
 - Test a further nested example
 - Test examples with mix of folders and audio files
-- Combine JS ?
 - Restrict API key? Is it even needed?
 - Create documentatian on Google API setup, rename app?
 - Gapless playback?
@@ -16,6 +15,7 @@
 - Request app verification w/ Google
 - Simple analytics
 - Legal
+- Add link to GH repo
 - Donate
 - Check tab accessibility (details focus on load)
 - Host on GH pages
