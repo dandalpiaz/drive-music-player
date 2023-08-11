@@ -1,20 +1,22 @@
 
-# Drive Music Player - Play Your Music Files Stored in Google
+# Drive Music Player
+
+Play your music files stored in Google Drive.
 
 ## TODO
 
-- Create documentatian on Google API setup, rename app? No API key needed?
 - Demo content - use public domain albums (archive.org)
 - Use React audio player
     - Gapless playback?
     - Previous button should restart track if not early in seek
+- Create documentatian on Google API setup, rename app? No API key needed?
+- Check tab accessibility (details focus on load)
+- Can Google auth process be shorter? Skip perms prompt?
 - Service worker / PWA / manifest?
 - Request app verification w/ Google
 - Simple analytics
 - Add legal links, and link to GH repo (license?)
-- Check tab accessibility (details focus on load)
 - Host on GH pages
-- Can Google auth process be shorter? Skip perms prompt?
 
 ## Local Development
 
