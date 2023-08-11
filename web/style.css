@@ -68,6 +68,7 @@ a.track {
     margin-right: 5px;
 }
 
+/* visibly hidden */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -78,4 +79,3 @@ a.track {
     clip: rect(0,0,0,0);
     border: 0;
   }
-  

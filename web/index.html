@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>Music Player for Google Drive</title>
+  <title>Drive Music Player - Play Your Music Files Stored in Google Drive</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Music Player for Google Drive">
+  <meta name="description" content="Drive Music Player - Play Your Music Files Stored in Google Drive">
   <link rel="shortcut icon" type="image/png" href="/favicon.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.4.4/css/pico.min.css">
@@ -23,9 +23,11 @@
     <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files Stored in Google Drive</span>
   </h1>
 
-  <p>There is some preamble text that will go here.</p>
+  <p>Stream music from your own <a href="https://drive.google.com" target="_blank">Google Drive</a> folder! Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists. This app allows you to browse and listen to music that you have stored in Google Drive.</p>
 
   <h2>How To Use</h2>
+
+  <p>To use this app, you'll need to find and input the folder ID for a Google Drive folder that you're using to store music. The recommended structure for that folder is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</p>
 
   <form>
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
@@ -33,7 +35,6 @@
     <a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>
   </form>
 
-  <br/>
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
   <h2>Demo</h2>
