@@ -23,17 +23,22 @@
     <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files Stored in Google Drive</span>
   </h1>
 
-  <p>Stream music from your own <a href="https://drive.google.com" target="_blank">Google Drive</a> folder! Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists. This app allows you to browse and listen to music that you have stored in Google Drive.</p>
+  <p>Stream music from your own <a href="https://drive.google.com" target="_blank">Google Drive</a> folder! Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists. This app allows you to browse and listen to music that you have stored in Google Drive. See a <a href="#demo">demo</a> below!</p>
 
   <h2>How To Use</h2>
 
-  <p>To use this app, you'll need to find and input the folder ID for a Google Drive folder that you're using to store music. The recommended structure for that folder is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and click the "Authorize Drive Access" button. The ID can be found by taking that last part of the folder's URL. For example, the folder, drive.google.com/drive/folders/12345-abcde , has an ID of <code>12345-abcde</code> .</p>
 
   <form>
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
     <input type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
     <a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>
   </form>
+
+  <small><ol>
+    <li>The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
+    <li>For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
+  </ol></small>
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 

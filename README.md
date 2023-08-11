@@ -18,8 +18,6 @@ https://stackoverflow.com/questions/60268016/google-drive-api-v3-find-all-files-
 https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 
 - Intro text
-    - How To Use section (pictures of folder ID)
-    - Will have to login each time (security) not storing access token
 - Is access_token stored anywhere (dev console)?
 - Combine JS ?
 - Restrict API key? Is it even needed?
