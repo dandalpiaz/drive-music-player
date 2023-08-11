@@ -29,12 +29,12 @@ function gisLoaded() {
   gisInited = true;
 }
 
-function handleAuthClick() {
+function handleAuthClick(folderId) {
   tokenClient.callback = async (resp) => {
       if (resp.error !== undefined) {
         throw (resp);
       }
-      getContents("1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m", "initial");
+      getContents(folderId, "initial");
   };
   
   if (gapi.client.getToken() === null) {

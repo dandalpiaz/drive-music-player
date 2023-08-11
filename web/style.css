@@ -32,16 +32,6 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* button override */
-/*
-a[role="button"] {
-    display: block;
-    text-align: center;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}*/
-
 /* accordions */
 details details {
     margin-left: 25px;

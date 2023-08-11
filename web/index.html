@@ -27,16 +27,24 @@
 
   <h2>How To Use</h2>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and click the "Authorize Drive Access" button. The ID can be found by taking that last part of the folder's URL. For example, the folder, drive.google.com/drive/folders/12345-abcde , has an ID of <code>12345-abcde</code> .</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note1">1</a></sup> you would like to use and click the "Authorize access to Drive" button<sup><a href="#note2">2</a></sup>. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
 
-  <form>
+  <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
-    <input type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
-    <a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>
+    <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
+    <input type="submit" value="Authorize access to Drive" style="display: inline-block; width: auto; margin-bottom: 3px;">
+    <!--<a href="javascript:void(0)" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>-->
   </form>
 
+  <script>
+    function submitFolderId(e) {
+      e.preventDefault();
+      handleAuthClick(document.getElementById('parentfolder').value);
+    }
+  </script>
+
   <small><ol>
-    <li>The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
+    <li id="note1">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
     <li>For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
   </ol></small>
 
