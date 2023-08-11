@@ -19,10 +19,35 @@
 <main role="main" class="container">
 
 <div id="intro">
-  <h1 style="text-align: center;">Music Player for Google Drive</h1>
+  <h1>Drive Music Player <br />
+    <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files Stored in Google Drive</span>
+  </h1>
 
-  <a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a><br/>
+  <p>There is some preamble text that will go here.</p>
+
+  <h2>How To Use</h2>
+
+  <form>
+    <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
+    <input type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
+    <a href="#" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>
+  </form>
+
+  <br/>
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
+
+  <h2>Demo</h2>
+
+  <div id="demo" class="loaded">
+    <details>
+      <summary>Animal Collective</summary>
+    </details>
+    
+    <details>
+      <summary>Daft Punk</summary>
+    </details>
+  </div>
+
 </div>
 
 <div id="contents"></div>

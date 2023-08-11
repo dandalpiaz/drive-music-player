@@ -33,13 +33,14 @@ h2 {
 }
 
 /* button override */
+/*
 a[role="button"] {
     display: block;
     text-align: center;
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-}
+}*/
 
 /* accordions */
 details details {
@@ -59,3 +60,22 @@ a.track {
     display: list-item;
     margin-left: 35px;
 }
+
+/* folder ID input */
+#parentfolder {
+    width: calc(100% - 282px);
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+  
