@@ -2,315 +2,75 @@
 <html lang="en">
 
 <head>
-  <title>Play Your Music: a cross-platform music player for cloud-based files</title>
+  <title>Drive Music Player - Play Your Music Files Stored in Google Drive</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Play Your Music: a cross-platform music player for cloud-based files">
+  <meta name="description" content="Drive Music Player - Play Your Music Files Stored in Google Drive">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
   <link rel="manifest" href="/manifest.json">
-  <link rel="shortcut icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.4.4/css/pico.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<main role="main" class="container">
 
-<header>
-  
-  <button id="menu-toggle">☰</button>
+<div id="intro">
+  <h1>Drive Music Player <br />
+    <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files Stored in Google Drive</span>
+  </h1>
 
-  <nav id="menu">
-    <!--<img id="header-logo" src="logo.png"/>-->
-    <h1>Play Your Music: a cross-platform music player for cloud-based files</h1>
-    <button id="light-dark-toggle">light / dark</button>
-    <button id="sync">sync</button>
-    <button>help</button>
-    <button>donate</button>
-    <button id="signout_button" onclick="handleSignoutClick()" style="display: none;">sign out</button>
-  </nav>
+  <p>Stream music from your own <a href="https://drive.google.com" target="_blank">Google Drive</a> folder! Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists. This app allows you to browse and listen to music that you have stored in Google Drive. See a <a href="#demo">demo</a> below!</p>
 
-</header>
+  <h2>How To Use</h2>
 
-<div id="intro" style="">
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note1">1</a></sup> you would like to use and click the "Authorize access to Drive" button<sup><a href="#note2">2</a></sup>. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
 
-  <h2>Welcome!</h2>
-  <p>To get started, you can...</p>
-  <button id="authorize_button" onclick="handleAuthClick()"><img src="google.png" alt="Google Login" /></button>
-  <p>Play the music files you own on any platform! Play Your Music will pull music files that are saved in a cloud storage service. Right now only Google Drive is supported, but I hope to add more options in the future. Once set up, the app will look something like this:</p>
+  <form onsubmit="submitFolderId(event)">
+    <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
+    <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
+    <input type="submit" value="Authorize access to Drive" style="display: inline-block; width: auto; margin-bottom: 3px;">
+    <!--<a href="javascript:void(0)" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>-->
+  </form>
 
-  <img id="screenshot" src="screenshot.PNG" alt="screenshot of Play Your Music" />
-</div>
+  <script>
+    function submitFolderId(e) {
+      e.preventDefault();
+      handleAuthClick(document.getElementById('parentfolder').value);
+    }
+  </script>
 
-<div id="instructions" style="display: none;">
-  <h2>Instructions</h2>
-  <ol>
-    <li>Create a folder in your Google Drive and name it "my-music". </li>
-    <li>Within that folder, create folders that contain audio files for albums that you own. For example, a folder could be named, "Pink Floyd - Dark Side of the Moon" and within it, mp3 files for each song, and an album art image named "folder.jpg".</li>
-  </ol>
-</div>
+  <small><ol>
+    <li id="note1">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
+    <li>For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
+  </ol></small>
 
-<div id="albums"></div>
-<button id="track-list-close">&larr; Back to albums</button>
-<div id="track-list"></div>
+  <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
+  <h2>Demo</h2>
 
-<div class="audio-player">
-
-  <div class="seek-container">
-    <input type="range" min="0" max="100" value="0" class="seek" id="seekbar">
+  <div id="demo" class="loaded">
+    <details>
+      <summary>Animal Collective</summary>
+    </details>
+    
+    <details>
+      <summary>Daft Punk</summary>
+    </details>
   </div>
 
-  <span id="audio-player-current-link">
-    <img class="audio-player-album-image" src="" />
-    <p class="audio-player-song-text">Now Playing...</p>
-  </span>
-
-  <div id="control-btns">
-    <button id="next-btn"><i class="fas fa-step-forward"></i></button>
-    <button id="play-btn"></button>
-    <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
-  </div>
-
-  <audio id="player" ontimeupdate="updateSeek()">
-    <source src="" type="audio/mp3">
-  </audio>
-
 </div>
 
-<div id="the-queue" style="display: none;"></div>
+<div id="contents"></div>
 
-<!--<p>&copy; playyourmusic.org</p>-->
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="auth.js"></script>
-
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
-
-<!--<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>-->
-
-
 <script type="text/javascript" src="api.js"></script>
 
-
-<script type="text/javascript">
-
-function updateSeek() {
-
-  var player = document.getElementById('player');
-  var length = player.duration
-  if ( isNaN(length) ) {
-    length = 1;
-  }
-  var current_time = player.currentTime;
-  var seekbar = document.getElementById('seekbar');
-
-  if ( $('#seekbar:active').length || $("#seekbar").is(":focus") ) {
-    // the seek bar is active
-  } else {
-    seekbar.value = (current_time / length) * 100;
-  }
-
-  seekbar.addEventListener("click", seek);
-  seekbar.addEventListener("touchend", seek);
-
-  function seek(evt) {
-    var offset = evt.offsetX;
-    if (offset == null) {
-      offset = evt.changedTouches[0].clientX
-    }
-    var percent = offset / this.offsetWidth;
-    player.currentTime = percent * player.duration;
-    console.log(player.currentTime);
-  }
-}
-
-function playTrack(id) {
-
-  var audio = $("audio");  
-  $('source').attr("src", id);
-  $('source').attr("data-track-id", id);
-  audio[0].pause();
-  audio[0].load(); //suspends and restores all audio element
-  audio[0].oncanplaythrough = audio[0].play();
-
-  $(".track[data-track-id='" + id + "']").addClass('track-active');
-  $('.audio-player-song-text').html( $('.track[data-track-id="'+id+'"]').first().text() );
-  $('#play-btn').html('<i class="fas fa-pause"></i>');
-
-}
-
-$( document ).ready(function() {
-
-  window.onhashchange = function() {
-    if (window.location.hash == "") {
-      $('#track-list-close').click();
-      $('#albums').show();
-      $(window).scrollTop(scroll);
-    }
-  }
-
-  $(document).on('click', '.track', function(e){
-    $(".track-active").removeClass('track-active'); // reset track highlight
-    playTrack( $(this).attr("data-track-id") );
-    $('.audio-player').show();
-    $('.audio-player-album-image').attr('src', $('.track-list-album-image').attr('src') );
-
-    //copy tracklist to the queue
-    $('#the-queue').html('');
-    $('#the-queue').html( $('#track-list').html() );
-
-  });
-
-  $(document).on('click', '.album', function(e){
-
-    window.location.hash = $(this).attr("data-album-name").split(' ').join('_');
-    $('#track-list-close').show();
-
-    $('#track-list').html(`
-      <span class='track-list-album-name'></span>
-      <img class='track-list-album-image' src=''/>
-    `); // reset track list 
-    listTracks( $(this).attr("data-album-id") );
-
-    $('.track-list-album-name').html( $(this).attr("data-album-name") );
-    $('.track-list-album-image').attr('src', $(this).children(":first").attr('src'))
-
-    scroll = $(window).scrollTop();
-    $('#albums').hide();
-    $('#track-list').show();
-
-  });
-
-  $(document).on('click', '#track-list-close', function(e){
-    $('#track-list').hide();
-    $('#track-list-close').hide();
-    window.location.hash = "";
-  });
-
-  $(document).on('click', '#menu-toggle', function(e){
-    $('#menu').toggle();
-  });
-
-  $(document).on('click', '#play-btn', function(e){
-    player = document.getElementById('player')
-    if (player.paused === false) {
-      player.pause();
-      $('#play-btn').html('<i class="fas fa-play"></i>');
-    } else {
-      player.play();
-      $('#play-btn').html('<i class="fas fa-pause"></i>');
-    }
-  });
-
-  $(document).on('click', '#next-btn', function(e){
-    var currentTrackId = $('source').attr("data-track-id");
-    var nextTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
-    if ( nextTrackId == null ) {
-      return;
-    } else {
-      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
-      playTrack(nextTrackId);
-    }
-  });
-
-  $(document).on('click', '#prev-btn', function(e){
-    var currentTrackId = $('source').attr("data-track-id");
-    var prevTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").prev().attr("data-track-id");
-    if ( prevTrackId == null ) {
-      return;
-    } else {
-      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
-      playTrack(prevTrackId);
-    }
-  });
-
-  $(document).on('click', '#sync', function(e){
-    deleteCache();
-  });
-
-  $(document).on('click', '#light-dark-toggle', function(e){
-    var metaThemeColor = document.querySelector("meta[name=theme-color]");
-    
-    if (metaThemeColor.getAttribute("content") == "#000000") {
-      metaThemeColor.setAttribute("content", "#ffffff");
-      document.cookie = "mode=light; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-      $("body").addClass("light");
-    } else {
-      metaThemeColor.setAttribute("content", "#000000");
-      document.cookie = "mode=dark; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-      $("body").removeClass("light");
-    }
-    
-  });
-
-
-  function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  var mode = getCookie("mode");
-  if (mode == "light") {
-    $("body").addClass("light");
-    var metaThemeColor = document.querySelector("meta[name=theme-color]");
-    metaThemeColor.setAttribute("content", "#ffffff");
-  }
-
-  /*
-  $(document).on('click', '#audio-player-current-link', function(e){
-    $('#track-list-close').show();
-    window.location.hash = $('#the-queue .track-list-album-name').text().split(' ').join('_');
-    $('#track-list').html( $('#the-queue').html() );
-    scroll = $(window).scrollTop();
-    $('#albums').hide();
-    $('#track-list').show();
-  });
-  */
-
-  var audio = $("audio");  
-  audio[0].addEventListener('ended',function(){
-    var currentTrackId = $('source').attr("data-track-id");
-    var nextTrackId = $("#the-queue .track[data-track-id='" + currentTrackId + "']").next().attr("data-track-id");
-    if ( nextTrackId == null ) {
-      $('#play-btn').html('<i class="fas fa-play"></i>');
-      return;
-    } else {
-      $(".track[data-track-id='" + currentTrackId + "']").removeClass('track-active'); // reset track highlight
-      playTrack(nextTrackId);
-    }
-  });
-
-});
-</script>
-
-<!--
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('sw.js').then(function(registration) {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-      console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-  }
-</script>
--->
-
-
+</main>
 </body>
 </html>

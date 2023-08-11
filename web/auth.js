@@ -18,8 +18,6 @@ async function initializeGapiClient() {
     discoveryDocs: [DISCOVERY_DOC],
   });
   gapiInited = true;
-  //maybeEnableButtons();
-  
 }
 
 function gisLoaded() {
@@ -29,27 +27,14 @@ function gisLoaded() {
       callback: '', // defined later
   });
   gisInited = true;
-  //maybeEnableButtons();
 }
 
-/*
-function maybeEnableButtons() {
-  if (gapiInited && gisInited) {
-    document.getElementById('authorize_button').style.visibility = 'visible';
-  }
-}
-*/
-
-function handleAuthClick() {
+function handleAuthClick(folderId) {
   tokenClient.callback = async (resp) => {
       if (resp.error !== undefined) {
         throw (resp);
       }
-      //document.getElementById('signout_button').style.visibility = 'visible';
-      //document.getElementById('authorize_button').innerText = 'Refresh';
-      //await listFiles();
-      findMusicFolder();
-      $('#intro').hide();
+      getContents(folderId, "initial");
   };
   
   if (gapi.client.getToken() === null) {
@@ -64,69 +49,6 @@ function handleSignoutClick() {
   if (token !== null) {
       google.accounts.oauth2.revoke(token.access_token);
       gapi.client.setToken('');
-      //document.getElementById('content').innerText = '';
-      //document.getElementById('authorize_button').innerText = 'Authorize';
-      //document.getElementById('signout_button').style.visibility = 'hidden';
   }
 }
 
-/*
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    authorizeButton.style.display = 'none';
-    signoutButton.style.display = 'block';
-    findMusicFolder();
-    $('#intro').hide();
-  } else {
-    authorizeButton.style.display = 'block';
-    signoutButton.style.display = 'none';
-    $('#intro').show();
-  }
-}
-*/
-
-
-/*
-function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
-}
-
-function initClient() {
-  gapi.client.init({
-    apiKey: API_KEY,
-    clientId: CLIENT_ID,
-    discoveryDocs: DISCOVERY_DOCS,
-    scope: SCOPES
-  }).then(function () {
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
-    signoutButton.onclick = handleSignoutClick;
-  }, function(error) {
-    console.log(error);
-  });
-}
-
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    authorizeButton.style.display = 'none';
-    signoutButton.style.display = 'block';
-    findMusicFolder();
-    $('#intro').hide();
-  } else {
-    authorizeButton.style.display = 'block';
-    signoutButton.style.display = 'none';
-    $('#intro').show();
-  }
-}
-
-function handleAuthClick(event) {
-  gapi.auth2.getAuthInstance().signIn();
-}
-
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
-  location.reload();
-}
-
-*/
