@@ -1,15 +1,11 @@
 
 # Drive Music Player - Play Your Music Files Stored in Google
 
-1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m
-
 ## TODO
 
-- Select folder ID from Drive and instructions (input box next to button, save to localstorage)
-- Is access_token stored anywhere (dev console)?
-- Combine JS ?
 - Test a further nested example
 - Test examples with mix of folders and audio files
+- Combine JS ?
 - Restrict API key? Is it even needed?
 - Create documentatian on Google API setup, rename app?
 - Gapless playback?
@@ -31,6 +27,7 @@ Run `python3 -m http.server` to start a local web server.
 
 ## References
 
+- My folder is 1O2qmU-ov57GUN9bwmCUWLLVSRagWuj4m
 - [JavaScript Quickstart for Google Drive API](https://developers.google.com/drive/api/quickstart/js)
 - [Google API key restrictions](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 - [React audio player example](https://codesandbox.io/s/react-w877cp)

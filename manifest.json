@@ -1,6 +1,6 @@
 {
-    "short_name": "Music Player for Google Drive",
-    "name": "Music Player for Google Drive",
+    "short_name": "Drive Music Player",
+    "name": "Drive Music Player",
     "icons": [{
       "src": "favicon.png",
       "sizes": "96x96",

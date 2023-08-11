@@ -13,6 +13,12 @@
         padding-left: 16px;
         padding-right: 16px;
     }
+
+    form input {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+
 }
 
 /* increase code color contrast for a11y */

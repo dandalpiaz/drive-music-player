@@ -15,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="getFolderId()">
 <main role="main" class="container">
 
 <div id="intro">
@@ -33,14 +33,19 @@
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
     <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
     <input type="submit" value="Authorize access to Drive" style="display: inline-block; width: auto; margin-bottom: 3px;">
-    <!--<a href="javascript:void(0)" role="button" id="authorize_button" onclick="handleAuthClick()">Authorize access to Drive</a>-->
   </form>
 
   <script>
     function submitFolderId(e) {
       e.preventDefault();
+      localStorage.setItem("parentfolder", document.getElementById('parentfolder').value);
       handleAuthClick(document.getElementById('parentfolder').value);
     }
+
+    function getFolderId() {
+      document.getElementById('parentfolder').value = localStorage.getItem("parentfolder");
+    }
+
   </script>
 
   <small><ol>
