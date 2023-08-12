@@ -11,7 +11,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.4.4/css/pico.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />
 </head>
 
 <body onload="getFolderId()">
@@ -56,12 +56,16 @@
 
 <div id="contents"></div>
 
-<div id="audio-container">
-  <div id="audio-wrapper">
+<div id="audio-wrapper">
+  <div id="audio-container">
+    <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+
     <audio controls>
       <source src="https://drive.google.com/uc?id=1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1" type="audio/mpeg">
-    Your browser does not support the audio element.
+      Your browser does not support the audio element.
     </audio>
+
+    <button id="next-btn"><i class="fas fa-step-forward"></i></button>
   </div>
 </div>
 

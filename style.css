@@ -1,4 +1,9 @@
 
+/* make room for audio */
+body {
+    margin-bottom: 50px;
+}
+
 /* adjust contain widths */
 @media (max-width: 1199px) {
     .container {
@@ -77,7 +82,7 @@ a.track {
   }
 
 /* audio player */
-#audio-container {
+#audio-wrapper {
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -85,7 +90,7 @@ a.track {
     background: rgb(60,60,60);
 }
 
-#audio-wrapper {
+#audio-container {
     max-width: 1130px;
     width: 100%;
     margin-left: auto;
@@ -93,9 +98,25 @@ a.track {
 }
 
 audio {
-    width: 100%;
+    width: calc(100% - 96px);
 }
 
-body {
-    margin-bottom: 50px;
+#next-btn, #prev-btn {
+    background: none;
+    border: none;
+    width: auto;
+    margin: 0px;
+    padding: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index: 2;
+    font-size: 20px;
+}
+
+#next-btn {
+    float: right;
+}
+
+#prev-btn {
+    float: left;
 }
