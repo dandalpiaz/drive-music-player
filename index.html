@@ -19,14 +19,12 @@
 
 <div id="intro">
   <h1>Drive Music Player <br />
-    <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files Stored in Google Drive</span>
+    <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files<sup><a href="#note1">1</a></sup> Stored in Google Drive</span>
   </h1>
-
-  <p>Stream music from your own <a href="https://drive.google.com" target="_blank">Google Drive</a> folder! Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists. This app allows you to browse and listen to music that you have stored in Google Drive. See a <a href="#demo">demo</a> below!</p>
 
   <h2>How To Use</h2>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note1">1</a></sup> you would like to use and click the "Authorize access to Drive" button<sup><a href="#note2">2</a></sup>. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the "Authorize access to Drive" button<sup><a href="#note3">3</a></sup>. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
 
   <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
@@ -35,13 +33,19 @@
   </form>
 
   <small><ol>
-    <li id="note1">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
-    <li>For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
+    <li id="note1">Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists!</li>
+    <li id="note2">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
+    <li id="note3">For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
   </ol></small>
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
   <h2>Demo</h2>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?id=1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
 
   <div id="demo" class="loaded">
     <details>
