@@ -35,17 +35,12 @@
   <small><ol>
     <li id="note1">Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists!</li>
     <li id="note2">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
-    <li id="note3">For extra security, you will be required to authorize/login with Google each time you use the app. This is because the app lacks a dedicated backend and the access token is not being stored.</li>
+    <li id="note3">For extra security, you will be required to authorize/login with Google each time you use the app. <!--This is because the app lacks a dedicated backend and the access token is not being stored.--></li>
   </ol></small>
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
   <h2>Demo</h2>
-
-  <audio controls>
-    <source src="https://drive.google.com/uc?id=1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
 
   <div id="demo" class="loaded">
     <details>
@@ -60,6 +55,15 @@
 </div><!-- end intro -->
 
 <div id="contents"></div>
+
+<div id="audio-container">
+  <div id="audio-wrapper">
+    <audio controls>
+      <source src="https://drive.google.com/uc?id=1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+  </div>
+</div>
 
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>

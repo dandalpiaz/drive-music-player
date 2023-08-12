@@ -75,3 +75,27 @@ a.track {
     clip: rect(0,0,0,0);
     border: 0;
   }
+
+/* audio player */
+#audio-container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: rgb(60,60,60);
+}
+
+#audio-wrapper {
+    max-width: 1130px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+audio {
+    width: 100%;
+}
+
+body {
+    margin-bottom: 50px;
+}
