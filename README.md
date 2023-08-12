@@ -11,10 +11,9 @@ Play your music files stored in Google Drive.
     - Previous button should restart track if not early in seek
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Check tab accessibility (details focus on load)
-- Catch refresh w/ JS to avoid re-auth
-- Can Google auth process be shorter? Skip perms prompt?
+- Catch refresh w/ JS to avoid re-auth (or temp store access token?)
 - Service worker / PWA / manifest?
-- Request app verification w/ Google
+- Request app verification w/ Google (doubtful b/c restricted scope)
 - Simple analytics (generate authed url)
 - Add legal links? And link to GH repo (MIT license?)
 - Host on GH pages (no custom domain)
@@ -29,6 +28,7 @@ Run `python3 -m http.server` to start a local web server.
 - [JavaScript Quickstart for Google Drive API](https://developers.google.com/drive/api/quickstart/js)
 - [Google API key restrictions](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 - [React audio player example](https://codesandbox.io/s/react-w877cp)
-
-
-https://stackoverflow.com/questions/11103582/how-do-you-detect-when-html5-audio-has-finished-playing-more-than-once
+- https://stackoverflow.com/questions/11103582/how-do-you-detect-when-html5-audio-has-finished-playing-more-than-once
+- https://developers.google.com/identity/oauth2/web/reference/js-reference
+- https://developers.google.com/identity/oauth2/web/guides/use-token-model
+- https://developers.google.com/drive/api/guides/api-specific-auth

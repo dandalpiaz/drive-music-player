@@ -42,7 +42,7 @@ function handleAuthClick(folderId) {
   };
   
   if (gapi.client.getToken() === null) {
-      tokenClient.requestAccessToken({prompt: 'consent'});
+      tokenClient.requestAccessToken({prompt: ''});
   } else {
       tokenClient.requestAccessToken({prompt: ''});
   }
