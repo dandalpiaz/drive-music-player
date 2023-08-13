@@ -1,7 +1,11 @@
 
 /* make room for audio */
 body {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+}
+
+main.container {
+    padding-top: 60px;
 }
 
 /* adjust contain widths */
@@ -64,7 +68,7 @@ button.track {
     color: rgb(16, 149, 193);
     margin-left: 10px;
     margin-bottom: 0px;
-    padding: 6px;
+    padding: 4px;
 }
 
 button.track i {
