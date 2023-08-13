@@ -148,37 +148,68 @@ function getFolderId() {
   document.getElementById('parentfolder').value = localStorage.getItem("parentfolder");
 }
 
-function playTrack(id, element) {  
-  if ( document.getElementsByClassName("playing")[0] ) {
-    document.getElementsByClassName("playing")[0].classList.remove("playing");
-  }
-  element.classList.add("playing");
-  var track = "https://drive.google.com/uc?id=" + id + "&export=download";
+function playTrack(id, element) {
   var audio = document.getElementById('audio');
   var source = document.getElementById('source');
+
+  // if clicked track is already 'playing'
+  if ( element == document.getElementsByClassName("playing")[0] ) {
+    if ( audio.paused ) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    return;
+  }
+
+  // check for something already 'playing'
+  if ( document.getElementsByClassName("playing")[0] ) {
+    resetIconToPlay();
+    document.getElementsByClassName("playing")[0].classList.remove("playing");
+  }
+
+  // play new track
+  element.classList.add("playing");
+  var track = "https://drive.google.com/uc?id=" + id + "&export=download";
   source.src = track;
   audio.pause();
   audio.load();
-  audio.play();
-  //audio[0].oncanplaythrough = audio[0].play();
+  audio.play(); //audio.oncanplaythrough = audio.play();
 }
 
 function prevTrack() {
   var audio = document.getElementById('audio');
   if ( audio.currentTime > 3 || !document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
     audio.currentTime = 0;
+    audio.play();
   } else if ( document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
+    resetIconToPlay();
     document.getElementsByClassName("playing")[0].previousElementSibling.click();
   }
 }
 
 function nextTrack() {
+  resetIconToPlay();
   if ( document.getElementsByClassName("playing")[0].nextElementSibling ) {
     document.getElementsByClassName("playing")[0].nextElementSibling.click();
   }
+}
+
+function resetIconToPlay() {
+  document.getElementsByClassName("playing")[0].firstChild.classList.remove("fa-pause");
+  document.getElementsByClassName("playing")[0].firstChild.classList.add("fa-play");
 }
 
 var audio = document.getElementById("audio");
 audio.onended = function() {
   nextTrack();
 };
+
+audio.onplay = function() {
+  document.getElementsByClassName("playing")[0].firstChild.classList.remove("fa-play");
+  document.getElementsByClassName("playing")[0].firstChild.classList.add("fa-pause");
+}
+
+audio.onpause = function() {
+  resetIconToPlay();
+}

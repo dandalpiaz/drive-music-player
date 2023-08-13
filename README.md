@@ -5,8 +5,9 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
+- Space bar for pausing?
+- Gapless playback using two audio elements
 - New access token after an hour?
-- Scrollbar
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Check tab accessibility (details focus on load)
 - Catch refresh w/ JS, warn about reauth
@@ -18,7 +19,8 @@ Play your music files stored in Google Drive.
 
 ### Later
 
-- Gapless playback, check old code
+- DRY in JS
+- Scrollbar styles
 - File picker examples? Use lesser scope?
 - Match other browser native audio player?
 - Temporarily store access token to keep alive on refresh?
