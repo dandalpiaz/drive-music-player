@@ -121,7 +121,7 @@ function getContents(id, type) {
 
         if ( file.mimeType.includes("audio") ) {
           document.getElementById(location).innerHTML += `
-          <a class="track" onclick="playTrack('${file.id}')">${file.name}</a>
+          <button class="track" onclick="playTrack('${file.id}')"><i class="fas fa-play"></i> ${file.name}</button>
           `;
         }
 

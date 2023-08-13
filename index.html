@@ -24,50 +24,45 @@
 
   <h2>How To Use</h2>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the "Authorize access to Drive" button<sup><a href="#note3">3</a></sup>. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and click the "Authorize / Login" button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
 
   <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
     <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
-    <input type="submit" value="Authorize access to Drive" style="display: inline-block; width: auto; margin-bottom: 3px;">
+    <input type="submit" value="Authorize / Login" style="display: inline-block; width: auto; margin-bottom: 3px;">
   </form>
-
-  <small><ol>
-    <li id="note1">Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists!</li>
-    <li id="note2">The recommended folder structure is something like <code>my-folder / artist / album / track 1 | track 2 ...</code> , but other structures should work as well.</li>
-    <li id="note3">For extra security, you will be required to authorize/login with Google each time you use the app. <!--This is because the app lacks a dedicated backend and the access token is not being stored.--></li>
-  </ol></small>
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
-  <h2>Demo</h2>
+  <h2>Demo<sup><a href="#note2">2</a></sup></h2>
 
   <div id="demo" class="loaded">
+    
     <details>
-      <summary>Delete The Cube</summary>
-      <details>
-        <summary>Cube</summary>
-        <a class="track" onclick="playTrack('15qjo2eoM5svZLSq4_Kvs3O-t0cnkd8OF')">01 Test</a>
-      </details>
+      <summary>Delete The Cube - Cube</summary>
+      <button class="track" onclick="playTrack('15qjo2eoM5svZLSq4_Kvs3O-t0cnkd8OF')"><i class="fas fa-play"></i> 01 Test</button>
+      <button class="track" onclick="playTrack('15qjo2eoM5svZLSq4_Kvs3O-t0cnkd8OF')"><i class="fas fa-play"></i> 02 Test</button>
+      <button class="track" onclick="playTrack('15qjo2eoM5svZLSq4_Kvs3O-t0cnkd8OF')"><i class="fas fa-play"></i> 03 Test</button>
     </details>
     
     <details>
-      <summary>Stevia Sphere</summary>
-      <details>
-        <summary>A Mimir</summary>
-      </details>
-      <details>
-        <summary>Music For Slime Creatures</summary>
-      </details>
+      <summary>Stevia Sphere - A Mimir</summary>
     </details>
 
     <details>
-      <summary>Tovatronica</summary>
-      <details>
-        <summary>Paper Boats</summary>
-      </details>
+      <summary>Stevia Sphere - Music For Slime Creatures</summary>
+    </details>
+
+    <details>
+      <summary>Tovatronica - Paper Boats</summary>
     </details>
   </div>
+
+  <br />
+  <small><ol>
+    <li id="note1">Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists!</li>
+    <li id="note2">Demo music is licensed under [[[tbd]]].</li>
+  </ol></small>
 
 </div><!-- end intro -->
 
