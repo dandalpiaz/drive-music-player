@@ -157,6 +157,15 @@ function playTrack(id, element) {
   var audio = document.getElementById('audio');
   var source = document.getElementById('source');
   source.src = track;
+  audio.pause();
   audio.load();
   audio.play();
+  //audio[0].oncanplaythrough = audio[0].play();
 }
+
+var audio = document.getElementById("audio");
+audio.onended = function() {
+  if ( document.getElementsByClassName("playing")[0].nextElementSibling ) {
+    document.getElementsByClassName("playing")[0].nextElementSibling.click();
+  }
+};

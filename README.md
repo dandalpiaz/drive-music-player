@@ -6,7 +6,7 @@ Play your music files stored in Google Drive.
 ## Todo
 
 - Gapless playback, check old code
-- Track end and next/previous track, check old code
+- Next/previous track, check old code
 - New access token after an hour?
 - Scrollbar
 - Create documentatian on Google API setup, rename app? No API key needed?
