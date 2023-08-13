@@ -5,8 +5,7 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Redo webcontent link, check old code, gapless?
-- Highlight playing track, check old code
+- Gapless playback, check old code
 - Track end and next/previous track, check old code
 - New access token after an hour?
 - Scrollbar

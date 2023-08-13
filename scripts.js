@@ -121,7 +121,7 @@ function getContents(id, type) {
 
         if ( file.mimeType.includes("audio") ) {
           document.getElementById(location).innerHTML += `
-          <button class="track" onclick="playTrack('${file.id}')"><i class="fas fa-play"></i> ${file.name}</button>
+          <button class="track" onclick="playTrack('${file.id}', this)"><i class="fas fa-play"></i> ${file.name}</button>
           `;
         }
 
@@ -148,7 +148,11 @@ function getFolderId() {
   document.getElementById('parentfolder').value = localStorage.getItem("parentfolder");
 }
 
-function playTrack(id) {
+function playTrack(id, element) {  
+  if ( document.getElementsByClassName("playing")[0] ) {
+    document.getElementsByClassName("playing")[0].classList.remove("playing");
+  }
+  element.classList.add("playing");
   var track = "https://drive.google.com/uc?id=" + id + "&export=download";
   var audio = document.getElementById('audio');
   var source = document.getElementById('source');

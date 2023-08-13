@@ -91,6 +91,10 @@ button.track i {
     vertical-align: middle;
 }
 
+.playing {
+    color: #a65980 !important;
+}
+
 /* folder ID input */
 #parentfolder {
     width: calc(100% - 282px);
