@@ -148,9 +148,10 @@ if ( document.getElementsByClassName("playing")[0] ) {
 }
 
 function playTrack(id, element) {
-  // if clicked track is already 'playing'
+  // check if clicked track is already 'playing'
   if ( element == playing ) {
     if ( audio.paused ) {
+      resetIconToPause();
       audio.play();
     } else {
       audio.pause();
