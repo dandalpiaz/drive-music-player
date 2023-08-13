@@ -149,7 +149,7 @@ function getFolderId() {
 }
 
 function playTrack(id) {
-  var track = "https://drive.google.com/uc?id=" + id;
+  var track = "https://drive.google.com/uc?id=" + id + "&export=download";
   var audio = document.getElementById('audio');
   var source = document.getElementById('source');
   source.src = track;

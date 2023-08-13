@@ -5,7 +5,6 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Demo content - use public domain albums (CC on Bandcamp)
 - Redo webcontent link, check old code, gapless?
 - Highlight playing track, check old code
 - Track end and next/previous track, check old code
@@ -14,7 +13,7 @@ Play your music files stored in Google Drive.
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Check tab accessibility (details focus on load)
 - Catch refresh w/ JS, warn about reauth
-- Request app verification w/ Google (doubtful b/c restricted scope)
+- Publish g-app and request app verification w/ Google (doubtful b/c restricted scope)
 - Simple analytics (generate authed url)
 - Add legal links
 - Service worker / PWA / manifest?
