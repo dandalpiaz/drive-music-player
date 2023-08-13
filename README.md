@@ -5,31 +5,30 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Host on my Ubuntu box w/ custom domain (symlink, nginx, letsencrypt - document)
-- New access token after an hour?
-- Scrollbar
+- Demo content - use public domain albums (CC on Bandcamp)
 - Redo webcontent link, check old code, gapless?
 - Highlight playing track, check old code
 - Track end and next/previous track, check old code
-- Demo content - use public domain albums (CC on Bandcamp)
-- Use (React) audio player
-    - Gapless playback?
-    - Previous button should restart track if not early in seek
+- New access token after an hour?
+- Scrollbar
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Check tab accessibility (details focus on load)
 - Catch refresh w/ JS, warn about reauth
 - Request app verification w/ Google (doubtful b/c restricted scope)
-- File picker examples? Use lesser scope?
 - Simple analytics (generate authed url)
-- Add legal links? And link to GH repo (MIT license?)
+- Add legal links
 - Service worker / PWA / manifest?
+- Host on my Ubuntu box w/ custom domain (symlink, nginx, letsencrypt - document)
 
 ### Later
 
+- File picker examples? Use lesser scope?
 - Match other browser native audio player?
 - Temporarily store access token to keep alive on refresh?
-- Host on GH pages (no custom domain)?
+- Switch host to GH pages (no custom domain)?
+- Add link to GH repo (if opening source)
 - Could grab artworks?
+- Use React audio player
 
 ## Local Development
 

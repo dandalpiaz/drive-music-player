@@ -66,15 +66,23 @@ button.track {
     border: none;
     text-align: left;
     color: rgb(16, 149, 193);
-    margin-left: 10px;
+    margin-left: 15px;
     margin-bottom: 0px;
     padding: 4px;
     padding-left: 12px;
     padding-right: 12px;
+    width: calc(100% - 15px);
 }
 
 button.track:nth-child(even) {
     background: #18232c;
+}
+
+button.track:last-of-type {
+    margin-bottom: 15px;
+}
+button.track:first-of-type {
+    margin-top: 20px;
 }
 
 button.track i {
