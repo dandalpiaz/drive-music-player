@@ -60,19 +60,6 @@ function handleSignoutClick() {
 /* -------DRIVE API------- */
 /* ----------------------- */
 
-/*
-var mylist = $('#track-list');
-var listitems = mylist.children('button').get();
-listitems.sort(function(a, b) {
-  return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
-})
-$.each(listitems, function(idx, itm) { mylist.append(itm); });
-
-// highlight current track, if available
-var currentTrackId = $('source').attr("data-track-id");
-$(".track[data-track-id='" + currentTrackId + "']").addClass('track-active');
-*/
-
 function getContents(id, type) {
   var contentsQuery = "'" + id + "'" + " in parents and trashed = false ";
   gapi.client.drive.files.list({
@@ -135,7 +122,7 @@ function getContents(id, type) {
 }
 
 /* ----------------------- */
-/* -----APP FUNCTIONS----- */
+/* ------USER FOLDER------ */
 /* ----------------------- */
 
 function submitFolderId(e) {
@@ -148,12 +135,21 @@ function getFolderId() {
   document.getElementById('parentfolder').value = localStorage.getItem("parentfolder");
 }
 
-function playTrack(id, element) {
-  var audio = document.getElementById('audio');
-  var source = document.getElementById('source');
+/* ----------------------- */
+/* ---------AUDIO--------- */
+/* ----------------------- */
 
+audio = document.getElementById('audio');
+source = document.getElementById('source');
+if ( document.getElementsByClassName("playing")[0] ) {
+  playing = document.getElementsByClassName("playing")[0];
+} else {
+  playing = false;
+}
+
+function playTrack(id, element) {
   // if clicked track is already 'playing'
-  if ( element == document.getElementsByClassName("playing")[0] ) {
+  if ( element == playing ) {
     if ( audio.paused ) {
       audio.play();
     } else {
@@ -163,13 +159,15 @@ function playTrack(id, element) {
   }
 
   // check for something already 'playing'
-  if ( document.getElementsByClassName("playing")[0] ) {
+  if ( playing ) {
     resetIconToPlay();
-    document.getElementsByClassName("playing")[0].classList.remove("playing");
+    playing.classList.remove("playing");
   }
 
   // play new track
   element.classList.add("playing");
+  playing = document.getElementsByClassName("playing")[0];
+  resetIconToPause();
   var track = "https://drive.google.com/uc?id=" + id + "&export=download";
   source.src = track;
   audio.pause();
@@ -178,37 +176,35 @@ function playTrack(id, element) {
 }
 
 function prevTrack() {
-  var audio = document.getElementById('audio');
-  if ( audio.currentTime > 3 || !document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
+  if ( audio.currentTime > 3 || !playing.previousElementSibling.previousElementSibling ) {
     audio.currentTime = 0;
     audio.play();
-  } else if ( document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
+  } else if ( playing.previousElementSibling.previousElementSibling ) {
     resetIconToPlay();
-    document.getElementsByClassName("playing")[0].previousElementSibling.click();
+    playing.previousElementSibling.click();
   }
 }
 
 function nextTrack() {
-  resetIconToPlay();
-  if ( document.getElementsByClassName("playing")[0].nextElementSibling ) {
-    document.getElementsByClassName("playing")[0].nextElementSibling.click();
+  if ( playing.nextElementSibling ) {
+    resetIconToPlay();
+    playing.nextElementSibling.click();
   }
 }
 
 function resetIconToPlay() {
-  document.getElementsByClassName("playing")[0].firstChild.classList.remove("fa-pause");
-  document.getElementsByClassName("playing")[0].firstChild.classList.add("fa-play");
+  playing.firstChild.classList.remove("fa-pause");
+  playing.firstChild.classList.add("fa-play");
 }
 
-var audio = document.getElementById("audio");
+function resetIconToPause() {
+  playing.firstChild.classList.remove("fa-play");
+  playing.firstChild.classList.add("fa-pause");
+}
+
 audio.onended = function() {
   nextTrack();
 };
-
-audio.onplay = function() {
-  document.getElementsByClassName("playing")[0].firstChild.classList.remove("fa-play");
-  document.getElementsByClassName("playing")[0].firstChild.classList.add("fa-pause");
-}
 
 audio.onpause = function() {
   resetIconToPlay();

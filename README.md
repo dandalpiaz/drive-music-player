@@ -5,7 +5,7 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Space bar for pausing?
+- Space bar for pausing
 - Gapless playback using two audio elements
 - New access token after an hour?
 - Create documentatian on Google API setup, rename app? No API key needed?
@@ -19,7 +19,6 @@ Play your music files stored in Google Drive.
 
 ### Later
 
-- DRY in JS
 - Scrollbar styles
 - File picker examples? Use lesser scope?
 - Match other browser native audio player?
