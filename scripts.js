@@ -151,7 +151,6 @@ function playTrack(id, element) {
   // check if clicked track is already 'playing'
   if ( element == playing ) {
     if ( audio.paused ) {
-      resetIconToPause();
       audio.play();
     } else {
       audio.pause();
@@ -209,4 +208,7 @@ audio.onended = function() {
 
 audio.onpause = function() {
   resetIconToPlay();
+}
+audio.onplay = function() {
+  resetIconToPause();
 }
