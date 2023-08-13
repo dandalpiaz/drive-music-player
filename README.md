@@ -5,8 +5,6 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Gapless playback, check old code
-- Next/previous track, check old code
 - New access token after an hour?
 - Scrollbar
 - Create documentatian on Google API setup, rename app? No API key needed?
@@ -20,6 +18,7 @@ Play your music files stored in Google Drive.
 
 ### Later
 
+- Gapless playback, check old code
 - File picker examples? Use lesser scope?
 - Match other browser native audio player?
 - Temporarily store access token to keep alive on refresh?

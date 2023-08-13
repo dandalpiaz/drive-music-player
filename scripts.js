@@ -163,9 +163,22 @@ function playTrack(id, element) {
   //audio[0].oncanplaythrough = audio[0].play();
 }
 
-var audio = document.getElementById("audio");
-audio.onended = function() {
+function prevTrack() {
+  var audio = document.getElementById('audio');
+  if ( audio.currentTime > 3 || !document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
+    audio.currentTime = 0;
+  } else if ( document.getElementsByClassName("playing")[0].previousElementSibling.previousElementSibling ) {
+    document.getElementsByClassName("playing")[0].previousElementSibling.click();
+  }
+}
+
+function nextTrack() {
   if ( document.getElementsByClassName("playing")[0].nextElementSibling ) {
     document.getElementsByClassName("playing")[0].nextElementSibling.click();
   }
+}
+
+var audio = document.getElementById("audio");
+audio.onended = function() {
+  nextTrack();
 };
