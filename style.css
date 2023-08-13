@@ -151,3 +151,39 @@ audio {
 #prev-btn {
     float: left;
 }
+
+
+
+
+#bars {
+    height: 1em;
+    position: relative;
+    float: right;
+    right: 15px;
+    top: 5px;
+  }
+  
+  .bar {
+    background: slategray;
+    bottom: 0;
+    height: .1em;
+    position: absolute;
+    width: 3px;
+    animation: sound 1s cubic-bezier(.17,.37,.43,.67) infinite alternate;
+  }
+  
+  @keyframes sound {
+    0% {
+      opacity: .35;
+      height: .1em; 
+    }
+    100% {
+      opacity: 1;       
+      height: 1em;        
+    }
+  }
+  
+  .bar:nth-child(1)  { left:  0em; animation-duration: 0.6s; }
+  .bar:nth-child(2)  { left: .25em; animation-duration: 0.4s; }
+  .bar:nth-child(3)  { left: .50em; animation-duration: 1.2s; }
+  .bar:nth-child(4)  { left: .75em; animation-duration: 0.5s; }

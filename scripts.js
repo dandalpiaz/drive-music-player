@@ -167,7 +167,6 @@ function playTrack(id, element) {
   // play new track
   element.classList.add("playing");
   playing = document.getElementsByClassName("playing")[0];
-  resetIconToPause();
   var track = "https://drive.google.com/uc?id=" + id + "&export=download";
   source.src = track;
   audio.pause();
@@ -195,11 +194,23 @@ function nextTrack() {
 function resetIconToPlay() {
   playing.firstChild.classList.remove("fa-pause");
   playing.firstChild.classList.add("fa-play");
+  if ( document.getElementById("bars") ) {
+    document.getElementById("bars").remove();
+  } 
 }
 
 function resetIconToPause() {
   playing.firstChild.classList.remove("fa-play");
   playing.firstChild.classList.add("fa-pause");
+  indicator = `
+    <div id="bars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  `;
+  playing.innerHTML += indicator;
 }
 
 audio.onended = function() {
