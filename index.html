@@ -18,18 +18,18 @@
 <main role="main" class="container">
 
 <div id="intro">
-  <h1>Drive Music Player <br />
+  <h1>Drive Music Player<sup>( beta )</sup> <br />
     <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files<sup><a href="#note1">1</a></sup> Stored in Google Drive</span>
   </h1>
 
   <h2>How To Use</h2>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the 'Login' button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of <code>12345-abcde</code> .</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the 'Login' button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of "12345-abcde" .</p>
 
   <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
     <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
-    <button type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login</button>
+    <button type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login (test users)</button>
   </form>
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->

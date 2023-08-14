@@ -5,7 +5,9 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
+- Use other gmail for testing
 - Check tab accessibility (details focus on load)
+- Move focus to next track on track end
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Gapless playback using two audio elements
 - Match other browser native audio player?
