@@ -4,10 +4,6 @@ body {
     margin-bottom: 40px;
 }
 
-main.container {
-    padding-top: 60px;
-}
-
 /* adjust contain widths */
 @media (max-width: 1199px) {
     .container {
@@ -186,11 +182,27 @@ audio {
 .bar:nth-child(4)  { left: .75em; animation-duration: 0.5s; }
 
 /* size down */
-
 details {
     margin-bottom: 11px;
 }
 
 button.track, details, summary {
     font-size: 16px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
 }

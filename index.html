@@ -19,12 +19,12 @@
 
 <div id="intro">
   <h1>Drive Music Player<sup>( beta )</sup> <br />
-    <span style="font-size: 1.5rem; color: #aaa">Play Your Music Files<sup><a href="#note1">1</a></sup> Stored in Google Drive</span>
+    <span style="font-size: 1.3rem; color: #aaa">Play Your Music Files<sup><a href="#note1">1</a></sup> Stored in Google Drive</span>
   </h1>
 
   <h2>How To Use</h2>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the 'Login' button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> , has an ID of "12345-abcde" .</p>
+  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder<sup><a href="#note2">2</a></sup> you would like to use and click the 'Login' button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> has an ID of "12345-abcde".</p>
 
   <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
@@ -34,19 +34,19 @@
 
   <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
-  <h2>Demo</h2>
+  <h2>Demo<sup><a href="#note3">3</a></sup></h2>
 
   <div id="demo" class="loaded">
     
-    <details>
-      <summary>Stevia Sphere - A Mimir <sup>(<a target="_blank" href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0 </a>)</sup></summary>
+    <details open>
+      <summary>Stevia Sphere - A Mimir</summary>
       <button class="track" onclick="playTrack('1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1', this)"><i class="fas fa-play"></i> 01 Raccoon Dreams.mp3</button>
       <button class="track" onclick="playTrack('1guxH0gYq1tbbLyObwPvTeai1ArGUTaUQ', this)"><i class="fas fa-play"></i> 02 Bed Full Of Shark Plushies.mp3</button>
       <button class="track" onclick="playTrack('1nD0vkmQyTQpa8KBg7GqJ9il-46kamrop', this)"><i class="fas fa-play"></i> 03 On The Verge Of Autumn.mp3</button>
     </details>
 
-    <details>
-      <summary>Stevia Sphere - Music For Slime Creatures <sup>(<a target="_blank" href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0 </a>)</sup></summary>
+    <details open>
+      <summary>Stevia Sphere - Music For Slime Creatures</summary>
       <button class="track" onclick="playTrack('11UTX4nerBEbwhgilk5_GfcRX0nC19PuM', this)"><i class="fas fa-play"></i> 01 Iridescence.mp3</button>
       <button class="track" onclick="playTrack('1SLz-GjbPjQYqOVG1VjcL2qwmJ54ht8EQ', this)"><i class="fas fa-play"></i> 02 Forest Full Of Magic.mp3</button>
       <button class="track" onclick="playTrack('1IC26AZ3ih6P_xjLlJQPmXno3x2ueyqdH', this)"><i class="fas fa-play"></i> 03 Mitosis.mp3</button>
@@ -59,8 +59,8 @@
       <button class="track" onclick="playTrack('1x-KQeDvVLkNkYtfR4ijLeuffgjhYYndG', this)"><i class="fas fa-play"></i> 10 All The Slimes Are Happy Now.mp3</button>
     </details>
 
-    <details>
-      <summary>Tovatronica - Paper Boats <sup>(<a target="_blank" href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0 </a>)</sup></summary>
+    <details open>
+      <summary>Tovatronica - Paper Boats</summary>
       <button class="track" onclick="playTrack('1bbDPBl0ktwigI9iGSPPE3KksI_VPTNvr', this)"><i class="fas fa-play"></i> 01 Paper Boats.mp3</button>
       <button class="track" onclick="playTrack('1XZR6_PHhVbKXs5gexal5i9nMgREl5UoF', this)"><i class="fas fa-play"></i> 02 Stardust.mp3</button>
       <button class="track" onclick="playTrack('1Iz4O3svxBYPEySau9Zw0lx20mIP4q0Rs', this)"><i class="fas fa-play"></i> 03 Paper Boats (zkribblez remix).mp3</button>
@@ -71,6 +71,7 @@
   <small><ol>
     <li id="note1">Buying digital music from services like <a href="https://bandcamp.com/" target="_blank">Bandcamp</a> is a great way to support artists!</li>
     <li id="note2">Folders with multiple nested sub-folders are supported.</li>
+    <li id="note3">Demo music is licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0</a>.</li>
   </ol></small>
 
 </div><!-- end intro -->

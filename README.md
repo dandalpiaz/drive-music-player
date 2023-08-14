@@ -5,7 +5,8 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Use other gmail for testing
+- Redo how track grabs audio (test other account)
+- Host to GH pages (no custom domain), allow domain in g-app
 - Check tab accessibility (details focus on load)
 - Move focus to next track on track end
 - Create documentatian on Google API setup, rename app? No API key needed?
@@ -14,9 +15,8 @@ Play your music files stored in Google Drive.
 - New access token after an hour?
 - Simple analytics (generate authed url)
 - Service worker / PWA / manifest?
-- Add legal links
-- Host on my Ubuntu box w/ custom domain (symlink, nginx, letsencrypt - document)
-- Publish g-app and request app verification w/ Google (doubtful b/c restricted scope)
+- Add legal links, link to GH repo
+- Publish g-app and request verification
 
 ### Later
 
@@ -24,8 +24,6 @@ Play your music files stored in Google Drive.
 - Scrollbar styles
 - File picker examples? Use lesser scope?
 - Temporarily store access token to keep alive on refresh?
-- Switch host to GH pages (no custom domain)?
-- Add link to GH repo (if opening source)
 - Could grab artworks?
 - Use React audio player?
 
