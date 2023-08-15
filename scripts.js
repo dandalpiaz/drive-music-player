@@ -118,6 +118,8 @@ function getContents(id, type) {
     } else {
       alert('No files found.'); 
     }
+
+    document.getElementById(location).firstElementChild.focus();
   });
 }
 

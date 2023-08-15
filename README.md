@@ -6,7 +6,6 @@ Play your music files stored in Google Drive.
 ## Todo
 
 - Redo how track grabs audio (test other account)
-- Check tab accessibility (details focus on load)
 - Host to GH pages (no custom domain), allow domain in g-app
 - Add legal links, link to GH repo
 - Create documentatian on Google API setup, rename app? No API key needed?
