@@ -206,3 +206,38 @@ button.track, details, summary {
 ::-webkit-scrollbar-thumb:hover {
     background: #666;
 }
+
+/* overrides for Firefox audio */
+@-moz-document url-prefix() {
+    #audio-wrapper {
+        background: rgb(55,55,55);
+    }
+
+    #next-btn, #prev-btn {
+        padding: 18px;
+    }
+
+    audio {
+        width: calc(100% - 95px);
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: rgb(170,170,170);
+    }
+}
+
+/* for further Chrome audio overrides */
+
+/*
+audio::-webkit-media-controls-enclosure {
+    border-radius: 0px;
+}
+
+audio::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
+*/

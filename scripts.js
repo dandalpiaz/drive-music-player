@@ -214,6 +214,9 @@ function resetIconToPause() {
 }
 
 audio.onended = function() {
+  if ( playing.nextElementSibling ) {
+    playing.nextElementSibling.focus();
+  }
   nextTrack();
 };
 
@@ -223,3 +226,4 @@ audio.onpause = function() {
 audio.onplay = function() {
   resetIconToPause();
 }
+
