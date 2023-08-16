@@ -5,10 +5,10 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Need different audio source tags for Firefox
 - Redo how track grabs audio (test other account)
 - Host to GH pages (no custom domain), allow domain in g-app
 - Add legal links, link to GH repo
+- The gapi JS is sometimes not ready on page load?
 - Create documentatian on Google API setup, rename app? No API key needed?
 - Gapless playback using two audio elements
 - New access token after an hour?
