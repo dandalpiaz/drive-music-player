@@ -5,6 +5,7 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
+- Need different audio source tags for Firefox
 - Redo how track grabs audio (test other account)
 - Host to GH pages (no custom domain), allow domain in g-app
 - Add legal links, link to GH repo
