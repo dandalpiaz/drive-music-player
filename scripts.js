@@ -169,11 +169,23 @@ function playTrack(id, element) {
   // play new track
   element.classList.add("playing");
   playing = document.getElementsByClassName("playing")[0];
-  var track = "https://drive.google.com/uc?id=" + id + "&export=download";
-  source.src = track;
-  audio.pause();
-  audio.load();
-  audio.play(); //audio.oncanplaythrough = audio.play();
+
+
+  gapi.client.drive.files.get({
+    'fileId' : id,
+    'alt': 'media',
+  }).then(function(response) {
+
+    dataArr = Uint8Array.from(response.body.split('').map((chr) => chr.charCodeAt(0)));
+    file = new File([dataArr], 'audiofilename', { type: 'audio/mpeg' });
+    //console.log(response.headers['Content-Type']);
+    
+    source.src = URL.createObjectURL(file);
+    audio.pause();
+    audio.load();
+    audio.play(); //audio.oncanplaythrough = audio.play();
+  });
+
 }
 
 function prevTrack() {
@@ -228,4 +240,3 @@ audio.onpause = function() {
 audio.onplay = function() {
   resetIconToPause();
 }
-

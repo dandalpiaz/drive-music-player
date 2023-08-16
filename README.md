@@ -5,11 +5,10 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Redo how track grabs audio (test other account)
+- Use blobs for audio (oncanplaythrough, sequencing, FF)
+- Create documentatian on Google API setup, rename app? No API key needed?
 - Host to GH pages (no custom domain), allow domain in g-app
 - Add legal links, link to GH repo
-- The gapi JS is sometimes not ready on page load?
-- Create documentatian on Google API setup, rename app? No API key needed?
 - Gapless playback using two audio elements
 - New access token after an hour?
 - Simple analytics (generate authed url)
@@ -36,6 +35,7 @@ Run `python3 -m http.server` to start a local web server.
 - [JavaScript Quickstart for Google Drive API](https://developers.google.com/drive/api/quickstart/js)
 - [Google API key restrictions](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 - [React audio player example](https://codesandbox.io/s/react-w877cp)
+- https://developers.google.com/drive/api/v3/manage-downloads
 - https://developers.google.com/identity/oauth2/web/reference/js-reference
 - https://developers.google.com/identity/oauth2/web/guides/use-token-model
 - https://developers.google.com/drive/api/guides/api-specific-auth
