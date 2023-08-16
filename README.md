@@ -5,18 +5,21 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Use blobs for audio (oncanplaythrough, sequencing, FF)
-- Create documentatian on Google API setup, rename app? No API key needed?
-- Host to GH pages (no custom domain), allow domain in g-app
-- Add legal links, link to GH repo
+- Add spinner during track load
+- Use blobs for audio (fix demos, play sequencing, test FF)
+- Intro text - can use "root"
+- Re-create g-app, no api key, document process here
 - Gapless playback using two audio elements
 - New access token after an hour?
+- Host to GH pages (no custom domain), allow domain in g-app
+- Add legal links, link to GH repo
 - Simple analytics (generate authed url)
 - Service worker / PWA / manifest?
 - Publish g-app and request verification
 
 ### Later
 
+- Get audio files in chunks (byte range) for quicker start?
 - Catch refresh w/ JS, warn about reauth
 - Scrollbar styles (FF, Safari)
 - File picker examples? Use lesser scope?

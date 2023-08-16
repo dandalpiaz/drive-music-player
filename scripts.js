@@ -4,7 +4,6 @@
 /* ----------------------- */
 
 const CLIENT_ID = '287941413176-519ook6nkgvpt69e820p6hdcb9218loo.apps.googleusercontent.com';
-//const API_KEY = 'AIzaSyDAx2KY_QZoJ5VKpUrL_Q8Z13OHYCgf-Kw';
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
 
@@ -18,7 +17,6 @@ function gapiLoaded() {
 
 async function initializeGapiClient() {
   await gapi.client.init({
-    //apiKey: API_KEY,
     discoveryDocs: [DISCOVERY_DOC],
   });
   gapiInited = true;
@@ -169,7 +167,10 @@ function playTrack(id, element) {
   // play new track
   element.classList.add("playing");
   playing = document.getElementsByClassName("playing")[0];
-
+  
+  audio.pause();
+  source.src = "";
+  audio.load();
 
   gapi.client.drive.files.get({
     'fileId' : id,
@@ -181,9 +182,9 @@ function playTrack(id, element) {
     //console.log(response.headers['Content-Type']);
     
     source.src = URL.createObjectURL(file);
-    audio.pause();
+    //audio.pause();
     audio.load();
-    audio.play(); //audio.oncanplaythrough = audio.play();
+    audio.oncanplay = audio.play();
   });
 
 }
