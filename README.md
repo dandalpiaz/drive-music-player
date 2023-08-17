@@ -5,12 +5,10 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Log back in display (use localstorage), button focus
-- Footer links and site title
 - Add spinner during track load
-- Use blobs for audio (fix demos, play sequencing, test FF)
+- Use blobs for audio (fix demos, play sequencing, test FF, dynamic mimetype)
 - Intro text - can use "root"
-- Re-create g-app, no api key, document process here
+- Re-create g-app, no api key, document process here, per-user quota
 - Gapless playback using two audio elements
 - New access token after an hour?
 - Host to GH pages (custom domain?), allow domain in g-app
@@ -21,12 +19,10 @@ Play your music files stored in Google Drive.
 
 ### Later
 
-- Add link to GH repo
+- Add link to GH repo?
 - Get audio files in chunks (byte range) for quicker start?
-- Catch refresh w/ JS, warn about reauth
 - Scrollbar styles (FF, Safari)
 - File picker examples? Use lesser scope?
-- Temporarily store access token to keep alive on refresh? Not recommended?
 - Could grab artworks? Add art loop in api query
 - Use React audio player?
 - Start caching api content, if needed

@@ -17,7 +17,13 @@
 <body onload="getFolderId()">
 <main role="main" class="container">
 
-<div id="intro">
+<div id="return" style="display: none;">
+  <form onsubmit="submitFolderId(event)">
+    <button type="submit" style="display: block; width: auto; max-width: 180px; margin: auto;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Log back in</button>
+  </form>
+</div>
+
+<div id="intro" style="display: none;">
   <h1>Drive Music Player<sup>( beta )</sup> <br />
     <span style="font-size: 1.3rem; color: #aaa">Play Your Music Files<sup><a href="#note1">1</a></sup> Stored in Google Drive</span>
   </h1>
@@ -31,8 +37,6 @@
     <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
     <button type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login (test users)</button>
   </form>
-
-  <!--<a href="#" role="button" id="signout_button" onclick="handleSignoutClick()">Revoke access to Drive</a><br/>-->
 
   <h2>Demo<sup><a href="#note3">3</a></sup></h2>
 
@@ -81,6 +85,17 @@
 </main>
 
 <footer role="contentinfo">
+
+  <ul id="footer-links">
+    <li><strong>Drive Music Player</strong></li>
+    <li><button onclick="changeFolder()">Change Folder</button></li>
+    <li><a href="">Terms</a></li>
+    <li><a href="">Cookies</a></li>
+    <li><a href="">Privacy</a></li>
+    <li><a href="">Feedback</a></li>
+    <li><a href="https://myaccount.google.com/security">Revoke Access</a></li>
+  </ul>
+
   <div id="audio-wrapper">
     <div id="audio-container">
       <button id="prev-btn" onclick="prevTrack()"><i class="fas fa-step-backward"></i></button>

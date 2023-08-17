@@ -241,3 +241,41 @@ audio::-webkit-media-controls-volume-slider {
 }
 
 */
+
+/* returning user */
+#return {
+    margin-top: 250px;
+}
+main {
+    padding-bottom: 0px !important;
+}
+
+footer {
+    padding-top: 0px !important;
+}
+
+/* footer links */
+ul#footer-links {
+    padding: 15px;
+    margin: 0px;
+    text-align: center;
+}
+
+ul#footer-links li {
+    list-style-type: none;
+}
+
+ul#footer-links li a, ul#footer-links li button {
+    font-size: 16px;
+}
+
+#footer-links button {
+    background: none;
+    border: none;
+    color: rgb(16, 149, 193);
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}

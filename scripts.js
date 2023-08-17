@@ -37,6 +37,8 @@ function handleAuthClick(folderId) {
         throw (resp);
       }
       getContents(folderId, "initial");
+      localStorage.setItem("returning", "true");
+      document.getElementById('return').style.display = 'none';
   };
   
   if (gapi.client.getToken() === null) {
@@ -240,4 +242,21 @@ audio.onpause = function() {
 }
 audio.onplay = function() {
   resetIconToPause();
+}
+
+/* ----------------------- */
+/* -------PAGE LOAD------- */
+/* ----------------------- */
+
+if ( localStorage.getItem("returning") == "true" && localStorage.getItem("parentfolder") !== null ) {
+  document.getElementById('return').style.display = 'block';
+} else {
+  document.getElementById('intro').style.display = 'block';
+}
+
+function changeFolder() {
+  document.getElementById('return').style.display = 'none';
+  document.getElementById('intro').style.display = 'block';
+  document.getElementById('parentfolder').focus();
+  localStorage.setItem("returning", "false");
 }
