@@ -5,7 +5,6 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Add spinner during track load
 - Use blobs for audio (fix demos, play sequencing, test FF, dynamic mimetype)
 - Intro text - can use "root"
 - Re-create g-app, no api key, document process here, per-user quota

@@ -169,10 +169,20 @@ function playTrack(id, element) {
   // play new track
   element.classList.add("playing");
   playing = document.getElementsByClassName("playing")[0];
-  
+
   audio.pause();
   source.src = "";
   audio.load();
+
+  spinner = `
+    <div id="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  `;
+  playing.innerHTML += spinner;
 
   gapi.client.drive.files.get({
     'fileId' : id,
@@ -187,6 +197,10 @@ function playTrack(id, element) {
     //audio.pause();
     audio.load();
     audio.oncanplay = audio.play();
+
+    if ( document.getElementById("spinner") ) {
+      document.getElementById("spinner").remove();
+    } 
   });
 
 }
