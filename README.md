@@ -5,6 +5,8 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
+- Log back in display
+- Footer links
 - Add spinner during track load
 - Use blobs for audio (fix demos, play sequencing, test FF)
 - Intro text - can use "root"
@@ -24,10 +26,11 @@ Play your music files stored in Google Drive.
 - Scrollbar styles (FF, Safari)
 - File picker examples? Use lesser scope?
 - Temporarily store access token to keep alive on refresh? Not recommended?
-- Could grab artworks?
+- Could grab artworks? Add art loop in api query
 - Use React audio player?
+- Start caching api content, if needed
 - Styles for native audio player in Safari
-- Light mode?
+- Light mode? Alternative [styles](https://cdnjs.com/libraries/github-markdown-css)
 
 ## Local Development
 
