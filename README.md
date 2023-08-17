@@ -23,7 +23,7 @@ Play your music files stored in Google Drive.
 - Catch refresh w/ JS, warn about reauth
 - Scrollbar styles (FF, Safari)
 - File picker examples? Use lesser scope?
-- Temporarily store access token to keep alive on refresh?
+- Temporarily store access token to keep alive on refresh? Not recommended?
 - Could grab artworks?
 - Use React audio player?
 - Styles for native audio player in Safari
@@ -35,10 +35,10 @@ Run `python3 -m http.server` to start a local web server.
 
 ## References
 
-- [JavaScript Quickstart for Google Drive API](https://developers.google.com/drive/api/quickstart/js)
-- [Google API key restrictions](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
+- [Googel Drive API - JavaScript Quickstart](https://developers.google.com/drive/api/quickstart/js)
+- [Google Drive API - Downloading Files](https://developers.google.com/drive/api/v3/manage-downloads)
+- [Google Drive API - Token Requests](https://developers.google.com/identity/oauth2/web/guides/use-token-model)
+- [Google Drive API - JavaScript Authorization](https://developers.google.com/identity/oauth2/web/reference/js-reference)
+- [Google Drive API - Scopes](https://developers.google.com/drive/api/guides/api-specific-auth)
 - [React audio player example](https://codesandbox.io/s/react-w877cp)
-- https://developers.google.com/drive/api/v3/manage-downloads
-- https://developers.google.com/identity/oauth2/web/reference/js-reference
-- https://developers.google.com/identity/oauth2/web/guides/use-token-model
-- https://developers.google.com/drive/api/guides/api-specific-auth
+
