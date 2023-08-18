@@ -202,6 +202,7 @@ function playTrack(id, element, type) {
     dataArr = Uint8Array.from(response.body.split('').map((chr) => chr.charCodeAt(0)));
     file = new File([dataArr], 'audiofilename', { type: response.headers['Content-Type'] });
     source.src = URL.createObjectURL(file);
+    source.type = response.headers['Content-Type'];
     audio.load();
     audio.oncanplay = audio.play();
     if ( document.getElementById("spinner") ) {

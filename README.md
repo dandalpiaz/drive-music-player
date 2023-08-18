@@ -22,12 +22,11 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
-- Set source mimetype from response
-- Remove old g-app
+- Host on GH pages, allow domain in g-app
 - Add legal links
 - Simple (cloudflare?) analytics (generate authed url)
-- Host on GH pages (custom domain?), allow domain in g-app
 - Need access token after an hour?
+- Custom domain (cloudflare?)
 - Publish g-app and request verification
 
 ### Later
