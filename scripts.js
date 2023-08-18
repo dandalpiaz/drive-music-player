@@ -149,7 +149,7 @@ if ( document.getElementsByClassName("playing")[0] ) {
   playing = false;
 }
 
-function playTrack(id, element) {
+function playTrack(id, element, type) {
   // check if clicked track is already 'playing'
   if ( element == playing ) {
     if ( audio.paused ) {
@@ -166,10 +166,9 @@ function playTrack(id, element) {
     playing.classList.remove("playing");
   }
 
-  // play new track
+  // set new track
   element.classList.add("playing");
   playing = document.getElementsByClassName("playing")[0];
-
   audio.pause();
   source.src = "";
   audio.load();
@@ -184,25 +183,31 @@ function playTrack(id, element) {
   `;
   playing.innerHTML += spinner;
 
+  // demo track
+  if ( type == "demo" ) {
+    source.src = "https://drive.google.com/uc?id=" + id + "&export=download";
+    audio.load();
+    audio.oncanplay = audio.play();
+    if ( document.getElementById("spinner") ) {
+      document.getElementById("spinner").remove();
+    }
+    return;
+  } 
+
+  // user track
   gapi.client.drive.files.get({
     'fileId' : id,
     'alt': 'media',
   }).then(function(response) {
-
     dataArr = Uint8Array.from(response.body.split('').map((chr) => chr.charCodeAt(0)));
-    file = new File([dataArr], 'audiofilename', { type: 'audio/mpeg' });
-    //console.log(response.headers['Content-Type']);
-    
+    file = new File([dataArr], 'audiofilename', { type: response.headers['Content-Type'] });
     source.src = URL.createObjectURL(file);
-    //audio.pause();
     audio.load();
     audio.oncanplay = audio.play();
-
     if ( document.getElementById("spinner") ) {
       document.getElementById("spinner").remove();
-    } 
+    }
   });
-
 }
 
 function prevTrack() {

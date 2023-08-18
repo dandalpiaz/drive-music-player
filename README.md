@@ -5,14 +5,12 @@ Play your music files stored in Google Drive.
 
 ## Todo
 
-- Use blobs for audio (fix demos, play sequencing, test FF, dynamic mimetype)
-- Intro text - can use "root"
 - Re-create g-app, no api key, document process here, per-user quota
 - Gapless playback using two audio elements
-- New access token after an hour?
-- Host to GH pages (custom domain?), allow domain in g-app
+- Host on GH pages (custom domain?), allow domain in g-app
 - Add legal links
-- Simple analytics (generate authed url)
+- Simple (cloudflare?) analytics (generate authed url)
+- Need access token after an hour?
 - Service worker / PWA / manifest?
 - Publish g-app and request verification
 
