@@ -1,7 +1,7 @@
 
 # Drive Music Player
 
-Play your music files stored in Google Drive.
+Play your music files stored in Google Drive, https://dandalpiaz.github.io/drive-music-player/
 
 ## Initial Setup
 
