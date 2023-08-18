@@ -1,26 +1,26 @@
 {
-    "short_name": "Drive Music Player",
-    "name": "Drive Music Player",
-    "icons": [{
-      "src": "favicon.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    }, {
-      "src": "favicon.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    }, {
-      "src": "favicon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }, {
-      "src": "favicon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }],
-    "start_url": "/drive-music-player/",
-    "display": "standalone",
-    "orientation": "portrait",
-    "background_color": "#000000",
-    "theme_color": "#000000"
-  }
+  "short_name": "Drive Music Player",
+  "name": "Drive Music Player",
+  "icons": [{
+    "src": "favicon.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "favicon.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "favicon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "favicon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "start_url": "https://dandalpiaz.github.io/drive-music-player/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
