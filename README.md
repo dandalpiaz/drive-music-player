@@ -22,17 +22,17 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
-- Gapless playback using two audio elements
+- Set source mimetype from response
+- Remove old g-app
 - Add legal links
 - Simple (cloudflare?) analytics (generate authed url)
 - Host on GH pages (custom domain?), allow domain in g-app
 - Need access token after an hour?
-- Service worker / PWA / manifest?
 - Publish g-app and request verification
 
 ### Later
 
-- Remove old g-app
+- Gapless playback using two audio elements
 - Add link to GH repo?
 - Error handling (including rate limits)
 - Get audio files in chunks (byte range) for quicker start?
