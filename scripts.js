@@ -3,7 +3,7 @@
 /* -----GOOGLE INIT------- */
 /* ----------------------- */
 
-const CLIENT_ID = '287941413176-519ook6nkgvpt69e820p6hdcb9218loo.apps.googleusercontent.com';
+const CLIENT_ID = '865687982989-kv2vrmhsvs5484ebe8up2j8so7ralptg.apps.googleusercontent.com';
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
 
