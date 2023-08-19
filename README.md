@@ -22,12 +22,11 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
-- Host on GH pages, allow domain in g-app
 - Add legal links
 - Simple (cloudflare?) analytics (generate authed url)
-- Need access token after an hour?
 - Custom domain (cloudflare?)
-- Publish g-app and request verification
+- Publish g-app and request verification, post
+- Need access token after an hour? Temp store?
 
 ### Later
 

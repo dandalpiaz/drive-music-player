@@ -39,6 +39,8 @@ function handleAuthClick(folderId) {
       getContents(folderId, "initial");
       localStorage.setItem("returning", "true");
       document.getElementById('return').style.display = 'none';
+
+      //console.log( gapi.client.getToken() );
   };
   
   if (gapi.client.getToken() === null) {
