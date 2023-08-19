@@ -22,8 +22,9 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
-- Add legal links
 - Simple (cloudflare?) analytics (generate authed url)
+- Styles for native audio player in Safari
+- Add legal links
 - Custom domain (cloudflare?)
 - Publish g-app and request verification, post
 - Need access token after an hour? Temp store?
@@ -40,7 +41,6 @@ Run `python3 -m http.server` to start a local web server.
 - Use React audio player?
 - Start caching api content, if needed
 - Set up service worker / PWA?
-- Styles for native audio player in Safari
 - Light mode? Alternative [styles](https://cdnjs.com/libraries/github-markdown-css)
 
 ## References

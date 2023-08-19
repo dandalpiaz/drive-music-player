@@ -127,7 +127,7 @@ button.track i {
 }
 
 audio {
-    width: calc(100% - 96px);
+    width: calc(100% - 100px);
 }
 
 #next-btn, #prev-btn {
@@ -135,9 +135,11 @@ audio {
     border: none;
     width: auto;
     margin: 0px;
-    padding: 16px;
+    padding: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
     z-index: 2;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #next-btn {
@@ -256,11 +258,11 @@ button.track, details, summary {
     }
 
     #next-btn, #prev-btn {
-        padding: 18px;
+        padding: 20px;
     }
 
     audio {
-        width: calc(100% - 95px);
+        width: calc(100% - 100px);
         margin-top: 10px;
         margin-bottom: 10px;
         background: rgb(170,170,170);
