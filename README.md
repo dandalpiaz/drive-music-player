@@ -22,12 +22,14 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
-- Simple (cloudflare?) analytics (generate authed url)
+- Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
+- Use root folder if other ID not set / manage localstorage
 - Styles for native audio player in Safari
 - Add legal links
-- Custom domain (cloudflare?)
 - Publish g-app and request verification, post
-- Need access token after an hour? Temp store?
+- Switch account
+- Set up service worker / PWA (mobile playthrough? lockscreen controls?)
+- Need new access token after an hour?
 
 ### Later
 
@@ -40,7 +42,6 @@ Run `python3 -m http.server` to start a local web server.
 - Could grab artworks? Add art loop in api query
 - Use React audio player?
 - Start caching api content, if needed
-- Set up service worker / PWA?
 - Light mode? Alternative [styles](https://cdnjs.com/libraries/github-markdown-css)
 
 ## References

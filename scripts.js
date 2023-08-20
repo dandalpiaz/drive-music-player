@@ -36,11 +36,23 @@ function handleAuthClick(folderId) {
       if (resp.error !== undefined) {
         throw (resp);
       }
+
+      /*
+      if ( localStorage.getItem("parentfolder").length == "" ) {
+        localStorage.setItem("parentfolder", "root");
+        folderId = "root";
+      }
+      */
+
       getContents(folderId, "initial");
       localStorage.setItem("returning", "true");
       document.getElementById('return').style.display = 'none';
 
-      //console.log( gapi.client.getToken() );
+      gapi.client.drive.about.get({
+        'fields' : "user",
+      }).then(function(response) {
+        window.location.hash = '#~' + response.result.user.permissionId;
+      });      
   };
   
   if (gapi.client.getToken() === null) {
@@ -282,3 +294,5 @@ function changeFolder() {
   document.getElementById('parentfolder').focus();
   localStorage.setItem("returning", "false");
 }
+
+// current token - console.log( gapi.client.getToken() );
