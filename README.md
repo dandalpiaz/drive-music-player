@@ -28,7 +28,7 @@ Run `python3 -m http.server` to start a local web server.
 - Add legal links
 - Publish g-app and request verification, post
 - Switch account
-- Set up service worker / PWA (mobile playthrough? lockscreen controls?)
+- Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 - Need new access token after an hour?
 
 ### Later
