@@ -33,6 +33,7 @@ Run `python3 -m http.server` to start a local web server.
 
 ### Later
 
+- Landing page [background](https://vincentgarreau.com/particles.js/)?
 - Gapless playback using two audio elements
 - Add link to GH repo?
 - Error handling (including rate limits)
