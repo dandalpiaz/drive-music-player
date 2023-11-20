@@ -1,4 +1,18 @@
 
+:root {
+    --primary: #5ec9ed !important;
+    --form-element-background-color: rgba(30,30,30,0.9) !important;
+    --code-background-color: rgba(30,30,30,0.9) !important;
+    /*--secondary: #074154 !important;*/
+}
+
+html {
+    min-height: 100%;
+    background: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 /* make room for audio */
 body {
     margin-bottom: 40px;
@@ -61,17 +75,13 @@ button.track {
     background: none;
     border: none;
     text-align: left;
-    color: rgb(16, 149, 193);
+    color: var(--primary);
     margin-left: 15px;
     margin-bottom: 3px;
     padding: 4px;
     padding-left: 12px;
     padding-right: 12px;
     width: calc(100% - 15px);
-}
-
-button.track:nth-child(even) {
-    background: #18232c;
 }
 
 button.track:last-of-type {
@@ -88,7 +98,7 @@ button.track i {
 }
 
 .playing {
-    color: #a65980 !important;
+    color: #c08aa6 !important;
 }
 
 /* folder ID input */
@@ -228,6 +238,7 @@ audio {
 /* size down */
 details {
     margin-bottom: 11px;
+    border-color: rgba(70,70,70,0.5)
 }
 
 button.track, details, summary {
@@ -314,9 +325,9 @@ ul#footer-links li a, ul#footer-links li button {
 }
 
 #footer-links button {
+    color: var(--primary);
     background: none;
     border: none;
-    color: rgb(16, 149, 193);
     margin: 0px;
     padding: 0px;
     width: auto;

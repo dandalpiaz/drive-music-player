@@ -22,18 +22,17 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
+- Add legal links
+- Publish g-app and request verification, post
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Use root folder if other ID not set / manage localstorage
 - Styles for native audio player in Safari
-- Add legal links
-- Publish g-app and request verification, post
 - Switch account
 - Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 - Need new access token after an hour?
 
 ### Later
 
-- Landing page [background](https://vincentgarreau.com/particles.js/)?
 - Gapless playback using two audio elements
 - Add link to GH repo?
 - Error handling (including rate limits)
@@ -43,7 +42,6 @@ Run `python3 -m http.server` to start a local web server.
 - Could grab artworks? Add art loop in api query
 - Use React audio player?
 - Start caching api content, if needed
-- Light mode? Alternative [styles](https://cdnjs.com/libraries/github-markdown-css)
 
 ## References
 
