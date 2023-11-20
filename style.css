@@ -1,6 +1,9 @@
 
 :root {
     --primary: #5ec9ed !important;
+    --form-element-background-color: rgba(30,30,30,0.9) !important;
+    --code-background-color: rgba(30,30,30,0.9) !important;
+    /*--secondary: #074154 !important;*/
 }
 
 html {
@@ -322,6 +325,7 @@ ul#footer-links li a, ul#footer-links li button {
 }
 
 #footer-links button {
+    color: var(--primary);
     background: none;
     border: none;
     margin: 0px;
