@@ -23,24 +23,22 @@ Run `python3 -m http.server` to start a local web server.
 ## Todo
 
 - Add legal links
+- Move colors to variables
 - Publish g-app and request verification, post
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Use root folder if other ID not set / manage localstorage
 - Styles for native audio player in Safari
-- Switch account
 - Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 - Need new access token after an hour?
 
 ### Later
 
 - Gapless playback using two audio elements
-- Add link to GH repo?
 - Error handling (including rate limits)
 - Get audio files in chunks (byte range) for quicker start?
 - Scrollbar styles (Firefox, Safari)
 - File picker examples? Use lesser scope?
 - Could grab artworks? Add art loop in api query
-- Use React audio player?
 - Start caching api content, if needed
 
 ## References

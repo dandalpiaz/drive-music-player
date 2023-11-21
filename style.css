@@ -1,14 +1,34 @@
 
-:root {
-    --primary: #5ec9ed !important;
-    --form-element-background-color: rgba(30,30,30,0.9) !important;
-    --code-background-color: rgba(30,30,30,0.9) !important;
-    /*--secondary: #074154 !important;*/
+/* default light theme */
+[data-theme="light"], :root:not([data-theme="dark"]) {
+  --bg-image: linear-gradient(to bottom, rgba(240,240,240,0.97) 0%,rgba(240,240,240,0.97) 100%), url(bg.jpg);
+  --audio-bg: rgb(242,242,242);
+  --playing-color: darkred;
+  --details-border-color: rgba(170,170,170,0.5);
+  --form-element-background-color: rgba(235,235,235,0.9);
+  --code-color: rgb(30,30,30);
+  /* light specific */
+  --primary-inverse: #444;
 }
+
+/* user has system as dark */
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(bg.jpg);
+        --audio-bg: rgb(60,60,60);
+        --playing-color: #c08aa6;
+        --details-border-color: rgba(70,70,70,0.5);
+        --form-element-background-color: rgba(30,30,30,0.9);
+        --code-color: rgb(230,230,230);
+        /* dark specific */
+        --primary: #5ec9ed;
+        --code-background-color: rgba(30,30,30,0.9);
+    }
+  }
 
 html {
     min-height: 100%;
-    background: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(bg.jpg);
+    background: var(--bg-image);
     background-size: cover;
     background-position: center;
 }
@@ -38,18 +58,6 @@ body {
         margin-bottom: 10px !important;
     }
 
-}
-
-/* increase code color contrast for a11y */
-code {
-    color: rgb(135, 150, 160);
-}
-
-/* keep link color for code links */
-a code {
-    color: var(--code-tag-color) !important;
-    font-size: 0.8rem;
-    vertical-align: middle;
 }
 
 /* adjust heading margins */
@@ -98,7 +106,7 @@ button.track i {
 }
 
 .playing {
-    color: #c08aa6 !important;
+    color: var(--playing-color) !important;
 }
 
 /* folder ID input */
@@ -126,7 +134,7 @@ button.track i {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background: rgb(60,60,60);
+    background: var(--audio-bg);
 }
 
 #audio-container {
@@ -238,7 +246,7 @@ audio {
 /* size down */
 details {
     margin-bottom: 11px;
-    border-color: rgba(70,70,70,0.5)
+    border-color: var(--details-border-color);
 }
 
 button.track, details, summary {
