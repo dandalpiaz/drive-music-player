@@ -3,6 +3,15 @@
 
 Play your music files stored in Google Drive, https://dandalpiaz.github.io/drive-music-player/
 
+## Table of Contents
+
+- [Initial Setup](#initial-setup)
+- [Local Development](#local-development)
+- [Todo](#todo)
+    - [Next](#next)
+    - [Later](#later)
+- [References](#references)
+
 ## Initial Setup
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/), click the project selection drop-down in the top navigation and start a 'New Project'.
@@ -22,8 +31,9 @@ Run `python3 -m http.server` to start a local web server.
 
 ## Todo
 
+### Next
+
 - Add legal links
-- Move colors to variables
 - Publish g-app and request verification, post
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Use root folder if other ID not set / manage localstorage

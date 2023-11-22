@@ -1,28 +1,34 @@
 
 /* default light theme */
 [data-theme="light"], :root:not([data-theme="dark"]) {
-  --bg-image: linear-gradient(to bottom, rgba(240,240,240,0.97) 0%,rgba(240,240,240,0.97) 100%), url(bg.jpg);
+  --bg-image: linear-gradient(to bottom, rgba(240,240,240,0.97) 0%,rgba(240,240,240,0.97) 100%), url(./img/bg.jpg);
   --audio-bg: rgb(242,242,242);
   --playing-color: darkred;
   --details-border-color: rgba(170,170,170,0.5);
   --form-element-background-color: rgba(235,235,235,0.9);
   --code-color: rgb(30,30,30);
-  /* light specific */
   --primary-inverse: #444;
+  --spinner-color: #777;
+  --accordion-active-summary-color: darkred;
+  /* light var only */
 }
 
 /* user has system as dark */
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
-        --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(bg.jpg);
+        --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(./img/bg.jpg);
         --audio-bg: rgb(60,60,60);
         --playing-color: #c08aa6;
         --details-border-color: rgba(70,70,70,0.5);
         --form-element-background-color: rgba(30,30,30,0.9);
-        --code-color: rgb(230,230,230);
-        /* dark specific */
+        --code-color: rgb(200,200,200);
+        --primary-inverse: #ddd;
+        --spinner-color: #ddd;
+        --accordion-active-summary-color: #c08aa6;
+        /* dark var only */
         --primary: #5ec9ed;
         --code-background-color: rgba(30,30,30,0.9);
+        --accordion-open-summary-color: #aaa;
     }
   }
 
@@ -216,10 +222,10 @@ audio {
     width: 22px;
     height: 22px;
     margin: 0px;
-    border: 4px solid #ddd;
+    border: 4px solid var(--spinner-color);
     border-radius: 50%;
     animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #ddd transparent transparent transparent;
+    border-color: var(--spinner-color) transparent transparent transparent;
 }
 
 #spinner div:nth-child(1) {
@@ -278,6 +284,7 @@ button.track, details, summary {
 
     #next-btn, #prev-btn {
         padding: 20px;
+        color: #ddd;
     }
 
     audio {
