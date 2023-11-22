@@ -2,19 +2,19 @@
   "short_name": "Drive Music Player",
   "name": "Drive Music Player",
   "icons": [{
-    "src": "favicon.png",
+    "src": "./img/favicon.png",
     "sizes": "96x96",
     "type": "image/png"
   }, {
-    "src": "favicon.png",
+    "src": "./img/favicon.png",
     "sizes": "144x144",
     "type": "image/png"
   }, {
-    "src": "favicon.png",
+    "src": "./img/favicon.png",
     "sizes": "192x192",
     "type": "image/png"
   }, {
-    "src": "favicon.png",
+    "src": "./img/favicon.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
