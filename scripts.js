@@ -164,6 +164,11 @@ if ( document.getElementsByClassName("playing")[0] ) {
 }
 
 function playTrack(id, element, type) {
+  // remove spinner if load in progress
+  if ( document.getElementById("spinner") ) {
+    document.getElementById("spinner").remove();
+  }
+
   // check if clicked track is already 'playing'
   if ( element == playing ) {
     if ( audio.paused ) {

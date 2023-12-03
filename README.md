@@ -34,7 +34,6 @@ Run `python3 -m http.server` to start a local web server.
 ### Next
 
 - Bars bug (click multiple tracks)
-- Restrict API by file type? JS integrity?
 - Add legal links
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Publish g-app and request verification, post
