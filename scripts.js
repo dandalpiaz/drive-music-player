@@ -134,6 +134,12 @@ function getContents(id, type) {
     }
 
     document.getElementById(location).firstElementChild.focus();
+  }).catch(function(error) {
+    if (error.status === 401) {
+      alert("Sessions are only valid for 1 hour. Please login again to continue listening.");
+      document.getElementById("contents").innerHTML = "";
+      document.getElementById('return').style.display = 'block';
+    } 
   });
 }
 
@@ -227,6 +233,12 @@ function playTrack(id, element, type) {
     if ( document.getElementById("spinner") ) {
       document.getElementById("spinner").remove();
     }
+  }).catch(function(error) {
+    if (error.status === 401) {
+      alert("Sessions are only valid for 1 hour. Please login again to continue listening.");
+      document.getElementById("contents").innerHTML = "";
+      document.getElementById('return').style.display = 'block';
+    } 
   });
 }
 

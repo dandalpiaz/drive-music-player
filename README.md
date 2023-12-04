@@ -40,7 +40,6 @@ Run `python3 -m http.server` to start a local web server.
 - Use root folder if other ID not set / manage localstorage
 - Styles for native audio player in Safari
 - Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
-- Need new access token after an hour?
 
 ### Later
 
