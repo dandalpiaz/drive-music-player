@@ -33,11 +33,11 @@ Run `python3 -m http.server` to start a local web server.
 
 ### Next
 
+- Get new token if expired, use login hint to bypass account selection
 - Bars bug (click multiple tracks)
 - Add legal links
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Publish g-app and request verification, post
-- Use root folder if other ID not set / manage localstorage
 - Styles for native audio player in Safari
 - Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 

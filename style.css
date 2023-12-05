@@ -349,3 +349,7 @@ ul#footer-links li a, ul#footer-links li button {
     margin-left: auto;
     margin-right: auto;
 }
+
+.small-text a {
+    font-size: 14px !important;
+}

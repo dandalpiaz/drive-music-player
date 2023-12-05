@@ -37,12 +37,10 @@ function handleAuthClick(folderId) {
         throw (resp);
       }
 
-      /*
-      if ( localStorage.getItem("parentfolder").length == "" ) {
+      if ( localStorage.getItem("parentfolder") == "" || localStorage.getItem("parentfolder") == null ) {
         localStorage.setItem("parentfolder", "root");
         folderId = "root";
       }
-      */
 
       getContents(folderId, "initial");
       localStorage.setItem("returning", "true");
@@ -52,6 +50,7 @@ function handleAuthClick(folderId) {
         'fields' : "user",
       }).then(function(response) {
         window.location.hash = '#~' + response.result.user.permissionId;
+        //response.result.user.emailAddress
       });      
   };
   
