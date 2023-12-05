@@ -37,34 +37,43 @@ function handleAuthClick(folderId) {
         throw (resp);
       }
 
+      // set parentfolder as root if nothing set
       if ( localStorage.getItem("parentfolder") == "" || localStorage.getItem("parentfolder") == null ) {
         localStorage.setItem("parentfolder", "root");
         folderId = "root";
       }
 
-      getContents(folderId, "initial");
-      localStorage.setItem("returning", "true");
-      document.getElementById('return').style.display = 'none';
+      // only load initial contents on first auth
+      if ( !document.getElementById("contents").classList.contains("loaded") ) {
+        getContents(folderId, "initial");
+        localStorage.setItem("returning", "true");
+        document.getElementById('return').style.display = 'none';
+      }
 
+      // set user email and URL
       gapi.client.drive.about.get({
         'fields' : "user",
       }).then(function(response) {
         window.location.hash = '#~' + response.result.user.permissionId;
-        //response.result.user.emailAddress
+        localStorage.setItem("email", response.result.user.emailAddress);
       });      
   };
   
-  if (gapi.client.getToken() === null) {
-      tokenClient.requestAccessToken({prompt: ''});
+  if ( gapi.client.getToken() === null ) {
+    tokenClient.requestAccessToken({prompt: '', login_hint: localStorage.getItem("email")});
   } else {
-      tokenClient.requestAccessToken({prompt: ''});
+    tokenClient.requestAccessToken({prompt: '', login_hint: localStorage.getItem("email")});
   }
+
+  // use to see token
+  //console.log( gapi.client.getToken() );
 }
 
 function handleSignoutClick() {
   const token = gapi.client.getToken();
   if (token !== null) {
       google.accounts.oauth2.revoke(token.access_token);
+      // can use this to simulate expired token
       gapi.client.setToken('');
   }
 }
@@ -135,9 +144,8 @@ function getContents(id, type) {
     document.getElementById(location).firstElementChild.focus();
   }).catch(function(error) {
     if (error.status === 401) {
-      alert("Sessions are only valid for 1 hour. Please login again to continue listening.");
-      document.getElementById("contents").innerHTML = "";
-      document.getElementById('return').style.display = 'block';
+      alert("Sessions are only valid for 1 hour. Session will refresh automatically.");
+      tokenClient.requestAccessToken({prompt: '', login_hint: localStorage.getItem("email")});
     } 
   });
 }
@@ -234,9 +242,8 @@ function playTrack(id, element, type) {
     }
   }).catch(function(error) {
     if (error.status === 401) {
-      alert("Sessions are only valid for 1 hour. Please login again to continue listening.");
-      document.getElementById("contents").innerHTML = "";
-      document.getElementById('return').style.display = 'block';
+      alert("Sessions are only valid for 1 hour. Session will refresh automatically.");
+      tokenClient.requestAccessToken({prompt: '', login_hint: localStorage.getItem("email")});
     } 
   });
 }
@@ -305,13 +312,18 @@ if ( localStorage.getItem("returning") == "true" && localStorage.getItem("parent
 }
 
 function changeFolder() {
+  // show intro with parentfolder form
   document.getElementById('return').style.display = 'none';
   document.getElementById('intro').style.display = 'block';
   document.getElementById('parentfolder').focus();
+  // reset contents div
+  document.getElementById("contents").classList.remove("loaded");
+  document.getElementById("contents").innerHTML = "";
+  // reset localstorage
   localStorage.setItem("returning", "false");
+  localStorage.removeItem("email");
 }
 
-// current token - console.log( gapi.client.getToken() );
 
 
 

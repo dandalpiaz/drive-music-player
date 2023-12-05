@@ -33,7 +33,7 @@ Run `python3 -m http.server` to start a local web server.
 
 ### Next
 
-- Get new token if expired, use login hint to bypass account selection
+- Keep track of token expiration? Get new token if getting close? Based on user action?
 - Bars bug (click multiple tracks)
 - Add legal links
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
