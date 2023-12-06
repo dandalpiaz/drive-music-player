@@ -33,21 +33,20 @@ Run `python3 -m http.server` to start a local web server.
 
 ### Next
 
-- Keep track of token expiration? Get new token if getting close? Based on user action?
-- Bars bug (click multiple tracks)
-- Add legal links
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
+- Add legal links
 - Publish g-app and request verification, post
+- Get new token when close to expiration? Based on user action?
+- Bars bug (click multiple tracks)
 - Styles for native audio player in Safari
 - Set up service worker / PWA (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 
 ### Later
 
 - Gapless playback using two audio elements
-- Error handling (including rate limits)
+- Error handling for rate limits
 - Get audio files in chunks (byte range) for quicker start?
 - Scrollbar styles (Firefox, Safari)
-- File picker examples? Use lesser scope?
 - Could grab artworks? Add art loop in api query
 - Start caching api content, if needed
 
@@ -58,5 +57,6 @@ Run `python3 -m http.server` to start a local web server.
 - [Google Drive API - Token Requests](https://developers.google.com/identity/oauth2/web/guides/use-token-model)
 - [Google Drive API - JavaScript Authorization](https://developers.google.com/identity/oauth2/web/reference/js-reference)
 - [Google Drive API - Scopes](https://developers.google.com/drive/api/guides/api-specific-auth)
+- [Google App verification](https://support.google.com/cloud/answer/13463073)
 - [React audio player example](https://codesandbox.io/s/react-w877cp)
 
