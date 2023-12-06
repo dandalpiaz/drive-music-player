@@ -102,7 +102,7 @@ button.track:last-of-type {
     margin-bottom: 15px;
 }
 button.track:first-of-type {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 button.track i {
@@ -251,8 +251,13 @@ audio {
   
 /* size down */
 details {
-    margin-bottom: 11px;
+    margin-bottom: 0px;
+    padding: 0px;
     border-color: var(--details-border-color);
+}
+
+details summary {
+    padding: 10px;
 }
 
 button.track, details, summary {
@@ -329,14 +334,21 @@ ul#footer-links {
     padding: 15px;
     margin: 0px;
     text-align: center;
+    margin-top: 20px;
 }
 
 ul#footer-links li {
     list-style-type: none;
+    margin-bottom: 0px;
 }
 
 ul#footer-links li a, ul#footer-links li button {
-    font-size: 16px;
+    font-size: 14px;
+}
+
+ul#footer-links li:first-child {
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 #footer-links button {
@@ -348,8 +360,4 @@ ul#footer-links li a, ul#footer-links li button {
     width: auto;
     margin-left: auto;
     margin-right: auto;
-}
-
-.small-text a {
-    font-size: 14px !important;
 }
