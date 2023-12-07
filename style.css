@@ -314,7 +314,20 @@ audio::-webkit-media-controls-mute-button {
 audio::-webkit-media-controls-volume-slider {
     display: none !important;
 }
+*/
 
+/* overrides for Safari audio (not working) */
+
+/*
+@media only screen and (-webkit-min-device-pixel-ratio: 1) {
+    ::i-block-chrome, #audio-wrapper {
+        background: rgb(59,59,59) !important;
+    }
+
+    ::i-block-chrome, audio {
+        margin-top: 13px !important;
+    }
+}
 */
 
 /* returning user */
@@ -334,7 +347,7 @@ ul#footer-links {
     padding: 15px;
     margin: 0px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 ul#footer-links li {
@@ -343,7 +356,7 @@ ul#footer-links li {
 }
 
 ul#footer-links li a, ul#footer-links li button {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 ul#footer-links li:first-child {

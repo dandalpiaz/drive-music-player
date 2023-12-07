@@ -26,7 +26,7 @@
 <div id="intro" style="display: none;">
   <h1>Drive Music Player - Play Music Files in Google Drive</h1>
 
-  <p>In the text box below, find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and click the 'Login' button. The ID can be found by taking that last part of the folder's URL, for example, <code>drive.google.com/drive/folders/12345-abcde</code> has an ID of "12345-abcde". Alternatively, "root" can be used to browse from your top-level folder.</p>
+  <p>Find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and login below. As an example, <code>drive.google.com/drive/folders/12345-abcde</code> has an ID of "12345-abcde". Alternatively, "root" can be used to browse from your top-level folder.</p>
 
   <form onsubmit="submitFolderId(event)">
     <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
@@ -34,19 +34,17 @@
     <button class="secondary" type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login (test users)</button>
   </form>
 
-  <h2>Demo</h2>
-
   <div id="demo" class="loaded">
     
-    <details open>
-      <summary>Stevia Sphere - A Mimir <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></summary>
+    <details>
+      <summary>Stevia Sphere - A Mimir (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></summary>
       <button class="track" onclick="playTrack('1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1', this, 'demo')"><i class="fas fa-play"></i> 01 Raccoon Dreams.mp3</button>
       <button class="track" onclick="playTrack('1guxH0gYq1tbbLyObwPvTeai1ArGUTaUQ', this, 'demo')"><i class="fas fa-play"></i> 02 Bed Full Of Shark Plushies.mp3</button>
       <button class="track" onclick="playTrack('1nD0vkmQyTQpa8KBg7GqJ9il-46kamrop', this, 'demo')"><i class="fas fa-play"></i> 03 On The Verge Of Autumn.mp3</button>
     </details>
 
-    <details open>
-      <summary>Tovatronica - Paper Boats <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></summary>
+    <details>
+      <summary>Tovatronica - Paper Boats (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></summary>
       <button class="track" onclick="playTrack('1bbDPBl0ktwigI9iGSPPE3KksI_VPTNvr', this, 'demo')"><i class="fas fa-play"></i> 01 Paper Boats.mp3</button>
       <button class="track" onclick="playTrack('1XZR6_PHhVbKXs5gexal5i9nMgREl5UoF', this, 'demo')"><i class="fas fa-play"></i> 02 Stardust.mp3</button>
       <button class="track" onclick="playTrack('1Iz4O3svxBYPEySau9Zw0lx20mIP4q0Rs', this, 'demo')"><i class="fas fa-play"></i> 03 Paper Boats (zkribblez remix).mp3</button>
