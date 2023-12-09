@@ -84,6 +84,35 @@ details details:last-of-type {
     border: none;
 }
 
+details {
+    margin-bottom: 0px;
+    padding: 0px;
+    border-color: var(--details-border-color);
+}
+
+details summary {
+    padding: 10px;
+}
+
+button.track, details, summary {
+    font-size: 16px;
+}
+
+summary {
+    display: flex;
+    align-items: center;
+}
+
+summary span {
+    padding-right: 20px;
+    width: 100%;
+}
+
+summary img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
 /* tracks */
 button.track {
     background: none;
@@ -247,21 +276,6 @@ audio {
     100% {
         transform: rotate(360deg);
     }
-}
-  
-/* size down */
-details {
-    margin-bottom: 0px;
-    padding: 0px;
-    border-color: var(--details-border-color);
-}
-
-details summary {
-    padding: 10px;
-}
-
-button.track, details, summary {
-    font-size: 16px;
 }
 
 /* scrollbar */

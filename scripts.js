@@ -116,7 +116,7 @@ function getContents(id, type) {
         if ( file.mimeType.includes("application/vnd.google-apps.folder") ) {
           document.getElementById(location).innerHTML += `
           <details id="${file.id}">
-            <summary onclick="getContents('${file.id}')">${file.name}</summary>
+            <summary onclick="getContents('${file.id}')"><span>${file.name}</span></summary>
           </details>
           `;
         }
