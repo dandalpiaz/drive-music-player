@@ -82,6 +82,33 @@ function handleSignoutClick() {
 /* -------DRIVE API------- */
 /* ----------------------- */
 
+function changeImgSrc(detailsId, newSrc) {
+  var detailsElement = document.getElementById(detailsId);
+  if (detailsElement) {
+    var summaryElement = detailsElement.querySelector('summary');
+    var imgElement = summaryElement.querySelector('img');
+    if (imgElement) {
+      imgElement.src = newSrc;
+    }
+  }
+}
+
+function getArts() {
+  var albumartquery = "mimeType contains 'image/' and trashed = false and name contains 'folder.jpg' ";
+  gapi.client.drive.files.list({
+    'pageSize': 1000,
+    'q' : albumartquery,
+    'fields': "nextPageToken, files(id, name, webContentLink, parents)"
+  }).then(function(response) {
+    if (response.result.files && response.result.files.length > 0) {
+      console.log(response);
+      for (var i = 0; i < response.result.files.length; i++) {
+        changeImgSrc(response.result.files[i].parents[0], response.result.files[i].webContentLink);
+      }
+    }
+  });
+}
+
 function getContents(id, type) {
   var contentsQuery = "'" + id + "'" + " in parents and trashed = false ";
   gapi.client.drive.files.list({
@@ -116,13 +143,15 @@ function getContents(id, type) {
         if ( file.mimeType.includes("application/vnd.google-apps.folder") ) {
           document.getElementById(location).innerHTML += `
           <details id="${file.id}">
-            <summary onclick="getContents('${file.id}')"><span>${file.name}</span></summary>
+            <summary onclick="getContents('${file.id}')"><img src=""/><span>${file.name}</span></summary>
           </details>
           `;
         }
 
         document.getElementById(location).classList.add("loaded");
       }
+
+      getArts();
 
       // loop files
       for (var i = 0; i < files.length; i++) {

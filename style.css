@@ -109,8 +109,10 @@ summary span {
 }
 
 summary img {
-    max-width: 50px;
+    max-width: 41px;
     margin-right: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
 }
 
 /* tracks */
