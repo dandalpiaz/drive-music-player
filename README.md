@@ -41,9 +41,7 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
-- Full view width?
 - Store access token? Get new token when close to expiration? Based on user action?
-- Could grab artworks? Add art loop in api query
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
 - Publish g-app and request verification, post
@@ -52,6 +50,7 @@ npx playwright wk http://localhost:8000
 
 ### Later
 
+- Could grab artworks? Add art loop in api query
 - Error handling for rate limits
 - Service worker / PWA / React Native (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
 - Gapless playback using two audio elements?

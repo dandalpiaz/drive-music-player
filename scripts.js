@@ -151,7 +151,7 @@ function getContents(id, type) {
         document.getElementById(location).classList.add("loaded");
       }
 
-      getArts();
+      //getArts();
 
       // loop files
       for (var i = 0; i < files.length; i++) {
