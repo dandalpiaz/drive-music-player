@@ -1,36 +1,31 @@
 
-/* default light theme */
-[data-theme="light"], :root:not([data-theme="dark"]) {
-  --bg-image: linear-gradient(to bottom, rgba(240,240,240,0.97) 0%,rgba(240,240,240,0.97) 100%), url(./img/bg.jpg);
-  --audio-bg: rgb(242,242,242);
-  --playing-color: darkred;
-  --details-border-color: rgba(170,170,170,0.5);
-  --form-element-background-color: rgba(235,235,235,0.9);
-  --code-color: rgb(30,30,30);
-  --primary-inverse: #444;
-  --spinner-color: #777;
-  --accordion-active-summary-color: darkred;
-  /* light var only */
+/* dark theme overrides */
+[data-theme="dark"] {
+    --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(./img/bg.jpg) !important;
+    --audio-bg: rgb(60,60,60) !important;
+    --playing-color: #c08aa6 !important;
+    --details-border-color: rgba(70,70,70,0.5) !important;
+    --form-element-background-color: rgba(30,30,30,0.9) !important;
+    --code-color: rgb(200,200,200) !important;
+    --primary-inverse: #ddd !important;
+    --spinner-color: #ddd !important;
+    --accordion-active-summary-color: #c08aa6 !important;
+    --primary: #5ec9ed !important;
+    --code-background-color: rgba(30,30,30,0.9) !important;
+    --accordion-open-summary-color: #aaa !important;
+    /* light theme save */
+    /*
+    --bg-image: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%,rgba(255,255,255,0.97) 100%), url(./img/bg.jpg);
+    --audio-bg: rgb(242,242,242);
+    --playing-color: darkred;
+    --details-border-color: rgba(170,170,170,0.5);
+    --form-element-background-color: rgba(235,235,235,0.9);
+    --code-color: rgb(30,30,30);
+    --primary-inverse: #444;
+    --spinner-color: #777;
+    --accordion-active-summary-color: darkred;
+    */
 }
-
-/* user has system as dark */
-@media only screen and (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-        --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(./img/bg.jpg);
-        --audio-bg: rgb(60,60,60);
-        --playing-color: #c08aa6;
-        --details-border-color: rgba(70,70,70,0.5);
-        --form-element-background-color: rgba(30,30,30,0.9);
-        --code-color: rgb(200,200,200);
-        --primary-inverse: #ddd;
-        --spinner-color: #ddd;
-        --accordion-active-summary-color: #c08aa6;
-        /* dark var only */
-        --primary: #5ec9ed;
-        --code-background-color: rgba(30,30,30,0.9);
-        --accordion-open-summary-color: #aaa;
-    }
-  }
 
 html {
     min-height: 100%;
@@ -130,7 +125,7 @@ button.track {
     padding: 4px;
     padding-left: 12px;
     padding-right: 12px;
-    width: calc(100% - 15px);
+    width: calc(100% - 30px);
 }
 
 button.track:last-of-type {
@@ -215,6 +210,7 @@ audio {
     float: right;
     right: 15px;
     top: 5px;
+    margin-left: 20px;
 }
 
 .bar {

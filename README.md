@@ -5,12 +5,21 @@ Play your music files stored in Google Drive, https://dandalpiaz.github.io/drive
 
 ## Table of Contents
 
+- [About](#about)
 - [Initial Setup](#initial-setup)
 - [Local Development](#local-development)
 - [Todo](#todo)
     - [Next](#next)
     - [Later](#later)
 - [References](#references)
+
+## About
+
+The aim of this project is to create a browser-based application that can play music files from a user's Google Drive storage. To keep development simple and easy-to-maintain, emphasis is put on native browser features, for example:
+
+- **Native `<audio>` element** - styled on a per-browser basis to blend in with the design
+- **Native `<details>` & `<summary>` elements** - to nagivate a user's nested folders, recursively
+- **Vanilla JavaScript** - for any custom JS needed. More advanced/mobile features could be added using React Native or Cordova, but that's outside the initial scope of the project.
 
 ## Initial Setup
 
@@ -29,7 +38,7 @@ Play your music files stored in Google Drive, https://dandalpiaz.github.io/drive
 
 Run `python3 -m http.server` to start a local web server. 
 
-### Webkit Testing
+### Webkit / Safari Testing
 
 ```
 npx playwright install
@@ -41,6 +50,7 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
+- Better focus indicators (contrast)
 - Store access token? Get new token when close to expiration? Based on user action?
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
@@ -52,7 +62,7 @@ npx playwright wk http://localhost:8000
 
 - Could grab artworks? Add art loop in api query
 - Error handling for rate limits
-- Service worker / PWA / React Native (mobile playthrough, [lockscreen controls](https://web.dev/media-session/))
+- Mobile playthrough, [lockscreen controls](https://web.dev/media-session/) ?
 - Gapless playback using two audio elements?
 - Get audio files in chunks (byte range) for quicker start?
 - Scrollbar styles (Firefox, Safari)
