@@ -50,13 +50,13 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
-- Better focus indicators (contrast)
 - Store access token? Get new token when close to expiration? Based on user action?
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
-- Publish g-app and request verification, post
-- Bars bug (click multiple tracks)
 - Styles for native audio player in Safari
+- Publish g-app and request verification, post
+- Better focus indicators (contrast)
+- Bars bug (click multiple tracks)
 
 ### Later
 
