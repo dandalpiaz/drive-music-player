@@ -50,6 +50,7 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
+- 100% width
 - Store access token? Get new token when close to expiration? Based on user action?
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
