@@ -58,6 +58,7 @@ npx playwright wk http://localhost:8000
 - Publish g-app and request verification, post
 - Better focus indicators (contrast)
 - Bars bug (click multiple tracks)
+- Look at mwa styles
 
 ### Later
 
@@ -66,7 +67,6 @@ npx playwright wk http://localhost:8000
 - Mobile playthrough, [lockscreen controls](https://web.dev/media-session/) ?
 - Gapless playback using two audio elements?
 - Get audio files in chunks (byte range) for quicker start?
-- Scrollbar styles (Firefox, Safari)
 - Start caching api content, if needed
 
 ## References
