@@ -347,6 +347,18 @@ menuButton.addEventListener('click', function() {
   menu.hidden = !menu.hidden;
 });
 
+document.documentElement.addEventListener('click', function(event) {
+  if (menu.hidden) return;
+  const isClickInsideMenu = menu.contains(event.target);
+  const isClickInsideMenuButton = menuButton.contains(event.target);
+  console.log(isClickInsideMenu);
+  console.log(isClickInsideMenuButton);
+  if (!isClickInsideMenu && !isClickInsideMenuButton) {
+    menu.hidden = true;
+    menuButton.setAttribute('aria-expanded', 'false');
+  }
+});
+
 
 
 

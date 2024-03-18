@@ -58,7 +58,6 @@ npx playwright wk http://localhost:8000
 - Styles for native audio player in Safari
 - Publish g-app and request verification, post
 - Bars bug (click multiple tracks)
-- Look at mwa styles
 
 ### Later
 
