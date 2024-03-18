@@ -122,12 +122,22 @@ nav a {
     }
 }
 
+#intro {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media (max-width: 900px) {
+    #intro {
+        text-align: center;
+    }
+}
+
 @media (max-width: 575px) {
     form input, form button {
         width: 100% !important;
         margin-bottom: 10px !important;
     }
-
 }
 
 /* adjust heading margins */
@@ -400,11 +410,6 @@ audio::-webkit-media-controls-volume-slider {
     }
 }
 */
-
-#intro {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
 
 footer {
     padding-top: 0px !important;
