@@ -1,42 +1,107 @@
 
 /* dark theme overrides */
 [data-theme="dark"] {
-    --bg-image: linear-gradient(to bottom, rgba(40,40,40,0.97) 0%,rgba(40,40,40,0.97) 100%), url(./img/bg.jpg) !important;
-    --audio-bg: rgb(60,60,60) !important;
-    --playing-color: #c08aa6 !important;
-    --details-border-color: rgba(70,70,70,0.5) !important;
-    --form-element-background-color: rgba(30,30,30,0.9) !important;
-    --code-color: rgb(200,200,200) !important;
-    --primary-inverse: #ddd !important;
-    --spinner-color: #ddd !important;
     --accordion-active-summary-color: #c08aa6 !important;
-    --primary: #5ec9ed !important;
-    --code-background-color: rgba(30,30,30,0.9) !important;
     --accordion-open-summary-color: #aaa !important;
-    /* light theme save */
-    /*
-    --bg-image: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%,rgba(255,255,255,0.97) 100%), url(./img/bg.jpg);
-    --audio-bg: rgb(242,242,242);
-    --playing-color: darkred;
-    --details-border-color: rgba(170,170,170,0.5);
-    --form-element-background-color: rgba(235,235,235,0.9);
-    --code-color: rgb(30,30,30);
-    --primary-inverse: #444;
-    --spinner-color: #777;
-    --accordion-active-summary-color: darkred;
-    */
+    --code-color: rgb(200,200,200) !important;
+    --code-background-color: rgba(30,30,30,0.9) !important;
+    --font-family: 'Open Sans' !important;
+    --form-element-background-color: rgba(30,30,30,0.9) !important;
+    --primary: #5ec9ed !important;
+    --primary-inverse: #ddd !important;
 }
 
 html {
     min-height: 100%;
-    background: var(--bg-image);
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.97) 0%,rgba(40,40,40,0.97) 100%), url(./img/bg.jpg) !important;
+    background-attachment: fixed !important;
 }
 
 /* make room for audio */
 body {
     margin-bottom: 40px;
+}
+
+/* header */
+header {
+    padding: 0px !important;
+}
+
+header a:hover, header a:focus, header button:hover, header button:focus {
+    text-decoration: none;
+    background: rgba(50, 50, 50, 0.8) !important;
+}
+
+h1 a {
+    font-size: 16px;
+    color: #ddd;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    background: rgba(50, 50, 50, 0.5);
+    border-radius: 25px;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+h1 a img {
+    max-width: 21px;
+    margin-right: 6px;
+    position: relative;
+    bottom: 2px;
+}
+
+#gh-btn {
+    font-size: 20px;
+    color: #ddd;
+    background: rgba(50, 50, 50, 0.5);
+    padding: 5px;
+    position: absolute;
+    top: 25px;
+    left: 232px;
+    border-radius: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#menu-btn {
+    font-size: 20px;
+    background: rgba(50, 50, 50, 0.5);
+    padding: 5px;
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto;
+    border: none;
+}
+
+/* nav */
+nav {
+    position: absolute;
+    right: 15px;
+    top: 70px;
+    background: rgb(20, 20, 20);
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+nav ul {
+    display: block;
+    width: 150px;
+}
+
+nav li {
+    display: block;
+}
+
+nav a {
+    padding: 0px !important;
+    font-size: 15px;
 }
 
 /* adjust contain widths */
@@ -62,6 +127,7 @@ body {
 /* adjust heading margins */
 h2 {
     margin-bottom: 1.5rem;
+    margin-top: 50px;
 }
 
 /* accordions */
@@ -82,7 +148,7 @@ details details:last-of-type {
 details {
     margin-bottom: 0px;
     padding: 0px;
-    border-color: var(--details-border-color);
+    border-color: rgba(70,70,70,0.5) !important;
 }
 
 details summary {
@@ -142,7 +208,7 @@ button.track i {
 }
 
 .playing {
-    color: var(--playing-color) !important;
+    color: #c08aa6 !important;
 }
 
 /* folder ID input */
@@ -170,7 +236,7 @@ button.track i {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background: var(--audio-bg);
+    background: rgb(60,60,60) !important;
 }
 
 #audio-container {
@@ -253,10 +319,10 @@ audio {
     width: 22px;
     height: 22px;
     margin: 0px;
-    border: 4px solid var(--spinner-color);
+    border: 4px solid #ddd !important;;
     border-radius: 50%;
     animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: var(--spinner-color) transparent transparent transparent;
+    border-color: #ddd transparent transparent transparent !important;
 }
 
 #spinner div:nth-child(1) {
@@ -331,7 +397,7 @@ audio::-webkit-media-controls-volume-slider {
 
 /* returning user */
 #return {
-    margin-top: 25px;
+    margin-top: 80px;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -362,22 +428,10 @@ ul#footer-links li {
     margin-bottom: 0px;
 }
 
-ul#footer-links li a, ul#footer-links li button {
-    font-size: 15px;
+ul#footer-links li a {
+    font-size: 14px;
 }
 
 ul#footer-links li:first-child {
-    margin-bottom: 15px;
     font-size: 20px;
-}
-
-#footer-links button {
-    color: var(--primary);
-    background: none;
-    border: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
 }

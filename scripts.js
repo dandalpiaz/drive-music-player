@@ -1,6 +1,6 @@
 
 /* ----------------------- */
-/* -----GOOGLE INIT------- */
+/* ------GOOGLE INIT------ */
 /* ----------------------- */
 
 const CLIENT_ID = '865687982989-kv2vrmhsvs5484ebe8up2j8so7ralptg.apps.googleusercontent.com';
@@ -353,9 +353,18 @@ function changeFolder() {
   localStorage.removeItem("email");
 }
 
+/* ----------------------- */
+/* ----------MENU--------- */
+/* ----------------------- */
 
+const menuButton = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
 
-
+menuButton.addEventListener('click', function() {
+  const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+  this.setAttribute('aria-expanded', !expanded);
+  menu.hidden = !menu.hidden;
+});
 
 
 

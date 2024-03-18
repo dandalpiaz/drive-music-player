@@ -50,13 +50,14 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
-- 100% width
+- Fix demo
+- 100% width? Fixed header?
+- Better focus indicators (contrast)
 - Store access token? Get new token when close to expiration? Based on user action?
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
 - Styles for native audio player in Safari
 - Publish g-app and request verification, post
-- Better focus indicators (contrast)
 - Bars bug (click multiple tracks)
 - Look at mwa styles
 

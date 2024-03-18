@@ -10,65 +10,68 @@
   <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/1.4.4/pico.min.css" integrity="sha512-RAtoAGzPS5T5sUpCfVpkY5EHHDcqEp26rHYNee0Vx4RT1pxJrt3CWQCVD/ekrPdMowT4ybxYvqClqf9v7oWxYw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" type="text/css" href="style.css?v=6">
+  <link rel="stylesheet" type="text/css" href="style.css?v=7">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body onload="getFolderId()">
+
+<header>
+  <h1><a href=""><img src="./img/favicon.png" />drive-music-player</a></h1>
+  <a id="gh-btn" href="https://github.com/dandalpiaz/drive-music-player"><i class="fa-brands fa-github"></i></a>
+  <button id="menu-btn" aria-expanded="false" aria-controls="menu"><i style="margin-right: 10px;" class="fa-solid fa-bars"></i><i class="fa-solid fa-chevron-down"></i></button>
+  <nav id="menu" hidden>
+      <ul>
+          <li><a href="javascript:void(0);" onclick="changeFolder()">Change Folder / User</a></li>
+          <li><a href="https://myaccount.google.com/security">Revoke Access</a></li>
+          <li><a href="https://github.com/dandalpiaz/drive-music-player">GitHub</a></li>
+      </ul>
+  </nav>
+</header>
+
 <main role="main" class="container">
-
-<div id="return" style="display: none;">
-  <form onsubmit="submitFolderId(event)">
-    <button class="secondary" type="submit" style="display: block; width: auto; max-width: 180px; margin: auto;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Log back in</button>
-  </form>
-</div>
-
-<div id="intro" style="display: none;">
-  <h1>Drive Music Player - Play Music Files in Google Drive</h1>
-
-  <p>Find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and login below. As an example, <code>drive.google.com/drive/folders/12345-abcde</code> has an ID of "12345-abcde". Alternatively, "root" can be used to browse from your top-level folder.</p>
-
-  <form onsubmit="submitFolderId(event)">
-    <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
-    <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
-    <button class="secondary" type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login (test users)</button>
-  </form>
-
-  <div id="demo" class="loaded">
-    
-    <details>
-      <summary><img src="https://f4.bcbits.com/img/a1694811765_16.jpg"/><span>Stevia Sphere - A Mimir (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></span></summary>
-      <button class="track" onclick="playTrack('1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1', this, 'demo')"><i class="fas fa-play"></i> 01 Raccoon Dreams.mp3</button>
-      <button class="track" onclick="playTrack('1guxH0gYq1tbbLyObwPvTeai1ArGUTaUQ', this, 'demo')"><i class="fas fa-play"></i> 02 Bed Full Of Shark Plushies.mp3</button>
-      <button class="track" onclick="playTrack('1nD0vkmQyTQpa8KBg7GqJ9il-46kamrop', this, 'demo')"><i class="fas fa-play"></i> 03 On The Verge Of Autumn.mp3</button>
-    </details>
-
-    <details>
-      <summary><img src="https://f4.bcbits.com/img/a0007547490_16.jpg"/><span>Tovatronica - Paper Boats (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></span></summary>
-      <button class="track" onclick="playTrack('1bbDPBl0ktwigI9iGSPPE3KksI_VPTNvr', this, 'demo')"><i class="fas fa-play"></i> 01 Paper Boats.mp3</button>
-      <button class="track" onclick="playTrack('1XZR6_PHhVbKXs5gexal5i9nMgREl5UoF', this, 'demo')"><i class="fas fa-play"></i> 02 Stardust.mp3</button>
-      <button class="track" onclick="playTrack('1Iz4O3svxBYPEySau9Zw0lx20mIP4q0Rs', this, 'demo')"><i class="fas fa-play"></i> 03 Paper Boats (zkribblez remix).mp3</button>
-    </details>
+  <div id="return" style="display: none;">
+    <form onsubmit="submitFolderId(event)">
+      <button class="secondary" type="submit" style="display: block; width: auto; max-width: 182px; margin: auto;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Log back in</button>
+    </form>
   </div>
 
-</div><!-- end intro -->
+  <div id="intro" style="display: none;">
+    <h2>Play Music Files in Google Drive</h2>
+    <p>Find and enter the ID for the <a href="https://drive.google.com" target="_blank">Google Drive</a> folder you would like to use and login below. As an example, <code>drive.google.com/drive/folders/12345-abcde</code> has an ID of "12345-abcde". Alternatively, "root" can be used to browse from your top-level folder.</p>
 
-<div id="contents"></div>
+    <form onsubmit="submitFolderId(event)">
+      <label for="parentfolder" class="sr-only">Drive Folder ID:</label>
+      <input required type="text" id="parentfolder" name="parentfolder" placeholder="google-drive-folder-id">
+      <button class="secondary" type="submit" style="display: inline-block; width: auto; margin-bottom: 3px;"><i class="fa-brands fa-google" style="margin-right: 10px;"></i> Login (test users)</button>
+    </form>
 
+    <div id="demo" class="loaded">
+      
+      <h3>Demo</h3>
+      <details>
+        <summary><img src="https://f4.bcbits.com/img/a1694811765_16.jpg"/><span>Stevia Sphere - A Mimir (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></span></summary>
+        <button class="track" onclick="playTrack('1XJ67SQiR6y8DhpSTvc26fFmyFEZMeLJ1', this, 'demo')"><i class="fas fa-play"></i> 01 Raccoon Dreams.mp3</button>
+        <button class="track" onclick="playTrack('1guxH0gYq1tbbLyObwPvTeai1ArGUTaUQ', this, 'demo')"><i class="fas fa-play"></i> 02 Bed Full Of Shark Plushies.mp3</button>
+        <button class="track" onclick="playTrack('1nD0vkmQyTQpa8KBg7GqJ9il-46kamrop', this, 'demo')"><i class="fas fa-play"></i> 03 On The Verge Of Autumn.mp3</button>
+      </details>
+
+      <details>
+        <summary><img src="https://f4.bcbits.com/img/a0007547490_16.jpg"/><span>Tovatronica - Paper Boats (demo tracks) <small>( <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> )</small></span></summary>
+        <button class="track" onclick="playTrack('1bbDPBl0ktwigI9iGSPPE3KksI_VPTNvr', this, 'demo')"><i class="fas fa-play"></i> 01 Paper Boats.mp3</button>
+        <button class="track" onclick="playTrack('1XZR6_PHhVbKXs5gexal5i9nMgREl5UoF', this, 'demo')"><i class="fas fa-play"></i> 02 Stardust.mp3</button>
+        <button class="track" onclick="playTrack('1Iz4O3svxBYPEySau9Zw0lx20mIP4q0Rs', this, 'demo')"><i class="fas fa-play"></i> 03 Paper Boats (zkribblez remix).mp3</button>
+      </details>
+    </div>
+  </div><!-- end intro -->
+
+  <div id="contents"></div>
 </main>
 
 <footer role="contentinfo">
-
   <ul id="footer-links">
     <li><strong>Drive Music Player</strong></li>
-    <li><button onclick="changeFolder()">Change Folder / User</button></li>
-    <li><a href="https://myaccount.google.com/security">Revoke Access</a></li>
-    <li><a href="https://github.com/dandalpiaz/drive-music-player">GitHub</a></li>
-    &bull; &bull; &bull;
-    <li><a href="">Terms of Use</a></li>
-    <li><a href="">Privacy Policy</a></li>
-    <li><a href="">Cookie Policy</a></li>
-    
+    <li><a href="">Terms</a> &bull; <a href="">Privacy</a> &bull; <a href="">Cookies</a></li>
   </ul>
 
   <div id="audio-wrapper">
