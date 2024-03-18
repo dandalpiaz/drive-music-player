@@ -50,7 +50,6 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
-- Fix demo
 - 100% width? Fixed header?
 - Better focus indicators (contrast)
 - Store access token? Get new token when close to expiration? Based on user action?

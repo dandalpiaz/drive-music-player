@@ -46,8 +46,6 @@ function handleAuthClick(folderId) {
       // only load initial contents on first auth
       if ( !document.getElementById("contents").classList.contains("loaded") ) {
         getContents(folderId, "initial");
-        localStorage.setItem("returning", "true");
-        document.getElementById('return').style.display = 'none';
       }
 
       // set user email and URL
@@ -244,17 +242,6 @@ function playTrack(id, element, type) {
   `;
   playing.innerHTML += spinner;
 
-  // demo track
-  if ( type == "demo" ) {
-    source.src = "https://drive.google.com/uc?id=" + id + "&export=download";
-    audio.load();
-    audio.oncanplay = audio.play();
-    if ( document.getElementById("spinner") ) {
-      document.getElementById("spinner").remove();
-    }
-    return;
-  } 
-
   // user track
   gapi.client.drive.files.get({
     'fileId' : id,
@@ -334,22 +321,16 @@ audio.onplay = function() {
 /* -------PAGE LOAD------- */
 /* ----------------------- */
 
-if ( localStorage.getItem("returning") == "true" && localStorage.getItem("parentfolder") !== null ) {
-  document.getElementById('return').style.display = 'block';
-} else {
-  document.getElementById('intro').style.display = 'block';
-}
+document.getElementById('intro').style.display = 'block';
 
 function changeFolder() {
   // show intro with parentfolder form
-  document.getElementById('return').style.display = 'none';
   document.getElementById('intro').style.display = 'block';
   document.getElementById('parentfolder').focus();
   // reset contents div
   document.getElementById("contents").classList.remove("loaded");
   document.getElementById("contents").innerHTML = "";
   // reset localstorage
-  localStorage.setItem("returning", "false");
   localStorage.removeItem("email");
 }
 

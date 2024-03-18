@@ -22,6 +22,10 @@ body {
     margin-bottom: 40px;
 }
 
+main {
+    padding-bottom: 0px !important;
+}
+
 /* header */
 header {
     padding: 0px !important;
@@ -92,11 +96,12 @@ nav {
 
 nav ul {
     display: block;
-    width: 150px;
+    width: 165px;
 }
 
 nav li {
     display: block;
+    padding: 15px;
 }
 
 nav a {
@@ -104,10 +109,11 @@ nav a {
     font-size: 15px;
 }
 
-/* adjust contain widths */
+/* adjust container widths */
 .container {
     padding-left: 0px;
     padding-right: 0px;
+    max-width: 920px !important;
 }
 
 @media (max-width: 1199px) {
@@ -395,20 +401,9 @@ audio::-webkit-media-controls-volume-slider {
 }
 */
 
-/* returning user */
-#return {
-    margin-top: 80px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
 #intro {
     padding-left: 1rem;
     padding-right: 1rem;
-}
-
-main {
-    padding-bottom: 0px !important;
 }
 
 footer {
