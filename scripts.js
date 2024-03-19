@@ -99,7 +99,7 @@ function getArts() {
     'fields': "nextPageToken, files(id, name, webContentLink, parents)"
   }).then(function(response) {
     if (response.result.files && response.result.files.length > 0) {
-      console.log(response);
+      //console.log(response);
       for (var i = 0; i < response.result.files.length; i++) {
         changeImgSrc(response.result.files[i].parents[0], response.result.files[i].webContentLink);
       }
@@ -351,8 +351,6 @@ document.documentElement.addEventListener('click', function(event) {
   if (menu.hidden) return;
   const isClickInsideMenu = menu.contains(event.target);
   const isClickInsideMenuButton = menuButton.contains(event.target);
-  console.log(isClickInsideMenu);
-  console.log(isClickInsideMenuButton);
   if (!isClickInsideMenu && !isClickInsideMenuButton) {
     menu.hidden = true;
     menuButton.setAttribute('aria-expanded', 'false');

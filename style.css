@@ -38,7 +38,8 @@ header a:hover, header a:focus, header button:hover, header button:focus {
 
 h1 a {
     font-size: 16px;
-    color: #ddd;
+    font-weight: 600;
+    color: #eee;
     position: absolute;
     top: 25px;
     left: 15px;
@@ -187,6 +188,7 @@ summary {
 summary span {
     padding-right: 20px;
     width: 100%;
+    font-weight: 500;
 }
 
 summary img {
