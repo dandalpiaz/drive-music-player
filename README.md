@@ -50,8 +50,8 @@ npx playwright wk http://localhost:8000
 
 ### Next
 
-- 100% width? Fixed header?
 - Better focus indicators (contrast)
+- 100% width? Fixed header?
 - Store access token? Get new token when close to expiration? Based on user action?
 - Custom domain (cloudflare, update repo, GH, g-app), analytics, authed url test
 - Add legal links
@@ -61,6 +61,7 @@ npx playwright wk http://localhost:8000
 
 ### Later
 
+- HTML audio player? (see audio.html)
 - Could grab artworks? Add art loop in api query
 - Error handling for rate limits
 - Mobile playthrough, [lockscreen controls](https://web.dev/media-session/) ?

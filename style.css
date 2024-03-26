@@ -17,6 +17,36 @@ html {
     background-attachment: fixed !important;
 }
 
+/* focus overrides */
+
+a,
+button,
+input,
+select,
+textarea,
+summary {
+    transition: none !important;
+}
+
+button:focus,
+[role=button]:focus,
+input:focus,
+select:focus,
+textarea:focus,
+summary:focus {
+    box-shadow: none !important;
+    border: none !important;
+    outline: 2px solid #ccc !important;
+}
+
+a:focus-visible {
+    outline: 2px solid #ccc;
+}
+
+a:not([role="button"]):focus {
+    background: none;
+}
+
 /* make room for audio */
 body {
     margin-bottom: 40px;
@@ -66,8 +96,8 @@ h1 a img {
     top: 25px;
     left: 232px;
     border-radius: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 11px;
+    padding-right: 11px;
 }
 
 #menu-btn {

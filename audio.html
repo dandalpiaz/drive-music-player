@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Audio Player</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="audioPlayer">
+        <button id="prevTrackBtn" aria-label="Previous Track"><i class="fas fa-step-backward"></i></button>
+        <button id="playPauseBtn" aria-label="Play"><i class="fas fa-play"></i></button>
+        <span id="currentTime" aria-live="assertive">0:00</span> / <span id="totalTime">0:00</span>
+        <input type="range" id="seekbar" value="0" aria-label="Seek bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <button id="nextTrackBtn" aria-label="Next Track"><i class="fas fa-step-forward"></i></button>
+    </div>
+
+    <audio id="audio" src="path_to_your_audio_file.mp3"></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('audio');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const prevTrackBtn = document.getElementById('prevTrackBtn');
+            const nextTrackBtn = document.getElementById('nextTrackBtn');
+            const currentTime = document.getElementById('currentTime');
+            const totalTime = document.getElementById('totalTime');
+            const seekbar = document.getElementById('seekbar');
+
+            let isPlaying = false;
+
+            // Play/Pause button click event
+            playPauseBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audio.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Update current time and seekbar as audio plays
+            audio.addEventListener('timeupdate', function() {
+                currentTime.textContent = formatTime(audio.currentTime);
+                seekbar.value = (audio.currentTime / audio.duration) * 100;
+            });
+
+            // Update total time when audio metadata is loaded
+            audio.addEventListener('loadedmetadata', function() {
+                totalTime.textContent = formatTime(audio.duration);
+            });
+
+            // Seekbar input event
+            seekbar.addEventListener('input', function() {
+                const seekTime = (audio.duration / 100) * seekbar.value;
+                audio.currentTime = seekTime;
+            });
+
+            // Previous track button click event
+            prevTrackBtn.addEventListener('click', function() {
+                // Add functionality to switch to previous track
+                // For example: audio.src = 'path_to_previous_audio_file.mp3';
+            });
+
+            // Next track button click event
+            nextTrackBtn.addEventListener('click', function() {
+                // Add functionality to switch to next track
+                // For example: audio.src = 'path_to_next_audio_file.mp3';
+            });
+
+            // Function to format time in MM:SS format
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60);
+                let seconds = Math.floor(time % 60);
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                return minutes + ':' + seconds;
+            }
+        });
+    </script>
+</body>
+</html>
